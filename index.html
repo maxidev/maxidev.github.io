@@ -159,24 +159,72 @@
 
 			<section>
 				<h2>¿Qué aspecto tiene un algoritmo simétrico?</h2>
-					<pre class="fragment"><code data-trim contenteditable>
-						function linkify( selector ) {
-						  if( supports3DTransforms ) {
+					<pre class="fragment"><code data-trim contentnoeditable>
+// Algoritmo AES en lenguaje C
+static void AESEncryptWithExpandedKey(Byte *Ciphertext, const Byte *Plaintext,
+	const AESData *ExpandedKey, long Nr)
+{
+	AESData State;
 
-						    var nodes = document.querySelectorAll( selector );
+	XorBlock(&State, (const AESData *) Plaintext, &ExpandedKey[0]);
 
-						    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-						      var node = nodes[i];
+	{
+		const Word (*T)[256] = AESEncryptTable;
 
-						      if( !node.className ) {
-						        node.className += ' roll';
-						      }
-						    }
-						  }
-						}
+		for (int round = 1; round < Nr; ++round)
+		{
+			const AESData *Key = &ExpandedKey[round];
+
+			const union { Word w; Byte b[4]; }
+				w0 = { State.w[0] },
+				w1 = { State.w[1] },
+				w2 = { State.w[2] },
+				w3 = { State.w[3] };
+
+			State.w[0] = Key->w[0]
+				^ T[0][w0.b[0]] ^ T[1][w1.b[1]] ^ T[2][w2.b[2]] ^ T[3][w3.b[3]];
+			State.w[1] = Key->w[1]
+				^ T[0][w1.b[0]] ^ T[1][w2.b[1]] ^ T[2][w3.b[2]] ^ T[3][w0.b[3]];
+			State.w[2] = Key->w[2]
+				^ T[0][w2.b[0]] ^ T[1][w3.b[1]] ^ T[2][w0.b[2]] ^ T[3][w1.b[3]];
+			State.w[3] = Key->w[3]
+				^ T[0][w3.b[0]] ^ T[1][w0.b[1]] ^ T[2][w1.b[2]] ^ T[3][w2.b[3]];
+		}
+	}
+
+	{
+		const Word (*T)[256] = AESSubBytesWordTable;
+
+		const AESData *Key = &ExpandedKey[Nr];
+
+		const union { Word w; Byte b[4]; }
+			w0 = { State.w[0] },
+			w1 = { State.w[1] },
+			w2 = { State.w[2] },
+			w3 = { State.w[3] };
+
+		State.w[0] = Key->w[0]
+			^ T[0][w0.b[0]] ^ T[1][w1.b[1]] ^ T[2][w2.b[2]] ^ T[3][w3.b[3]];
+		State.w[1] = Key->w[1]
+			^ T[0][w1.b[0]] ^ T[1][w2.b[1]] ^ T[2][w3.b[2]] ^ T[3][w0.b[3]];
+		State.w[2] = Key->w[2]
+			^ T[0][w2.b[0]] ^ T[1][w3.b[1]] ^ T[2][w0.b[2]] ^ T[3][w1.b[3]];
+		State.w[3] = Key->w[3]
+			^ T[0][w3.b[0]] ^ T[1][w0.b[1]] ^ T[2][w1.b[2]] ^ T[3][w2.b[3]];
+	}
+
+	* (AESData *) Ciphertext = State;
+}
 					</code></pre>
+			<h2 class="fragment">¡Y es solo la función que cifra! Complicado ¿no? </h2>
 			</section>
 
+			<section>
+			<h2>¿Y si intentamos hacer un algoritmo nosotros?</h2>
+
+
+
+			</section>
 
 		</section> <!-- sección criptografía -->
 
