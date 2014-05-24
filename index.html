@@ -258,16 +258,55 @@ def descifrar(clave, mensaje_cifrado):
 			<h3 class="fragment">¿Cómo se prueba la fortaleza de un algoritmo de cifrado simétrico?</h3>
 			<ol>
 				<li class="fragment">Atacando el algoritmo</li>
-				<li class="fragment">Haciendo fuerza bruta de la clave</li>
+				<li class="fragment">Haciendo fuerza bruta sobre la clave</li>
 			</ol>
 			</section>
 			<section>
-			<h2>La importancia de la fuerza de las claves</h2>
+			<h2>La importancia de las claves: una explicación aritmética · 1/3</h2>
+			<h3 class="fragment">¿Qué es un bit?</h3>
+			<blockquote class="fragment">Un bit es un dígito del sistema de numeración binario. Las unidades de almacenamiento tienen por símbolo bit. Mientras que en el sistema de numeración decimal se usan diez dígitos, en el binario se usan solo dos dígitos, el 0 y el 1. Un bit o dígito binario puede representar uno de esos dos valores: 0 o 1. Ocho bits equivalen a un byte.</blockquote>
+			<blockquote class="fragment">
+				En criptografía, una clave se compone de una larga secuencia de bits utilizado un algoritmo para cifrar o descifrar. Por ejemplo esto podría ser una clave hipotética de 40 bits (una secuencia de 40 dígitos de 0 y 1): 00001010 01101001 10011110 00011100 01010101
+			</blockquote>
+
+			</section>
+			<section>
+
+			<h2>La importancia de las claves: una explicación aritmética · 2/3</h2>
+			<blockquote class="fragment">
+				En criptografía solo es posible romper un algoritmo criptográfico de dos formas. Una es atacando el algoritmo y la otra es probando con un ataque de fuerza bruta, utilizando un ordenador, para probar todas las claves posibles.
+			</blockquote>
+			<blockquote class="fragment">
+				El cifrado con 2 bits tiene cuatro posibles resultados: 00, 01, 10 y 11. 3 bits tienen ocho posibles combinaciones, 4 bits tienen 16 posibles combinaciones, 5 bits tienen 32 posibles combinaciones y así sucesivamente ..
+			</blockquote>
+			<blockquote class="fragment">
+				Por lo tanto el crecimiento por cada bit que se añade a una clave es exponencial. Matemáticamente existen 2^n posibles valores para una clave de n bits. Cada vez que añadimos un bit se dobla el número de posibles claves.
+			</blockquote>
+			</section>
+			<section>
+			<h2>La importancia de las claves: una explicación aritmética · 3/3</h2>
+			<blockquote class="fragment">
+				Una clave de 128 bits tiene: 340.282.366.920.938.463.463.374.607.431.768.211.456 posibles combinaciones. Son más de 340 millones de mil millones de mil millones de mil millones de combinaciones.
+			</blockquote>
+
+			<blockquote class="fragment">
+			Una clave de 128 bits equivale a 16 bytes. 16 bytes pueden representar 16 caracteres de nuestro abecedario u otros símbolos según la codificación (UTF, Base64, etc) que se use.
+			</blockquote>
+			</section>
 
 
 
 
-			<a href="https://howsecureismypassword.net/" class="fragment" target="_blank">Prueben la fortaleza de sus passwords! https://howsecureismypassword.net/</a>
+
+
+
+			</section>
+
+
+
+
+
+			<!-- <a href="https://howsecureismypassword.net/" class="fragment" target="_blank">Prueben la fortaleza de sus passwords! https://howsecureismypassword.net/</a> -->
 			</section>
 
 		</section> <!-- cierra criptografía -->
