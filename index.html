@@ -131,7 +131,8 @@
 				<h3 class="fragment">¿ejemplos? (sin importar el tipo)</h3>
 				<ol>
 					<li class="fragment">Cifrado/descifrado ZIP/RAR</li>
-					<li class="fragment">Cifrado/descifrado ZIP/RAR</li>
+					<li class="fragment">Tráfico HTTPS/SSL</li>
+					<li class="fragment">Redes Wireless WEP/WPA/WPA2</li>
 				</ol>
 
 
@@ -262,7 +263,7 @@ def descifrar(clave, mensaje_cifrado):
 			</ol>
 			</section>
 			<section>
-			<h2>La importancia de las claves: una explicación aritmética · 1/3</h2>
+			<h2>La importancia de las claves: Una explicación aritmética · 1/4</h2>
 			<h3 class="fragment">¿Qué es un bit?</h3>
 			<blockquote class="fragment">Un bit es un dígito del sistema de numeración binario. Las unidades de almacenamiento tienen por símbolo bit. Mientras que en el sistema de numeración decimal se usan diez dígitos, en el binario se usan solo dos dígitos, el 0 y el 1. Un bit o dígito binario puede representar uno de esos dos valores: 0 o 1. Ocho bits equivalen a un byte.</blockquote>
 			<blockquote class="fragment">
@@ -272,7 +273,7 @@ def descifrar(clave, mensaje_cifrado):
 			</section>
 			<section>
 
-			<h2>La importancia de las claves: una explicación aritmética · 2/3</h2>
+			<h2>La importancia de las claves: Una explicación aritmética · 2/4</h2>
 			<blockquote class="fragment">
 				En criptografía solo es posible romper un algoritmo criptográfico de dos formas. Una es atacando el algoritmo y la otra es probando con un ataque de fuerza bruta, utilizando un ordenador, para probar todas las claves posibles.
 			</blockquote>
@@ -284,7 +285,7 @@ def descifrar(clave, mensaje_cifrado):
 			</blockquote>
 			</section>
 			<section>
-			<h2>La importancia de las claves: una explicación aritmética · 3/3</h2>
+			<h2>La importancia de las claves: Una explicación aritmética · 3/4</h2>
 			<blockquote class="fragment">
 				Una clave de 128 bits tiene: 340.282.366.920.938.463.463.374.607.431.768.211.456 posibles combinaciones. Son más de 340 millones de mil millones de mil millones de mil millones de combinaciones.
 			</blockquote>
@@ -293,12 +294,17 @@ def descifrar(clave, mensaje_cifrado):
 			Una clave de 128 bits equivale a 16 bytes. 16 bytes pueden representar 16 caracteres de nuestro abecedario u otros símbolos según la codificación (UTF, Base64, etc) que se use.
 			</blockquote>
 			</section>
+			<section>
+			<h2>La importancia de las claves: Una explicación aritmética · 4/4</h2>
+			<h3 class="fragment">¿Por qué se utilizan claves con más bits?</h3>
+			<blockquote class="fragment">
+				Si una clave tiene 128 bits existen 2^128 diferentes claves posibles. En promedio se deberán probar la mitad de las claves posibles (2^64) antes de que se encuentre la clave correcta.
+			</blockquote>
 
-
-
-
-
-
+			<blockquote class="fragment">
+			Una posible pregunta sería: ¿por qué no utilizar siempre claves de 256, 350 o 1024 bits? La respuesta es que tanto por razones de velocidad porque cuanto más larga sea la clave más se tarda en decodificar y sobre todo porque el objetivo de la criptografía es proteger información con claves lo más sencillas posibles, pero que sigan siendo seguras.
+			</blockquote>
+			</section>
 
 			</section>
 
