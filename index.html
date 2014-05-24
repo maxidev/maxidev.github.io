@@ -120,6 +120,9 @@
 				La criptografía es la rama de la ciencia de la computación que se encarga de crear y generar las técnicas y algoritmos que utilizamos hoy en día para proteger nuestros datos, sistemas  y comunicaciones.
 				</blockquote>
 			<br />
+			<h3 class="fragment">Nos desviamos un instante<br/>
+			¿qué es un algoritmo?</h3>
+			<br />
 			<h3 class="fragment">Veamos un poco de historia ..</h3>
 			</section>
 			<section>
@@ -127,7 +130,8 @@
 				<h2>Criptografía en la vida real</h2>
 				<h3 class="fragment">¿ejemplos? (sin importar el tipo)</h3>
 				<ol>
-					<li class="fragment">Laptop</li>
+					<li class="fragment">Cifrado/descifrado ZIP/RAR</li>
+					<li class="fragment">Cifrado/descifrado ZIP/RAR</li>
 				</ol>
 
 
@@ -140,12 +144,13 @@
 						&ldquo;La criptografía simétrica (en inglés symmetric key cryptography) o criptografía de una clave (en inglés single-key cryptography), es un método criptográfico en el cual se usa una misma clave para cifrar y descifrar mensajes. Las dos partes que se comunican han de ponerse de acuerdo de antemano sobre la clave a usar. Una vez que ambas partes tienen acceso a esta clave, el remitente cifra un mensaje usando la clave, lo envía al destinatario, y éste lo descifra con la misma clave.&rdquo;
 				</blockquote>
 
+				<br />
 				<h4 class="fragment">¿Cual es el componente principal de la cripto simétrica?</h4>
 				<h4 class="fragment">Ventajas de la criptografía simétrica</h4>
 				<h4 class="fragment">¿Y desventas?</h4>
 			</section>
 			<section>
-				<h2>Algorimos de criptografía simétrica</h2>
+				<h2>Algoritmos de criptografía simétrica</h2>
 				<h4 class="fragment">Algunos de los algoritmos más populares son:</h4>
 				<ol>
 				<li class="fragment">DES (Data Encryption Standard)</li>
@@ -221,44 +226,29 @@ static void AESEncryptWithExpandedKey(Byte *Ciphertext, const Byte *Plaintext,
 
 			<section>
 			<h2>¿Y si intentamos hacer un algoritmo nosotros?</h2>
+			<h3 class="fragment">Un ejemplo de cifrado simple </h3>
+			<pre class="fragment"><code data-trim contentnoeditable>
+#Algoritmo de cifrado simple usando el lenguaje Python
 
+def cifrar(clave, mensaje):
+	clave = 2
+	mensaje = "HACKERS"
+	mensaje_cifrado = ("H"+2)+("A"+2)+("C"+2)+("K"+2)+("E"+2)+("R"+2)+("S"+2)
+	#Ahora mensaje_cifrado = "JCEMGTU"
+	return mensaje_cifrado
 
+def descifrar(clave, mensaje_cifrado):
+	clave = 2
+	mensaje_cifrado = "JCEMGTU"
+	mensaje_descifrado = ("J"-2)+("C"-2)+("E"-2)+("M"-2)+("G"-2)+("T"-2)+("U"-2)
+	#Ahora mensaje_descifrado = "HACKERS"
+	return mensaje_descifrado
+			</code></pre>
 
+		<h2 class="fragment">¿Y si intentan los suyos?</h2>
 			</section>
 
-		</section> <!-- sección criptografía -->
-
-<!--
-				<section>
-					<section id="fragments">
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-current-blue">highlight-current-blue</p>
-					</section>
-				</section> -->
-
+		</section>
 
 	</div> <!-- slides -->
 
