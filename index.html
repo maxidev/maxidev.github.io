@@ -229,25 +229,34 @@ static void AESEncryptWithExpandedKey(Byte *Ciphertext, const Byte *Plaintext,
 			<h3 class="fragment">Un ejemplo de cifrado simple </h3>
 			<pre class="fragment"><code data-trim contentnoeditable>
 #Algoritmo de cifrado simple usando el lenguaje Python
-
 def cifrar(clave, mensaje):
-	clave = 2
+	k = clave
 	mensaje = "HACKERS"
-	mensaje_cifrado = ("H"+2)+("A"+2)+("C"+2)+("K"+2)+("E"+2)+("R"+2)+("S"+2)
+	mensaje_cifrado = ("H"+k)+("A"+k)+("C"+k)+("K"+k)+("E"+k)+("R"+k)+("S"+k)
 	#Ahora mensaje_cifrado = "JCEMGTU"
 	return mensaje_cifrado
 
 def descifrar(clave, mensaje_cifrado):
-	clave = 2
+	k = clave
 	mensaje_cifrado = "JCEMGTU"
-	mensaje_descifrado = ("J"-2)+("C"-2)+("E"-2)+("M"-2)+("G"-2)+("T"-2)+("U"-2)
+	mensaje_descifrado = ("J"-k)+("C"-k)+("E"-k)+("M"-k)+("G"-k)+("T"-k)+("U"-k)
 	#Ahora mensaje_descifrado = "HACKERS"
 	return mensaje_descifrado
+
+> print cifrar(2, "HACKERS")
+> "JCEMGTU"
+> print descifrar(2, "JCEMGTU")
+> "HACKERS"
 			</code></pre>
 
 		<h2 class="fragment">¿Y si intentan los suyos?</h2>
 			</section>
 
+		</section>
+		<section>
+		<h2>¿Cómo se ataca un algoritmo de cifrado simétrico?</h2>
+		clave, algoritmo
+		La importancia en la fuerza de las claves.
 		</section>
 
 	</div> <!-- slides -->
