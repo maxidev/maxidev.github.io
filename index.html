@@ -228,7 +228,7 @@ static void AESEncryptWithExpandedKey(Byte *Ciphertext, const Byte *Plaintext,
 			<h2>¿Y si intentamos hacer un algoritmo nosotros?</h2>
 			<h3 class="fragment">Un ejemplo de cifrado simple </h3>
 			<pre class="fragment"><code data-trim contentnoeditable>
-#Algoritmo de cifrado simple usando el lenguaje Python
+#Algoritmo de cifrado simple usando pseudo-Python
 def cifrar(clave, mensaje):
 	k = clave
 	mensaje = "HACKERS"
@@ -249,15 +249,29 @@ def descifrar(clave, mensaje_cifrado):
 > "HACKERS"
 			</code></pre>
 
-		<h2 class="fragment">¿Y si intentan los suyos?</h2>
+			<h2 class="fragment">¿Y si intentan los suyos?</h2>
+
 			</section>
 
-		</section>
-		<section>
-		<h2>¿Cómo se ataca un algoritmo de cifrado simétrico?</h2>
-		clave, algoritmo
-		La importancia en la fuerza de las claves.
-		</section>
+			<section>
+			<h1>¡NUNCA USEN ALGORITMOS PROPIOS EN PRODUCCIÓN!</h1>
+			<h3 class="fragment">¿Cómo se prueba la fortaleza de un algoritmo de cifrado simétrico?</h3>
+			<ol>
+				<li class="fragment">Atacando el algoritmo</li>
+				<li class="fragment">Haciendo fuerza bruta de la clave</li>
+			</ol>
+			</section>
+			<section>
+			<h2>La importancia de la fuerza de las claves</h2>
+
+
+
+
+			<a href="https://howsecureismypassword.net/" class="fragment" target="_blank">Prueben la fortaleza de sus passwords! https://howsecureismypassword.net/</a>
+			</section>
+
+		</section> <!-- cierra criptografía -->
+
 
 	</div> <!-- slides -->
 
