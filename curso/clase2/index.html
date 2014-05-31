@@ -47,35 +47,6 @@
 			<h3>Autor: Maximiliano Cañellas</h3>
 		</section>
 
-
-			<!-- <section>
-				<h2>About Me</h2>
-				<p>
-				Estudio Ciencias de la Computación (UNR)<br />
-				Consultor en seguridad informática · desarrollador · emprendedor<br />
-				Trabajé en otros puestos como: <br />
-				SysAdmin, Administrador GNU/Linux y Programador. <br />
-				Fundé Sinaptica (Networks) a los 18 años y trabajo ahí desde entonces.
-				</p>
-				<br />
-				<h3>Actualmente</h3>
-				<ul>
-				<li>Co-fundador y consultor en seguridad @ <a href="http://sinapticasecurity.com" target="_blank">sinapticasecurity.com</a> </li>
-				</ul>
-				<li>Co-fundador y lead developer @ <a href="http://bitcharts.io" target="_blank">bitcharts.io</a>
-				</li>
-					<br />
-				<h4>Contactame:</h4>
-				<ul>
-					<li>Email: <a href="http://gmail.com" target="_blank">maxi.canellas@gmail.com</a></li>
-					<li>Twitter: <a href="http://twitter.com/maxi_dev" target="_blank">@maxi_dev</a></li>
-
-				</ul>
-			</section> <!-- about me --> -->
-
-
-
-
 		<section>
 			<section>
 			<h2> Sobre el curso</h2>
@@ -117,7 +88,7 @@
 				</blockquote>
 				<br />
 				<h3 class="fragment"> Veamos el concepto con más profundidad  </h3>
-
+				<h2 class="fragment"> ¿ejemplos?</h2>
 			</section>
 
 			<section>
@@ -151,8 +122,41 @@
 
 			<section>
 				<h2>Criptografía asimétrica: esquemas de confianza</h2>
-				<blockquote>Debemos observar que la criptografía de clave pública necesita establecer una confianza en que la clave pública de un usuario (al cual se identifica por una cadena identificativa a la que se llama identidad) es correcta, es decir el único que posee la clave privada correspondiente es el usuario auténtico al que pertenece. Cuanto más fiable sea el método más seguridad tendrá el sistema</blockquote>
+				<blockquote>Debemos observar que la criptografía de clave pública necesita establecer una confianza en que la clave pública de un usuario, es decir el único que posee la clave privada correspondiente es el usuario auténtico al que pertenece. Cuanto más fiable sea el método más seguridad tendrá el sistema</blockquote>
+				<p class="fragment">Los modelos de confianza utilizados son:</p>
+				<ul>
+					<li class="fragment">Uso de una infraestructura de clave pública o PKI. En este modelo hay una o varias entidades emisoras de certificados (Autoridades de certificación o CA) que aseguran la autenticidad de la clave pública y de ciertos atributos del usuario.</li>
+					<li class="fragment">Uso de criptografía basada en identidad. En este modelo existe un generador de claves privadas o PKG (acrónimo de Private Key Generator)</li>
+					<li class="fragment">Uso de criptografía sin certificados</li>
+				</ul>
 			</section>
+
+			<section>
+				<h2>Criptografía asimétrica</h2>
+				<h3 >¿Ventajas?</h3>
+				<ul>
+					<li class="fragment">Mejor capacidad para la distribución de claves</li>
+					<li class="fragment">Mejor escalabilidad que los sistemas simétricos</li>
+					<li class="fragment">Puede proveer autenticación </li>
+				</ul>
+				<br />
+				<br />
+				<h3 class="fragment">¿Desventajas?</h3>
+				<li class="fragment">Mucho más lento que los sistemas simétricos</li>
+			</section>
+			<section>
+				<h2>Criptografía asimétrica: <br />
+				Algoritmos </h2>
+				<p class="fragment">Algunos de los algoritmos más populares son:</p>
+				<ul>
+					<li class="fragment">RSA (Rivest­Shamir­Adleman)</li>
+					<li class="fragment">DSA (Digital Signature Algorithm)</li>
+					<li class="fragment">ECC (Elliptic curve cryptosystem)</li>
+					<li class="fragment">Diffie­Hellman</li>
+					<li class="fragment">Merkle­Hellman Knapsack</li>
+				</ul>
+			</section>
+
 
 		</section>  <!-- Cripto resumen y asimétrica -->
 
