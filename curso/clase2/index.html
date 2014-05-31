@@ -182,8 +182,49 @@
 		</section> <!-- hibrida -->
 
 		<section>
-			<h2>One Time Pad</h2>
+			<section>
+				<h2>One Time Pad</h2>
+				<h3 class="fragment">¿qué es?</h3>
+				<blockquote class="fragment">
+				Fue inventado por Gilbert Vernam en 1917  y a veces es llamado 'Cifrado de Vernam'. Se dice que este tipo de cifrado es 'perfecto', porque es considerado irrompible (si es implementado correctamente).</blockquote>
+				<blockquote class="fragment">
+				Utiliza una tabla de bits aleatorios y el proceso de cifrado utiliza una función matemática binaria llamada 'XOR', una operación que es aplicada a cada par de bits. Cuando se combinan los bits, si los dos valores son iguales, el resultado es '0' (cero). Si los dos bits son diferentes, el resultado será '1' (uno).
+				</blockquote>
+				<br />
+				<h3 class="fragment">Veamos un ejemplo</h3>
+			</section>
+			<section>
+				<h2>Ejemplo de One Time Pad</h2>
+				<br />
+				<h3 class="fragment">
+				<p>Mensaje: 1001010111 </p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clave:   0011101010 </p>
+				<p>-------------------</p>
+				<p>Cifrado: 1010111101</p>
+				</h3>
+			</section>
+			<section>
+				<h2>One Time Pad</h2>
+				<h3 class="fragment">Se dice que este cifrado es irrompible si: </h3>
+				<ol>
+					<li class="fragment">La tabla es utilizada sólo una vez. Si no es así, esto podría introducir patrones que podrían permitir a un atacante descifrar la tabla</li>
+					<li class="fragment">La tabla es igual de larga que el mensaje. De no ser así, la tabla debería ser reutilizada para poder cifrar todo el mensaje</li>
+					<li class="fragment">La tabla debe ser distribuida de forma segura. El compromiso de la tabla haría que todo el sistema de seguridad se viniera abajo</li>
+					<li class="fragment">La tabla debe estar compuesta de valores verdaderamente aleatorios. Lo cual, parece una tarea sencilla
+					pero, hoy en día, las computadoras no suelen tener la capacidad de generar valores del todo aleatorios (entropía)</li>
+				</ol>
+			</section>
+
+
 		</section> <!-- One time Pad -->
+
+		<section>
+
+
+		</section> <!-- Esteganografía -->
+
+
+
 		<section>
 			<section id="fragments">
 			<h2>¿Qué es la criptografía?</h2>
