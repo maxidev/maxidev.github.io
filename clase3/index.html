@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Introducción a la Seguridad Informática</title>
+
+		<meta name="author" content="Maximiliano Cañellas">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+<div class="reveal">
+
+	<div class="slides">
+		<section>
+			<h2>Introducción a la Seguridad Informática</h2>
+			<h2>Clase: 3</h2>
+			<h3>Instituto Educación IT</h3>
+
+		</section>
+
+		<section>
+			<section>
+			<h2> Sobre el curso</h2>
+			<h3 class="fragment">Módulo 3/4: Introducción a la Seguridad Informática </h3>
+			<h3 class="fragment">Temas:</h3>
+				<h4 class="fragment">
+				Criptografía
+				· Algoritmos de hashing
+				· Ataques de fuerza bruta
+				· Técnicas de Salting
+				</h4>
+				<p class="fragment">Entre otros ..</p>
+			</section> <!--  -->
+		</section> <!-- sobre el curso -->
+
+		<section>
+
+				<h2>Criptografía: un resumen</h2>
+				<h3>Hasta ahora estudiamos:</h3>
+				<ul>
+					<li class="fragment">Conceptos generales de Seguridad Informática</li>
+					<li class="fragment">La historia de la criptografía</li>
+					<li class="fragment">Criptografía Simétrica</li>
+					<li class="fragment">Ventajas y desventajas de la criptografía Simétrica</li>
+					<li class="fragment">Ataques a los algortimos y a la clave</li>
+					<li class="fragment">Criptografía asimétrica</li>
+					<li class="fragment">Criptografía híbrida</li>
+					<li class="fragment">Esteganografía</li>
+					<li class="fragment">One Time Pad</li>
+				</ul>
+
+		</section>  <!-- Cripto resumen y asimétrica -->
+
+		<section>
+			<section>
+				<h2>Algoritmos de Hashing: <br />¿Qué son?</h2>
+
+				<blockquote class="fragment">
+					Un algoritmo o función hash es un método para generar claves que representen de manera biunívoca (no reversible) a un conjunto de datos o documento. Es una operación matemática que se realiza sobre este conjunto de datos de cualquier longitud, y su salida es una huella digital, de tamaño fijo e independiente de la dimensión de la cadena o documento original.
+				</blockquote>
+				<br />
+				<h3 class="fragment"> Un poco de historia sobre el hashing  </h3>
+				<!-- <h2 class="fragment"> ¿ejemplos?</h2> -->
+			</section>
+			<section>
+				<h2>Algoritmos de Hashing: <br />
+				Un esquema gráfico</h2>
+				<img src="img/hash.png" class="fragment">
+				<h4 class="fragment">Destaquemos unos puntos importantes del ejemplo</h4>
+				<ul>
+					<li class="fragment">Sin importar la longitud de la cadena de entrada el hash resultante que produce la función tiene el mismo largo.</li>
+					<li class="fragment">El más minimo cambio en la cadena produce un hash completamente distinto</li>
+				</ul>
+
+			</section>
+
+			<section>
+				<h2>Usos del hashing: <br />
+				Autenticación en BD 1/3</h2>
+
+				<p>En los sistemas informáticos, el almacenamiento seguro de la base de datos de usuarios y contraseñas suele ser un gran desafío.
+				Imaginemos que debemos contar con una pequeña tabla para luego almacenarla, que tenga solamente dos campos "user" y "password": </p>
+				<br />
+				<center>
+				<h3>
+				<table class="fragment">
+						<thead>
+							<tr>
+								<th>User</th>
+								<th>Password</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Admin</td>
+								<td>test_System2</td>
+							<tr>
+							<tr>
+								<td>David</td>
+								<td>Rosario2014</td>
+							<tr>
+							<tr>
+								<td>Ana</td>
+								<td>12345678</td>
+							<tr>
+							<tr>
+								<td>José</td>
+								<td>jose1967</td>
+							<tr>
+						</tbody>
+					</table>
+					</center>
+					</h3>
+					<h4 class="fragment">El problema de almacenar esta base es obvio ¿no?</h4>
+					<h4 class="fragment">¡Nuestros passwords se guardan en texto plano!</h4>
+
+			</section>
+
+			<section>
+				<h2>Usos del hashing: <br />
+				Autenticación en BD 2/3</h2>
+			 	<h4 class="fragment">Nos desviamos un instante del hashing, apliquemos a nuestra base lo que aprendimos de cifrado simétrico.</h4>
+			 	<h4 class="fragment">La misma base, pero con cfirado AES-128 se vería así: </h4>
+				<h3>
+				<center>
+				<table class="fragment">
+						<thead>
+							<tr>
+								<th>User</th>
+								<th>Password</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Admin</td>
+								<td>KONLtkftmamdYWo93uT+eQ==</td>
+							<tr>
+							<tr>
+								<td>David</td>
+								<td>mApKEsk9GgFgbhgwNW9LVg==</td>
+							<tr>
+							<tr>
+								<td>Ana</td>
+								<td>z3IS/w9OvkTQCwTzPZb+Zg==</td>
+							<tr>
+							<tr>
+								<td>José</td>
+								<td>mpasjNrLJJbqX+KUupTEbg==</td>
+							<tr>
+						</tbody>
+					</table>
+					</center>
+					</h3>
+				<h4 class="fragment">Parece bastante seguro ¿no?</h4>
+				<h4 class="fragment">Pero este esquema también tiene un problema ¿cual es?</h4>
+				<h4 class="fragment">Conociendo el algoritmo de cifrado utilizado, los administradores del sistema por ejemplo, podrían conocer los passwords de todas las personas en esa base de datos.</h4>
+				<h4 class="fragment">Cifrado con: <a href="http://aesencryption.net/">aesencryption.net </a></h4>
+
+			</section>
+
+			<section>
+				<h2>Usos del hashing: <br />
+				Autenticación en BD 3/3</h2>
+				<h4 class="fragment">Ahora a nuestra base apliquemos un algoritmo de hashing conocido y probado: SHA-256. La base debería verse así:</h3>
+				<h4>
+				<center>
+				<table class="fragment">
+						<thead>
+							<tr>
+								<th>User</th>
+								<th>Password</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Admin</td>
+								<td>84843e3117b89c63124c37e8995b6bdf97cc9bd34e90d77c9e99a8ee6cac68b5</td>
+							<tr>
+							<tr>
+								<td>David</td>
+								<td>e34e432fc7bafc3790d46162826ff3fe934dea90e1f5e48b9c0bae17339146ed</td>
+							<tr>
+							<tr>
+								<td>Ana</td>
+								<td>ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f</td>
+							<tr>
+							<tr>
+								<td>José</td>
+								<td>7ec4dd185965fed23abde1d752479d88f6f8b91ec75a417ed6e92ff1e749730e</td>
+							<tr>
+						</tbody>
+					</table>
+					</center>
+					</h4>
+				<h4 class="fragment">Este esquema es casi perfecto. <h3 class="fragment">¿por qué?</h3></h4>
+				<h4 class="fragment">Hashing: <a href="http://www.xorbin.com/tools/sha256-hash-calculator">xorbin.com/tools/sha256-hash-calculator</a></h4>
+
+			</section>
+			<section>
+				<h2>Otros conceptos sobre hashing: <br />
+					Colisiones</h2>
+				<h3 class="fragment">Los algoritmos de hashing pueden producir colisiones <br />
+				¿Qué es esto?</h3>
+				<blockquote class="fragment">
+					En informática, una colisión de hash es una situación que se produce cuando dos entradas distintas a una función de hash producen la misma salida.
+
+					Es matemáticamente imposible que una función de hash carezca de colisiones, ya que el número potencial de posibles entradas es mayor que el número de salidas que puede producir un hash. Sin embargo, las colisiones se producen más frecuentemente en los malos algoritmos.
+				</blockquote>
+			</section>
+
+
+		</section> <!-- hashing main -->
+
+
+		<section>
+		<section>
+			<h2>Ataques de Fuerza bruta / y dps poner Rainbow Tables</h2>
+			<h3>¿Qué es?</h3>
+			<blockquote class="fragment">
+				La criptografía asimétrica utiliza dos claves (pública y privada) generadas por un algoritmo asimétrico para proteger las claves y la distribución de las mismas. Y una clave secreta es generada a través de un algoritmo simétrico y utilizado para cifrar grandes cantidades de datos. Así, obtenemos un sistema híbrido, que utiliza ambas tecnologías.
+			</blockquote>
+			<br />
+			<h2 class="fragment">Veamos un ejemplo </h2>
+		</section>
+
+		<section>
+			<h2>Ejemplo de criptografía híbrida</h2>
+			<p class="fragment">Juan quiere enviarle un mensaje a Pablo y quiere que solamente él pueda leerlo.</p>
+			<blockquote class="fragment">Juan va a cifrar el mensaje con la clave secreta (simétrica). Después, Juan va a cifrar la clave simétrica utilizando la clave pública de Pablo.</blockquote>
+			<blockquote class="fragment">Pablo va a recibir una clave cifrada que solamente él puede descifrar (utilizando su clave privada).</blockquote>
+			<blockquote class="fragment">Una vez obtenida la clave, va a utilizarla para descifrar los datos del mensaje con el algoritmo simétrico.</blockquote>
+			<h3 class="fragment">Gracias a esto, obtenemos la velocidad de los algoritmos simétricos, y las ventajas de los algoritmos asimétricos</h3>
+		</section>
+		</section> <!-- hibrida -->
+
+		<section>
+			<section>
+				<h2>Salting y demás yerbas</h2>
+				<h3 class="fragment">¿qué es?</h3>
+				<blockquote class="fragment">
+				Fue inventado por Gilbert Vernam en 1917  y a veces es llamado 'Cifrado de Vernam'. Se dice que este tipo de cifrado es 'perfecto', porque es considerado irrompible (si es implementado correctamente).</blockquote>
+				<blockquote class="fragment">
+				Utiliza una tabla de bits aleatorios y el proceso de cifrado utiliza una función matemática binaria llamada 'XOR', una operación que es aplicada a cada par de bits. Cuando se combinan los bits, si los dos valores son iguales, el resultado es '0' (cero). Si los dos bits son diferentes, el resultado será '1' (uno).
+				</blockquote>
+				<br />
+				<h3 class="fragment">Veamos un ejemplo</h3>
+			</section>
+			<section>
+				<h2>Ejemplo de One Time Pad</h2>
+				<br />
+				<h3 class="fragment">
+				<p>Mensaje: 1001010111 </p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Clave:   0011101010 </p>
+				<p>-------------------</p>
+				<p>Cifrado: 1010111101</p>
+				</h3>
+			</section>
+			<section>
+				<h2>One Time Pad</h2>
+				<h3 class="fragment">Se dice que este cifrado es irrompible si: </h3>
+				<ol>
+					<li class="fragment">La tabla es utilizada sólo una vez. Si no es así, esto podría introducir patrones que podrían permitir a un atacante descifrar la tabla</li>
+					<li class="fragment">La tabla es igual de larga que el mensaje. De no ser así, la tabla debería ser reutilizada para poder cifrar todo el mensaje</li>
+					<li class="fragment">La tabla debe ser distribuida de forma segura. El compromiso de la tabla haría que todo el sistema de seguridad se viniera abajo</li>
+					<li class="fragment">La tabla debe estar compuesta de valores verdaderamente aleatorios. Lo cual, parece una tarea sencilla
+					pero, hoy en día, las computadoras no suelen tener la capacidad de generar valores del todo aleatorios (entropía)</li>
+				</ol>
+			</section>
+
+
+		</section> <!-- One time Pad -->
+
+		<section>
+			<section>
+				<h2>Esteganografía: <br />
+				¿Qué es?</h2>
+				<blockquote class="fragment">Es un método que permite ocultar datos dentro de otros datos. Se supone que sólo el emisor y el receptor podrán ver el mensaje, que estará oculto en, por ejemplo, un archivo de imagen o sonido. El mensaje no está cifrado, solamente oculto, por lo tanto, no es exáctamente un método de cifrado, si no más bien de ocultación de datos.</blockquote>
+
+				<blockquote class="fragment">Los mensajes cifrados podrían llamar la atención, dando por sentado que, si alguien se tomó el trabajo de
+				cifrarlos, deben ser importantes. La esteganografía se utiliza para ocultar los mensajes, con el fin de que nadie trate de descifrarlos.</blockquote>
+			</section>
+			<section>
+				<h2>Esteganografía</h2>
+				<h3>Un caso práctico</h3>
+				<p class="fragment">Por ejemplo, podríamos utilizar un archivo de imagen, y ajustar el color de los píxeles múltiplos de 100, para
+				que se correspondan a una letra del alfabeto. Dicho cambio no va a ser perceptible por el ojo humano, pero sí por una computadora. Los componentes utilizados en la esteganografía son:</p>
+
+				<ul>
+					<li class="fragment">Portador: El archivo que contiene la información oculta</li>
+					<li class="fragment">Medio: El medio en que se oculta la información</li>
+					<li class="fragment">Carga: La información que se oculta y se transmite</li>
+
+				</ul>
+				<br />
+				<br />
+				<h4 class="fragment"> (*) La esteganografía puede ser combinada con el cifrado para, además de ocultar la información a simple vista,
+				agregar un nivel más de seguridad a la misma.</h4>
+
+
+			</section>
+		</section> <!-- Esteganografía -->
+
+		<section>
+			<h2>Algunas herramientas</h2>
+			<ul>
+				<li><a href="http://files.gpg4win.org/gpg4win-2.2.1.exe" target="_blank">GPG4Win</a></li>
+				<li><a href="https://crypto.cat/" target="_blank">Crypto.Cat</a></li>
+				<li><a href="https://www.enigmail.net/home/index.php" target="_blank">EnigMail / Thunderbird</a></li>
+				<li><a href="http://bitcoin.org" target="_blank">Bitcoin</a></li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>¡Fin de la clase! :)</h2>
+			<h2>¿Dudas? ¿Preguntas?</h2>
+		</section>
+
+
+	</div> <!-- slides -->
+
+</div> <!-- reveal -->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
