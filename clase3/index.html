@@ -148,9 +148,9 @@
 			<section>
 				<h2>Usos del hashing: <br />
 				Autenticación en BD 2/3</h2>
-			 	<h4 class="fragment">Nos desviamos un instante del hashing, apliquemos a nuestra base lo que aprendimos de cifrado simétrico.</h4>
-			 	<h4 class="fragment">La misma base, pero con cfirado AES-128 se vería así: </h4>
-				<h3>
+			 	<p class="fragment">Nos desviamos un instante del hashing, apliquemos a nuestra base lo que aprendimos de cifrado simétrico.</p>
+			 	<p class="fragment">La misma base, pero con cfirado AES-128 se vería así: </p>
+				<h4>
 				<center>
 				<table class="fragment">
 						<thead>
@@ -179,9 +179,9 @@
 						</tbody>
 					</table>
 					</center>
-					</h3>
-				<h4 class="fragment">Parece bastante seguro ¿no?</h4>
-				<h4 class="fragment">Pero este esquema también tiene un problema ¿cual es?</h4>
+					</h4>
+				<p class="fragment">Parece bastante seguro ¿no?</p>
+				<p class="fragment">Pero este esquema también tiene un problema ¿cual es?</p>
 				<h4 class="fragment">Conociendo el algoritmo de cifrado utilizado, los administradores del sistema por ejemplo, podrían conocer los passwords de todas las personas en esa base de datos.</h4>
 				<h4 class="fragment">Cifrado con: <a href="http://aesencryption.net/">aesencryption.net </a></h4>
 
@@ -253,13 +253,15 @@
 			<section>
 				<h2>Otros conceptos sobre hashing: <br />
 					Colisiones</h2>
-				<h3 class="fragment">Los algoritmos de hashing pueden producir colisiones <br />
-				¿Qué es esto?</h3>
+				<h4 class="fragment">Los algoritmos de hashing pueden producir colisiones </h4>
+				<h3 class="fragment">¿Qué es esto?</h3>
 				<blockquote class="fragment">
 					En informática, una colisión de hash es una situación que se produce cuando dos entradas distintas a una función de hash producen la misma salida.
 
 					Es matemáticamente imposible que una función de hash carezca de colisiones, ya que el número potencial de posibles entradas es mayor que el número de salidas que puede producir un hash. Sin embargo, las colisiones se producen más frecuentemente en los malos algoritmos.
 				</blockquote>
+				<br />
+				<h4 class="fragment">Nos tomamos un momento para discutir la implicancia de las colisiones</h4>
 			</section>
 
 
@@ -268,24 +270,30 @@
 
 		<section>
 		<section>
-			<h2>Ataques de Fuerza bruta / y dps poner Rainbow Tables</h2>
-			<h3>¿Qué es?</h3>
+			<h2>Hashing: <br />
+			Ataques por fuerza bruta</h2>
+
 			<blockquote class="fragment">
-				La criptografía asimétrica utiliza dos claves (pública y privada) generadas por un algoritmo asimétrico para proteger las claves y la distribución de las mismas. Y una clave secreta es generada a través de un algoritmo simétrico y utilizado para cifrar grandes cantidades de datos. Así, obtenemos un sistema híbrido, que utiliza ambas tecnologías.
+				Teniendo el hash de una contraseña, una forma de obtenerla sería probar con todas las combinaciones posibles, hasta dar con la correcta. A este método se le conoce como “fuerza bruta” porque se utiliza la fuerza en lugar de la lógica.
+			</blockquote>
+			<blockquote class="fragment">
+				Si utilizamos solamente letras minúsculas y números, tendremos un
+				juego de 36 caracteres (26 letras + 10 números). Si asumimos que la contraseña posee exactamente 8 caracteres, podemos obtener la cantidad de contraseñas posibles realizando el siguiente cálculo: 36^8 = 2821109907456
 			</blockquote>
 			<br />
-			<h2 class="fragment">Veamos un ejemplo </h2>
+
+		</section>
+		<section>
+		<h2>Fuerza Bruta: <br />
+			El esquema</h2>
+		<h4 class="fragment">El esquema de ataque es el siguiente:</h4>
+		<img src="img/brute.png" class="fragment">
+		<h4 class="fragment">Claramente este ataque es lento y costoso, veamos otras opciones.</h4>
+
 		</section>
 
-		<section>
-			<h2>Ejemplo de criptografía híbrida</h2>
-			<p class="fragment">Juan quiere enviarle un mensaje a Pablo y quiere que solamente él pueda leerlo.</p>
-			<blockquote class="fragment">Juan va a cifrar el mensaje con la clave secreta (simétrica). Después, Juan va a cifrar la clave simétrica utilizando la clave pública de Pablo.</blockquote>
-			<blockquote class="fragment">Pablo va a recibir una clave cifrada que solamente él puede descifrar (utilizando su clave privada).</blockquote>
-			<blockquote class="fragment">Una vez obtenida la clave, va a utilizarla para descifrar los datos del mensaje con el algoritmo simétrico.</blockquote>
-			<h3 class="fragment">Gracias a esto, obtenemos la velocidad de los algoritmos simétricos, y las ventajas de los algoritmos asimétricos</h3>
-		</section>
-		</section> <!-- hibrida -->
+
+		</section> <!-- Ataques -->
 
 		<section>
 			<section>
