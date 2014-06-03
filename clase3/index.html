@@ -95,7 +95,7 @@
 				<h2>Algoritmos de Hashing: <br />
 				Un esquema gráfico</h2>
 				<img src="img/hash.png" class="fragment">
-				<h4 class="fragment">Destaquemos unos puntos importantes del ejemplo</h4>
+				<h4 class="fragment">Destaquemos dos puntos importantes del ejemplo</h4>
 				<ul>
 					<li class="fragment">Sin importar la longitud de la cadena de entrada el hash resultante que produce la función tiene el mismo largo.</li>
 					<li class="fragment">El más minimo cambio en la cadena produce un hash completamente distinto</li>
@@ -225,6 +225,31 @@
 				<h4 class="fragment">Hashing: <a href="http://www.xorbin.com/tools/sha256-hash-calculator">xorbin.com/tools/sha256-hash-calculator</a></h4>
 
 			</section>
+			<section>
+				<h2>Usos del hashing: <br />
+				Asegurar la integridad de la información</h2>
+				<blockquote class="fragment">Otro uso muy importante que tiene el hashing es el de garantizar la integridad de los datos, esto es algo que se ve muchas veces en sitios web que proporcionan descargas de archivos grandes dando junto a estos la salida del hashing aplicada al archivo y la función usada.</blockquote>
+				<br />
+				<h3 class="fragment">Veamos un ejemplo</h3>
+				<pre class="fragment"><code data-trim contentnoeditable>
+#Ejemplo de MD5 checksum en linux de index.html (esta presentación)
+> md5sum index.html
+> ce3d75e8bebe0e291c859e1faea6a027  index.html
+
+				</code></pre>
+				<h4 class="fragment">El hashing del documento ce3d75e8bebe0e291c859e1faea6a027 representa la prueba de integridad del archivo ya que de modificar un solo bit de este, la función hashing (MD5), devolverá una cadena completamente distinta.</h4>
+
+			</section>
+			<section>
+				<h2>Usos del hashing: Firma Digital</h2>
+				<h4 class="fragment">Podemos utilizar técnicas de hashing que junto a métodos de cifrado nos permiten firmar digitalmente y probar la integridad de un documento. El esquema es el siguiente:</h4>
+				<img src="img/digitalsignature.png" class="fragment">
+				<p class="fragment">Nos tomamos un minuto para entender este proceso.</p>
+			</section>
+
+
+
+
 			<section>
 				<h2>Otros conceptos sobre hashing: <br />
 					Colisiones</h2>
