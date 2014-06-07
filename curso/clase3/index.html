@@ -44,7 +44,7 @@
 			<h2>Introducción a la Seguridad Informática</h2>
 			<h2>Clase: 3</h2>
 			<h3>Instituto Educación IT</h3>
-
+			<h3>Autor: Maximiliano Cañellas</h3>
 		</section>
 
 		<section>
@@ -88,7 +88,7 @@
 					Un algoritmo o función hash es un método para generar claves que representen de manera biunívoca (no reversible) a un conjunto de datos o documento. Es una operación matemática que se realiza sobre este conjunto de datos de cualquier longitud, y su salida es una huella digital, de tamaño fijo e independiente de la dimensión de la cadena o documento original.
 				</blockquote>
 				<br />
-				<h3 class="fragment"> Un poco de historia sobre el hashing  </h3>
+				<h3 class="fragment"> Un breve resumen   </h3>
 				<!-- <h2 class="fragment"> ¿ejemplos?</h2> -->
 			</section>
 			<section>
@@ -162,19 +162,19 @@
 						<tbody>
 							<tr>
 								<td>Admin</td>
-								<td>KONLtkftmamdYWo93uT+eQ==</td>
+								<td>ifH7cmHxw7qg3xDyYw4l/A==</td>
 							<tr>
 							<tr>
 								<td>David</td>
-								<td>mApKEsk9GgFgbhgwNW9LVg==</td>
+								<td>7GGtk7dgSdLOby14gvbkkQ==</td>
 							<tr>
 							<tr>
 								<td>Ana</td>
-								<td>z3IS/w9OvkTQCwTzPZb+Zg==</td>
+								<td>hsJz57bEUHNNobgLw7dP9A==</td>
 							<tr>
 							<tr>
 								<td>José</td>
-								<td>mpasjNrLJJbqX+KUupTEbg==</td>
+								<td>EIqS0avjiPIGgr9putDPcQ==</td>
 							<tr>
 						</tbody>
 					</table>
@@ -184,6 +184,7 @@
 				<p class="fragment">Pero este esquema también tiene un problema ¿cual es?</p>
 				<h4 class="fragment">Conociendo el algoritmo de cifrado utilizado, los administradores del sistema por ejemplo, podrían conocer los passwords de todas las personas en esa base de datos.</h4>
 				<h4 class="fragment">Cifrado con: <a href="http://aesencryption.net/">aesencryption.net </a></h4>
+				<h4 class="fragment">Clave: clase3</h4>
 
 			</section>
 
@@ -338,10 +339,10 @@
 			<section>
 			<h2>Buenas prácticas: Salting</h2>
 			<blockquote>
-				Por ejemplo, supongamos que la clave secreta (cifrada) de un usuario es robada, y se sabe que usa una de 200.000 palabras inglesas como contraseña. El sistema usa salting de 32 bits. La clave "salteada" es ahora la contraseña original unida al salting de 32 bits.
+				Por ejemplo, supongamos que la clave secreta (hasheada) de un usuario es robada, y se sabe que usa una de 200.000 palabras inglesas como contraseña. El sistema usa salting de 32 bits. La clave "salteada" es ahora la contraseña original unida al salting de 32 bits.
 			</blockquote>
 			<blockquote>
-				A causa de esto, los hashes precalculados del atacante carecen de valor. Deberá calcular el hash de cada palabra junto con cada una de las 2 a la 32 (4,294,967,296) posibles combinaciones de sales hasta que se encuentre una coincidencia. El número total de posibles entradas se puede obtener multiplicando el número de palabras en el diccionario por el número de posibles sales:2 a la 32 x 200000 = 8.58993459 x 10 a la 14. Esto es igual a 860 billones de hashes, en lugar de sólo 200.000.
+				A causa de esto, los hashes precalculados del atacante carecen de valor. Deberá calcular el hash de cada palabra junto con cada una de las 2 a la 32 (4,294,967,296) posibles combinaciones de salts hasta que se encuentre una coincidencia. El número total de posibles entradas se puede obtener multiplicando el número de palabras en el diccionario por el número de posibles salts :2 a la 32 x 200000 = 8.58993459 x 10 a la 14. Esto es igual a 860 billones de hashes, en lugar de sólo 200.000.
 			</blockquote>
 
 			</section>
@@ -350,10 +351,11 @@
 			<h2>Algoritmos de hashing <br />
 			Herramientas</h2>
 			<ul>
-				<li class="fargment">Calculadora de hashes online <a href="http://regenboog.yellosoft.us">regenboog.yellosoft.us</a></li>
-				<li class="fargment">Cain & Abel  <a href="http://www.oxid.it/cain.html">oxid.it/cain.html</a></li>
-				<li class="fargment">Ophcrack <a href="http://ophcrack.sourceforge.net">ophcrack.sourceforge.net</a></li>
-				<li class="fargment">RainbowCrac <a href="http://project-rainbowcrack.com/">project-rainbowcrack.com/</a></li>
+				<li >Calculadora de hashes online <a href="http://regenboog.yellosoft.us">regenboog.yellosoft.us</a></li>
+				<li>Cain & Abel (legacy) <a href="http://www.oxid.it/cain.html">oxid.it/cain.html</a></li>
+				<li>Pyrit VGA WPA/WPA2 cracking <a href="https://code.google.com/p/pyrit/">code.google.com/p/pyrit</a></li>
+				<li >Ophcrack <a href="http://ophcrack.sourceforge.net">ophcrack.sourceforge.net</a></li>
+				<li >RainbowCrac <a href="http://project-rainbowcrack.com/">project-rainbowcrack.com/</a></li>
 			</ul>
 
 		</section>
