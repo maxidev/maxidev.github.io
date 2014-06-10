@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Introducción a la Seguridad Informática</title>
+
+		<meta name="author" content="Maximiliano Cañellas">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+<div class="reveal">
+
+	<div class="slides">
+		<section>
+			<h2>Introducción a la Seguridad Informática</h2>
+			<h2>Clase: 4</h2>
+			<h3>Instituto Educación IT</h3>
+			<!-- <h3>Autor: Maximiliano Cañellas</h3> -->
+		</section>
+
+		<section>
+			<section>
+			<h2> Sobre el curso</h2>
+			<h3 class="fragment">Módulo 4/4: Introducción a la Seguridad Informática </h3>
+			<h3 class="fragment">Temas:</h3>
+				<h4 class="fragment">
+
+				· Infraestructuras de Clave Pública
+				· Ventajas/Desventajas
+				· Posibles Debilidades
+				</h4>
+				<p class="fragment">Entre otros ..</p>
+			</section> <!--  -->
+		</section> <!-- sobre el curso -->
+
+		<section>
+
+				<h2>Criptografía: un resumen</h2>
+				<h3>Hasta ahora estudiamos:</h3>
+				<ul>
+					<li class="fragment">Conceptos generales de Seguridad Informática</li>
+					<li class="fragment">La historia de la criptografía</li>
+					<li class="fragment">Criptografía Simétrica</li>
+					<li class="fragment">Ventajas y desventajas de la criptografía Simétrica</li>
+					<li class="fragment">Ataques a los algortimos y a la clave</li>
+					<li class="fragment">Criptografía asimétrica</li>
+					<li class="fragment">Criptografía híbrida</li>
+					<li class="fragment">Esteganografía</li>
+					<li class="fragment">One Time Pad</li>
+					<li class="fragment">Algoritmos de Hashing</li>
+				</ul>
+
+		</section>  <!-- Cripto resumen y asimétrica -->
+
+		<section>
+			<section>
+				<h2>Infraestructuras de Clave Pública (PKI)</h2>
+
+				<blockquote class="fragment">
+					En criptografía, una infraestructura de clave pública (o, en inglés, PKI, Public Key Infrastructure) es una combinación de hardware y software, políticas y procedimientos de seguridad que
+					permiten la ejecución con garantías de operaciones criptográficas como el cifrado, la firma digital o el no repudio de transacciones electrónicas.
+				</blockquote>
+				<blockquote class="fragment">
+					El término PKI se utiliza para referirse tanto a la autoridad de certificación y al resto de componentes, como para referirse, de manera más amplia y a veces confusa, al uso de algoritmos de clave pública en comunicaciones electrónicas. Este último significado es
+					incorrecto, ya que no se requieren métodos específicos de PKI para usar algoritmos de clave pública.
+				</blockquote>
+
+			</section>
+			<section>
+				<h2>PKI: <br />
+				Propósito y funcionalidad 1/2</h2>
+				<blockquote class="fragment">La tecnología PKI permite a los usuarios autenticarse frente a otros usuarios y usar la información de los certificados de identidad (por ejemplo, las claves públicas de otros usuarios) para cifrar y descifrar mensajes, firmar digitalmente información, garantizar el no repudio de un envío, y otros usos.
+				</blockquote>
+				<br />
+				<p class="fragment">En una operación criptográfica que use PKI, intervienen conceptualmente como mínimo las siguientes partes:</p>
+				<ul>
+					<li class="fragment">Un usuario iniciador de la operación.</li>
+					<li class="fragment">Servidores que dan fe de la ocurrencia de la operación y garantizan la validez de los certificados implicados (autoridad de  certificación, Autoridad de registro y sistema de Sellado de tiempo).</li>
+					<li class="fragment">Un destinatario de los datos cifrados/firmados/enviados garantizados por parte del usuario iniciador de la operación (puede ser él mismo). </li>
+				</ul>
+
+
+			</section>
+			<section>
+				<h2>PKI: <br />
+				Propósito y funcionalidad 2/2</h2>
+				<blockquote class="fragment">Las operaciones criptográficas de clave pública, son procesos en los que se utilizan unos algoritmos de cifrado que son conocidos y están accesibles para todos. Por este motivo la
+				seguridad que puede aportar la tecnología PKI, está fuertemente ligada a la privacidad de la llamada clave privada y los procedimientos operacionales o Políticas de seguridad aplicados.
+				</blockquote>
+				<blockquote class="fragment">Es de destacar la importancia de las políticas de seguridad en esta tecnología, puesto que ni los
+				dispositivos más seguros ni los algoritmos de cifrado más fuerte sirven de nada si por ejemplo una copia de la clave privada es comprometida.
+				</blockquote>
+			</section>
+
+			<section>
+				<h2>Usos de la tecnología PKI </h2>
+				<ul>
+					<li class="fragment">Autenticación de usuarios y sistemas (login)</li>
+					<li class="fragment">Identificación del interlocutor</li>
+					<li class="fragment">Cifrado de datos digitales</li>
+					<li class="fragment">Firmado digital de datos (documentos, software, etc.)</li>
+					<li class="fragment">Asegurar las comunicaciones</li>
+					<li class="fragment">Garantía de no repudio (negar que cierta transacción tuvo lugar)</li>
+				</ul>
+
+			</section>
+
+		</section> <!-- PKI main -->
+
+
+		<section>
+		<section>
+			<h2>Hashing: <br />
+			Ataques por fuerza bruta</h2>
+
+			<blockquote class="fragment">
+				Teniendo el hash de una contraseña, una forma de obtenerla sería probar con todas las combinaciones posibles, hasta dar con la correcta. A este método se le conoce como “fuerza bruta” porque se utiliza la fuerza en lugar de la lógica.
+			</blockquote>
+			<blockquote class="fragment">
+				Si utilizamos solamente letras minúsculas y números, tendremos un
+				juego de 36 caracteres (26 letras + 10 números). Si asumimos que la contraseña posee exactamente 8 caracteres, podemos obtener la cantidad de contraseñas posibles realizando el siguiente cálculo: 36^8 = 2821109907456
+			</blockquote>
+			<br />
+
+		</section>
+		<section>
+		<h2>Fuerza Bruta: <br />
+			El esquema</h2>
+		<h4 class="fragment">El esquema de ataque es el siguiente:</h4>
+		<img src="img/brute.png" class="fragment">
+		<h4 class="fragment">Claramente este ataque es lento y costoso, veamos otras opciones.</h4>
+
+		</section>
+		<section>
+		<h2>Hashing: <br />
+			Ataques por diccionario</h2>
+
+			<h3 class="fragment">Método de ataque utilizando un diccionario</h3>
+			<blockquote class="fragment">
+				Este tipo de ataque es similar al de fuerza bruta pero, en lugar de tratar con todas las contraseñas posibles, se buscan palabras dentro de un diccionario. Es un ataque mucho más rápido (porque se prueban muchísimas menos combinaciones) aunque, si la contraseña es
+				compleja, tiene muy pocas probabilidades de éxito.
+			</blockquote>
+			<br />
+			<h4 class="fragment">Algunos diccionarios <a href="http://www.blackploit.com/2011/02/diccionarios-para-fuerza-bruta.html">blackploit.com</a>
+			<h4 class="fragment">Este método también es, salvo raras ocasiones, inviable. Veamos otra opción.</h4>
+
+		</section>
+
+		<section>
+			<h2>Hashing: <br />
+			Rainbow Tables</h2>
+			<h3 class="fragment">¿Qué son?</h3>
+			<blockquote class="fragment">
+				Las tablas Rainbow son tablas de consulta que ofrecen un compromiso entre tiempo y espacio para obtener claves en texto simple a partir del resultado de una función de hash.
+			</blockquote>
+			<br />
+			<h4 class="fragment">El proceso completo: <a href="http://kestas.kuliukas.com/RainbowTables/">kuliukas.com/RainbowTables</a></h4>
+			<h4 class="fragment">Unos puntos a tener en cuenta </h4>
+			<li class="fragment">Esta técnica fue desarrollada por Philippe Oechslin.</li>
+			<li class="fragment">Es importante saber que las tablas rainbow son creadas a partir de una función de hash específica, por ejemplo, para romper los hashes de MD5 necesitaremos unas tablas rainbow basadas en hashes de MD5 y para SHA, tablas rainbow SHA.</li>
+			<li class="fragment">Sacrifica espacio para ganar tiempo en velocidad de proceso</li>
+		</section>
+
+
+		</section> <!-- Ataques -->
+
+		<section>
+			<section>
+				<h2>Buenas prácticas: Salting</h2>
+				<h3 class="fragment">¿qué es?</h3>
+				<blockquote class="fragment">Se denomina salt a un fragmento aleatorio que se le añade a un hash dado para conseguir mayor fortaleza en la contraseña. Los datos con salting complican los ataques de diccionario que cifran cada una de las entradas del mismo: cada bit duplica la cantidad de almacenamiento y computación requeridas. Esta técnica también ayuda contra las tablas rainbow ya que extienden la longitud y con ello la complejidad de la contraseña</blockquote>
+				<blockquote class="fragment">Para mayor seguridad, el valor de salt se guarda en secreto, separado de la base de datos de contraseñas. Esto aporta una gran ventaja cuando la base de datos es robada</blockquote>
+				<br />
+				<h4 class="fragment">Veamos esto con más detalle </h4>
+
+			</section>
+			<section>
+			<h2>Buenas prácticas: Salting</h2>
+			<blockquote>
+				Por ejemplo, supongamos que la clave secreta (hasheada) de un usuario es robada, y se sabe que usa una de 200.000 palabras inglesas como contraseña. El sistema usa salting de 32 bits. La clave "salteada" es ahora la contraseña original unida al salting de 32 bits.
+			</blockquote>
+			<blockquote>
+				A causa de esto, los hashes precalculados del atacante carecen de valor. Deberá calcular el hash de cada palabra junto con cada una de las 2 a la 32 (4,294,967,296) posibles combinaciones de salts hasta que se encuentre una coincidencia. El número total de posibles entradas se puede obtener multiplicando el número de palabras en el diccionario por el número de posibles salts :2 a la 32 x 200000 = 8.58993459 x 10 a la 14. Esto es igual a 860 billones de hashes, en lugar de sólo 200.000.
+			</blockquote>
+
+			</section>
+		</section> <!-- Salt -->
+		<section>
+			<h2>Algoritmos de hashing <br />
+			Herramientas</h2>
+			<ul>
+				<li >Calculadora de hashes online <a href="http://regenboog.yellosoft.us">regenboog.yellosoft.us</a></li>
+				<li>Cain & Abel (legacy) <a href="http://www.oxid.it/cain.html">oxid.it/cain.html</a></li>
+				<li>Pyrit VGA WPA/WPA2 cracking <a href="https://code.google.com/p/pyrit/">code.google.com/p/pyrit</a></li>
+				<li >Ophcrack <a href="http://ophcrack.sourceforge.net">ophcrack.sourceforge.net</a></li>
+				<li >RainbowCrac <a href="http://project-rainbowcrack.com/">project-rainbowcrack.com/</a></li>
+			</ul>
+
+		</section>
+
+
+
+		<section>
+			<h2>¡Fin de la clase! :)</h2>
+			<h2>¿Dudas? ¿Preguntas?</h2>
+		</section>
+
+
+	</div> <!-- slides -->
+
+</div> <!-- reveal -->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
