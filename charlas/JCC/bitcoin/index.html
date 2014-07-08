@@ -94,15 +94,89 @@
 		<section>
 
 			<section>
-				<h2>Bitcoin Wallets</h2>
+				<h2>Bitcoin wallet generation <br/>
+				A quick view:</h2>
 
-				<p>A quick view:</p>
 				<img src="img/bitcoinkeys.png">
-				<p>Hablar de SHA256 E. CURVE DSA - WIF  y base 58</p>
+				<h3>Let's break this down</h3>
 				<a href="http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript">http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript</a>
 				<a href="https://en.bitcoin.it/wiki/ECDSA">https://en.bitcoin.it/wiki/ECDSA</a>
 				<a href="https://en.bitcoin.it/wiki/Technical_background_of_version_1_Bitcoin_addresses">https://en.bitcoin.it/wiki/Technical_background_of_version_1_Bitcoin_addresses</a>
 			</section>
+			<section>
+
+				<h2>Algorithms & Hash Functions</h2>
+				<br/>
+				<ul>
+					<li class="fragment"><a href="https://en.bitcoin.it/wiki/ECDSA">Elliptic Curve DSA (ECDSA)</a></li>
+					<li class="fragment"><a href="http://en.wikipedia.org/wiki/SHA-2">SHA-256</a></li>
+					<li class="fragment"><a href="http://en.wikipedia.org/wiki/RIPEMD">RIPEMD-160</a></li>
+					<li class="fragment"><a href="https://en.bitcoin.it/wiki/Wallet_import_format">Wallet Import Format (WIF)</a></li>
+
+				</ul>
+
+			</section>
+
+			<section>
+				<h2>Cool, but how can we create our wallet addresses?</h2>
+
+				<p class="fragment">0 · Having a private ECDSA key
+					<pre class="fragment"><code>18E14A7B6A307F426A94F8114701E7C8E774E7F9A47E2C2035DB29A206321725</code></pre>
+				</p>
+
+				<p class="fragment">
+					1 · Take the corresponding public key generated with it
+					<pre class="fragment"><code>0450863AD64A87AE8A2FE83C1AF1A8403CB53F53E486D8511DAD8A04887E5B23522CD470243453A299FA9E77237716103ABC11A1DF38855ED6F2EE187E9C582BA6</code></pre>
+				</p>
+
+				<p class="fragment">
+					2 · Perform SHA-256 hashing on the public key
+					<pre class="fragment"><code>600FFE422B4E00731A59557A5CCA46CC183944191006324A447BDB2D98D4B408</code></pre>
+
+				</p>
+				<p class="fragment">
+					3 · Perform RIPEMD-160 hashing on the result of SHA-256
+				<pre class="fragment"><code>010966776006953D5567439E5E39F86A0D273BEE</code></pre>
+
+				</p>
+				<p class="fragment">
+					4 · Add version byte in front of RIPEMD-160 hash (0x00 for Main Network)
+					<pre class="fragment"><code>00010966776006953D5567439E5E39F86A0D273BEE</code></pre>
+				</p>
+				<h3 class="fragment">To be Continued ..</h3>
+
+			</section>
+
+			<section>
+				<h2>Cool, but how can we create our wallet addresses?</h2>
+
+				<p class="fragment">
+				5 · Perform SHA-256 hash on the extended RIPEMD-160 result
+				<pre class="fragment"><code>445C7A8007A93D8733188288BB320A8FE2DEBD2AE1B47F0F50BC10BAE845C094</code></pre>
+				</p>
+
+				<p class="fragment">
+				6 · Perform SHA-256 hash on the result of the previous SHA-256 hash
+					<pre class="fragment"><code>D61967F63C7DD183914A4AE452C9F6AD5D462CE3D277798075B107615C1A8A30</code></pre>
+				</p>
+
+				<p class="fragment">
+				7 · Take the first 4 bytes of the second SHA-256 hash (Checksum)
+				<pre class="fragment"><code>D61967F6</code></pre>
+
+				</p>
+				<p class="fragment">
+				8 · Add the 4 checksum bytes from stage 7 at the end of extended RIPEMD-160 hash from stage 4. This is the 25-byte binary Bitcoin Address
+					<pre class="fragment"><code>00010966776006953D5567439E5E39F86A0D273BEED61967F6</code></pre>
+				</p>
+
+				<p class="fragment">
+				9 · Convert the result from a byte string into a base58 string using Base58Check encoding
+					<pre class="fragment"><code>16UwLL9Risc3QfPqBUvKofHmBQ7wMtjvM</code></pre>
+				</p>
+
+			</section>
+
 
 			<section>
 				<h2>Bitcoin Wallet Generation</h2>
