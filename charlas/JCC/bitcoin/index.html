@@ -99,9 +99,12 @@
 
 				<img src="img/bitcoinkeys.png">
 				<h3>Let's break this down</h3>
-				<a href="http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript">http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript</a>
+
+				<h3>Formula: </h3>
+				<!-- <a href="http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript">http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript</a>
 				<a href="https://en.bitcoin.it/wiki/ECDSA">https://en.bitcoin.it/wiki/ECDSA</a>
-				<a href="https://en.bitcoin.it/wiki/Technical_background_of_version_1_Bitcoin_addresses">https://en.bitcoin.it/wiki/Technical_background_of_version_1_Bitcoin_addresses</a>
+				<a href="https://en.bitcoin.it/wiki/Technical_background_of_version_1_Bitcoin_addresses">https://en.bitcoin.it/wiki/Technical_background_of_version_1_Bitcoin_addresses</a> -->
+				<center><pre class="fragment"><h4><code>base58encoding(sha256(sha256(IDByte + ripemd160(sha256((ECDSA PubKey))))))</code></h4></pre></center>
 			</section>
 			<section>
 
