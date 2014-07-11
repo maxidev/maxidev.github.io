@@ -94,17 +94,15 @@
 		<section>
 
 			<section>
-				<h2>Bitcoin Wallets <br/>
-				A quick view:</h2>
+				<h2>Bitcoin Wallets · a quick view</h2>
 
+				<h3>Address Format</h3>
 				<img src="img/address.png" style="border: 0px;">
 				<br/>
-
-
-				<!-- <a href="http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript">http://procbits.com/2013/08/27/generating-a-bitcoin-address-with-javascript</a>
-				<a href="https://en.bitcoin.it/wiki/ECDSA">https://en.bitcoin.it/wiki/ECDSA</a>
-				<a href="https://en.bitcoin.it/wiki/Technical_background_of_version_1_Bitcoin_addresses">https://en.bitcoin.it/wiki/Technical_background_of_version_1_Bitcoin_addresses</a> -->
-				<center><pre class="fragment"><h4><code>base58encoding(sha256(sha256(IDByte + ripemd160(sha256((ECDSA PubKey))))))</code></h4></pre></center>
+				<center><pre class="fragment">
+				<h4>
+				<code>base58encoding(sha256(sha256(IDByte + ripemd160(sha256((ECDSA PubKey))))))</code>
+				</h4></pre></center>
 			</section>
 			<section>
 
@@ -122,7 +120,7 @@
 			</section>
 
 			<section>
-				<h2>Cool, but how can we create our wallet addresses?</h2>
+				<h3>Ok cool, but how can we create our wallet addresses?</h3>
 
 				<p class="fragment">0 · Having a private ECDSA key
 					<pre class="fragment"><code>18E14A7B6A307F426A94F8114701E7C8E774E7F9A47E2C2035DB29A206321725</code></pre>
@@ -152,7 +150,7 @@
 			</section>
 
 			<section>
-				<h2>Cool, but how can we create our wallet addresses?</h2>
+				<h3>Ok cool, but how can we create our wallet addresses?</h3>
 
 				<p class="fragment">
 				5 · Perform SHA-256 hash on the extended RIPEMD-160 result
@@ -184,15 +182,11 @@
 
 			<section>
 				<h2>Bitcoin Wallet Generation</h2>
-				<!-- <p>Meter el Python de Sherrif y después bitcore o bitcoin-js con CODE</p>
-				<a href="http://bitcoinjs.org/">http://bitcoinjs.org/</a>
-				<a href="http://gobittest.appspot.com/PrivateKey">http://gobittest.appspot.com/PrivateKey</a>
-				<img src="img/nodejs.svg" style="border: 0px;">
-				<p>tunear imagen y meter code para generar wallets</p> -->
 				<h4>Now, all of this looks really hard</h4>
 				<h4 class="fragment">Thats when NodeJS come to rescue</h4>
+				<br />
 				<img src="img/nodejs.png" style="border: 0px;" class="fragment">
-				<h4 class="fragment">We will use bitcore/bitcoinlib-js libraries to generate bla bla:</h4>
+				<br/>
 				<br/>
 				<h2 class="fragment">DEMO TIME!</h2>
 			</section>
