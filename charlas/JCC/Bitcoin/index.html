@@ -114,6 +114,7 @@
 				<h4 class="fragment">chk<sup>3</sup>(dsha256<sup>2</sup>(IDNet<sup>1</sup> + ripemd160(sha256(pKey)))))<p></p></h4>
 				<h4 class="fragment">Base58Encode(chk + ripemd160(sha256(pKey)))</h4>
 
+				<br/>
 				<p class="fragment">[1] IDNet = Network Byte 0x00 for Main Network</p>
 				<p class="fragment">[2] dsha256 = sha256(sha256(p))</p>
 				<p class="fragment">[3] chk = checksum (first 4 bytes of dsha256)</p>
