@@ -73,11 +73,10 @@
 				<h2> Bitcoin: a quick intro.</h2>
 				<ul>
 					<li>Original <a href="https://bitcoin.org/bitcoin.pdf">Paper</a></li>
-					<li>Descentralizado</li>
-					<li>Privado (pseudo anónimo)</li>
+					<li>Decentralized</li>
+					<li>Private</li>
 					<li>PoW 	<a href="https://en.bitcoin.it/wiki/Hashcash">Hashcash</a></li>
 					<li>Adaptable difficulty</li>
-					<!-- <h3>Incluir GOURCE en algún lado</h3> -->
 				</ul>
 
 			</section>
@@ -88,7 +87,8 @@
 			</section>
 
 			<section>
-			<h2>Bitcoin development: a graphical view</h2>
+			<h2>Bitcoin development: <br/>
+			A graphical view</h2>
 			<br/>
 				<iframe width="600" height="355" src="//www.youtube.com/embed/kLT88UFpAOg" frameborder="0" allowfullscreen></iframe>
 			</section>
@@ -106,16 +106,15 @@
 				<!-- <img src="img/address.png" style="border: 0px;"> -->
 				<h3 class="fragment grow">1HLoD9E4SDFFPDiYfNYnkBLQ85Y51J3Zb1</h3>
 
-				<h3>Bitcoin wallet generation: the short way</h3>
-				<pre class="fragment"><code>Version = 1 byte of 0 (zero); on the test network, this is 1 byte of 111
-Key hash = Version concatenated with RIPEMD-160(SHA-256(public key))
-Checksum = 1st 4 bytes of SHA-256(SHA-256(Key hash))
-Bitcoin Address = Base58Encode(Key hash concatenated with Checksum)</code></pre>
-				<!-- <center><pre class="fragment">
-				<h4>
-				<p>fixear esa formula</p>
-				<code>base58encoding(sha256(sha256(IDByte + ripemd160(sha256((ECDSA PubKey))))))</code>
-				</h4></pre></center> -->
+				<br/>
+				<h3 class="fragment">Bitcoin wallet generation: short formula</h3>
+				<br/>
+				<h4 class="fragment">chk<sup>3</sup>(dsha256<sup>2</sup>(IDNet<sup>1</sup> + ripemd160(sha256(pKey)))))<p></p></h4>
+				<h4 class="fragment">Base58Encode(chk + ripemd160(sha256(pKey)))</h4>
+
+				<p class="fragment">[1] IDNet = Network Byte 0x00 for Main Network</p>
+				<p class="fragment">[2] dsha256 = sha256(sha256(p))</p>
+				<p class="fragment">[3] chk = checksum (first 4 bytes of dsha256)</p>
 			</section>
 			<section>
 
