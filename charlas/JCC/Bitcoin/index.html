@@ -72,12 +72,12 @@
 
 				<h2> Bitcoin: a quick intro.</h2>
 				<ul>
-					<li>Paper 2008 (LINK)</li>
+					<li>Original <a href="https://bitcoin.org/bitcoin.pdf">Paper</a></li>
 					<li>Descentralizado</li>
 					<li>Privado (pseudo anónimo)</li>
-					<li>PoW</li>
+					<li>PoW 	<a href="https://en.bitcoin.it/wiki/Hashcash">Hashcash</a></li>
 					<li>Adaptable difficulty</li>
-					<h3>Incluir GOURCE en algún lado</h3>
+					<!-- <h3>Incluir GOURCE en algún lado</h3> -->
 				</ul>
 
 			</section>
@@ -85,7 +85,11 @@
 			<section>
 				<h2>Satoshi Nakamoto</h2>
 				<img src="img/satoshi.jpg" style="border: 0px;">
-						</section>
+			</section>
+
+			<section>
+				<video src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></video>
+			</section>
 
 
 
@@ -99,16 +103,21 @@
 
 				<!-- <img src="img/address.png" style="border: 0px;"> -->
 				<h3 class="fragment grow">1HLoD9E4SDFFPDiYfNYnkBLQ85Y51J3Zb1</h3>
-				<h3 class="fragment highlight-current-green grow">1HLoD9E4SDFFPDiYfNYnkBLQ85Y51J3Zb1</h3>
-				<br/>
-				<center><pre class="fragment">
+
+				<h3>Bitcoin wallet generation: the short way</h3>
+				<pre class="fragment"><code>Version = 1 byte of 0 (zero); on the test network, this is 1 byte of 111
+Key hash = Version concatenated with RIPEMD-160(SHA-256(public key))
+Checksum = 1st 4 bytes of SHA-256(SHA-256(Key hash))
+Bitcoin Address = Base58Encode(Key hash concatenated with Checksum)</code></pre>
+				<!-- <center><pre class="fragment">
 				<h4>
+				<p>fixear esa formula</p>
 				<code>base58encoding(sha256(sha256(IDByte + ripemd160(sha256((ECDSA PubKey))))))</code>
-				</h4></pre></center>
+				</h4></pre></center> -->
 			</section>
 			<section>
 
-				<h2>Algorithms & Hash Functions</h2>
+				<h2>Involved algorithms & hash Functions</h2>
 				<br/>
 				<ul>
 					<li class="fragment"><a href="https://en.bitcoin.it/wiki/ECDSA">Elliptic Curve DSA (ECDSA)</a></li>
@@ -199,32 +208,83 @@
 
 			<section>
 				<h2>Bitcoin Blockchain</h2>
+				<blockquote>&ldquo;A block chain is a transaction database shared by all nodes participating in a system based on the Bitcoin protocol. A full copy of a currency's block chain contains every transaction ever executed in the currency. With this information, one can find out how much value belonged to each address at any point in history.&rdquo;</blockquote>
+				<br/>
+				<h3 class="fragment">Great, but how does it work?</h3>
 			</section>
+
+
 
 			<section>
 				<h2>Blocks</h2>
-				<a href="https://en.bitcoin.it/wiki/Blocks">https://en.bitcoin.it/wiki/Blocks</a>
-				<a href="https://en.bitcoin.it/wiki/Block_hashing_algorithm">https://en.bitcoin.it/wiki/Block_hashing_algorithm</a>
+
+				<blockquote>
+					&ldquo;Data is permanently recorded in the Bitcoin network through files called blocks. A block is a record of some or all of the most recent Bitcoin transactions that have not yet been recorded in any prior blocks.&rdquo;
+				</blockquote>
+				<br/>
+				<h2>Structure</h2>
+				<img src="img/btc_blocks.png" height="164" width="688">
+				<br />
+				<br />
+				<h4>Let's take a closer look to a Blockheader field</h4>
+				<!-- <a href="https://en.bitcoin.it/wiki/Blocks">https://en.bitcoin.it/wiki/Blocks</a>
+				<a href="https://en.bitcoin.it/wiki/Block_hashing_algorithm">https://en.bitcoin.it/wiki/Block_hashing_algorithm</a> -->
 
 			</section>
 
 			<section>
-				<h2>Datos Curiosos sherrif blog: images/mensajes en blockchain</h2>
-				<a href="http://www.righto.com/2014/02/ascii-bernanke-wikileaks-photographs.html"></a>
+				<h2>Blockheader Structure</h2>
+				<img src="img/Blockheader.png" class="fragment">
+				<h4 class="fragment">Nonce</h4>
+				<blockquote class="fragment">
+					The "nonce" in a bitcoin block is a 32-bit (4-byte) field whose value is set so that the hash of the block will contain a run of zeros.
+				</blockquote>
+				<br/>
+				<h4 class="fragment">Merkle Trees</h4>
+				<blockquote class="fragment">
+					Merkle trees are binary trees of hashes. Merkle trees in bitcoin use a double SHA-256, the SHA-256 hash of the SHA-256 hash of something.
+				</blockquote>
+			</section>
 
+			<section>
+			<h2>An Example: The Genesis Block</h2>
+			<br />
+			<pre><code>GetHash()      = 0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
+hashMerkleRoot = 0x4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b
+txNew.vin[0].scriptSig     = 486604799 4 0x736B6E616220726F662074756F6C69616220646E6F63657320666F206B6E697262206E6F20726F6C6C65636E61684320393030322F6E614A2F33302073656D695420656854
+txNew.vout[0].nValue       = 5000000000
+txNew.vout[0].scriptPubKey = 0x5F1DF16B2B704C8A578D0BBAF74D385CDE12C11EE50455F3C438EF4C3FBCF649B6DE611FEAE06279A60939E028A8D65C10B73071A6F16719274855FEB0FD8A6704 OP_CHECKSIG
+block.nVersion = 1
+block.nTime    = 1231006505
+block.nBits    = 0x1d00ffff
+block.nNonce   = 2083236893
+
+CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=4a5e1e, nTime=1231006505, nBits=1d00ffff, nNonce=2083236893, vtx=1)
+  CTransaction(hash=4a5e1e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+    CTxIn(COutPoint(000000, -1), coinbase 04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73)
+    CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
+  vMerkleTree: 4a5e1e</code></pre>
+				<!-- <h2>Datos Curiosos sherrif blog: images/mensajes en blockchain</h2>
+				<a href="http://www.righto.com/2014/02/ascii-bernanke-wikileaks-photographs.html"></a>
+ -->
 			</section>
 		</section> <!-- Bitcoin Blockchain -->
 
 		<section>
 
 			<section>
-				<h2>Bitcoin Mining</h2>
-				<h2>Transactions</h2>
-				<a href="https://en.bitcoin.it/wiki/Transactions">https://en.bitcoin.it/wiki/Transactions</a>
+				<h2>Bitcoin Transactions</h2>
+
+				<blockquote>
+					A transaction is a signed section of data that is broadcast to the network and collected into blocks. It typically references previous transaction(s) and dedicates a certain number of bitcoins from it to one or more new public key(s) (Bitcoin address).
+				</blockquote>
+				<!-- <a href="https://en.bitcoin.it/wiki/Transactions">https://en.bitcoin.it/wiki/Transactions</a> -->
 
 			</section>
-
-		</section> <!-- Bitcoin Mining -->
+			<section>
+				<h2>Mining</h2>
+			</section> <!-- /mining -->
+		</section> <!-- Bitcoin transactions -->
 
 		<section>
 
