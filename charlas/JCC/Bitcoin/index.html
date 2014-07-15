@@ -121,7 +121,7 @@
 			</section>
 			<section>
 
-				<h2>Involved algorithms & hash Functions</h2>
+				<h2>Involved algorithms & hash functions</h2>
 				<br/>
 				<ul>
 					<li class="fragment"><a href="https://en.bitcoin.it/wiki/ECDSA">Elliptic Curve DSA (ECDSA)</a></li>
@@ -278,17 +278,59 @@ CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=
 
 			<section>
 				<h2>Bitcoin Transactions</h2>
-
+				<br />
 				<blockquote>
 					A transaction is a signed section of data that is broadcast to the network and collected into blocks. It typically references previous transaction(s) and dedicates a certain number of bitcoins from it to one or more new public key(s) (Bitcoin address).
 				</blockquote>
-				<!-- <a href="https://en.bitcoin.it/wiki/Transactions">https://en.bitcoin.it/wiki/Transactions</a> -->
+				<img src="img/transaction_visual.png">
+			</section>
+			<section>
+			<h2>General format of a Bitcoin transaction</h2>
+				<img src="img/transactions.png">
+				<h4>Example of a Bitcoin transaction with 1 input and 1 output only</h4>
+				<pre><code>
+					Input:
+					Previous tx: f5d8ee39a430901c91a5917b9f2dc19d6d1a0e9cea205b009ca73dd04470b9a6
+					Index: 0
+					scriptSig: 304502206e21798a42fae0e854281abd38bacd1aeed3ee3738d9e1446618c4571d10
+					90db022100e2ac980643b0b82c0e88ffdfec6b64e3e6ba35e7ba5fdd7d5d6cc8d25c6b241501
 
+					Output:
+					Value: 5000000000
+					scriptPubKey: OP_DUP OP_HASH160 404371705fa9bd789a2fcd52d2c580b65d35549d
+					OP_EQUALVERIFY OP_CHECKSIG
+				</code></pre>
 			</section>
 			<section>
 				<h2>Mining</h2>
+				<blockquote>
+					&ldquo; Mining is the process of adding transaction records to Bitcoin's public ledger of past transactions. This ledger of past transactions is called the block chain as it is a chain of blocks. The block chain serves to confirm transactions to the rest of the network as having taken place. Bitcoin nodes use the block chain to distinguish legitimate Bitcoin transactions from attempts to re-spend coins that have already been spent elsewhere.&rdquo;
+				</blockquote>
+				<br/>
+				<h4>A few keypoints</h4>
+				<ol>
+				<li class="fragment">The Computationally-Difficult Problem</li>
+				<li class="fragment">The Difficulty Metric</li>
+				<li class="fragment">Reward</li>
+
+				</ol>
 			</section> <!-- /mining -->
+			<section>
+				<h2>Difficulty</h2>
+				<ul>
+					<li class="fragment"><b>The Computationally-Difficult Problem</b>
+Mining a block is difficult because the SHA-256 hash of a block's header must be lower than or equal to the target in order for the block to be accepted by the network. This problem can be simplified for explanation purposes: The hash of a block must start with a certain number of zeros.</li>
+<br/>
+<li class="fragment"><b>The difficulty</b> is the measure of how difficult it is to find a new block compared to the easiest it can ever be. It is recalculated every 2016 blocks to a value such that the previous 2016 blocks would have been generated in exactly two weeks had everyone been mining at this difficulty. This will yield, on average, one block every ten minutes.</li>
+<br/>
+<li class="fragment"><b>Reward: </b>When a block is discovered, the discoverer may award themselves a certain number of bitcoins, which is agreed-upon by everyone in the network. Currently this bounty is 25 bitcoins; this value will halve every 210,000 blocks.
+Additionally, the miner is awarded the fees paid by users sending transactions.</li>
+				</ul>
+			</section>
 		</section> <!-- Bitcoin transactions -->
+		<section>
+			<h2>Sources:</h2>
+		</section>
 
 		<section>
 
