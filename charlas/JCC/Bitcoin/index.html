@@ -130,7 +130,7 @@
 			</section>
 			<section>
 
-				<h2>Involved algorithms & hash functions</h2>
+				<h2>Algoritmos y funciones de hashing involucradas</h2>
 				<br/>
 				<ul>
 					<li class="fragment"><a href="https://en.bitcoin.it/wiki/ECDSA">Elliptic Curve DSA (ECDSA)</a></li>
@@ -144,24 +144,24 @@
 			</section>
 
 			<section>
-				<h3>Ok cool, but how can we create our wallet addresses?</h3>
+				<h3>Generando una wallet: paso por paso</h3>
 
-				<p class="fragment">0 · Having a private ECDSA key
+				<p class="fragment">0 · Teniendo una clave ECDSA privada
 					<pre class="fragment"><code>18E14A7B6A307F426A94F8114701E7C8E774E7F9A47E2C2035DB29A206321725</code></pre>
 				</p>
 
 				<p class="fragment">
-					1 · Take the corresponding public key generated with it
+					1 · Usamos la clave pública correspondiente a esta última
 					<pre class="fragment"><code>0450863AD64A87AE8A2FE83C1AF1A8403CB53F53E486D8511DAD8A04887E5B23522CD470243453A299FA9E77237716103ABC11A1DF38855ED6F2EE187E9C582BA6</code></pre>
 				</p>
 
 				<p class="fragment">
-					2 · Perform SHA-256 hashing on the public key
+					2 · Aplicamos SHA-256 a dicha clave pública
 					<pre class="fragment"><code>600FFE422B4E00731A59557A5CCA46CC183944191006324A447BDB2D98D4B408</code></pre>
 
 				</p>
 				<p class="fragment">
-					3 · Perform RIPEMD-160 hashing on the result of SHA-256
+					3 · Al hash SHA256 resultante le aplicamos RIPEMD-160
 				<pre class="fragment"><code>010966776006953D5567439E5E39F86A0D273BEE</code></pre>
 
 				</p>
@@ -169,7 +169,6 @@
 					4 · Add version byte in front of RIPEMD-160 hash (0x00 for Main Network)
 					<pre class="fragment"><code>00010966776006953D5567439E5E39F86A0D273BEE</code></pre>
 				</p>
-				<h3 class="fragment">To be Continued ..</h3>
 
 			</section>
 
