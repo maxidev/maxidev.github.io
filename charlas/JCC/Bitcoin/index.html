@@ -144,14 +144,14 @@
 			</section>
 
 			<section>
-				<h3>Generando una wallet: paso por paso</h3>
+				<h3>Generando una wallet: paso a paso</h3>
 
 				<p class="fragment">0 · Teniendo una clave ECDSA privada
 					<pre class="fragment"><code>18E14A7B6A307F426A94F8114701E7C8E774E7F9A47E2C2035DB29A206321725</code></pre>
 				</p>
 
 				<p class="fragment">
-					1 · Usamos la clave pública correspondiente a esta última
+					1 · Usamos la clave pública correspondiente a esta
 					<pre class="fragment"><code>0450863AD64A87AE8A2FE83C1AF1A8403CB53F53E486D8511DAD8A04887E5B23522CD470243453A299FA9E77237716103ABC11A1DF38855ED6F2EE187E9C582BA6</code></pre>
 				</p>
 
@@ -166,37 +166,37 @@
 
 				</p>
 				<p class="fragment">
-					4 · Add version byte in front of RIPEMD-160 hash (0x00 for Main Network)
+					4 · Agregamos el byte de versión delante del hash RIPEMD-160 (0x00 Main Network)
 					<pre class="fragment"><code>00010966776006953D5567439E5E39F86A0D273BEE</code></pre>
 				</p>
 
 			</section>
 
 			<section>
-				<h3>Ok cool, but how can we create our wallet addresses?</h3>
+            <h3>Generando una wallet: paso a paso</h3>
 
 				<p class="fragment">
-				5 · Perform SHA-256 hash on the extended RIPEMD-160 result
+				5 · Apicamos SHA-256 al resultado de agregar el byte de versión al hash RIPEMD-160 resultante
 				<pre class="fragment"><code>445C7A8007A93D8733188288BB320A8FE2DEBD2AE1B47F0F50BC10BAE845C094</code></pre>
 				</p>
 
 				<p class="fragment">
-				6 · Perform SHA-256 hash on the result of the previous SHA-256 hash
+				6 · Aplicamos otra vez SHA256 al hash SHA256 anterior
 					<pre class="fragment"><code>D61967F63C7DD183914A4AE452C9F6AD5D462CE3D277798075B107615C1A8A30</code></pre>
 				</p>
 
 				<p class="fragment">
-				7 · Take the first 4 bytes of the second SHA-256 hash (Checksum)
+				7 · Del hash SHA256 anterior tomamos los primeros 4 bytes para checksum
 				<pre class="fragment"><code>D61967F6</code></pre>
 
 				</p>
 				<p class="fragment">
-				8 · Add the 4 checksum bytes from stage 7 at the end of extended RIPEMD-160 hash from stage 4. This is the 25-byte binary Bitcoin Address
+				8 · Agregamos los 4 bytes de checksum del paso anterior al hash RIPEMD-160 extendido por el byte de versión.
 					<pre class="fragment"><code>00010966776006953D5567439E5E39F86A0D273BEED61967F6</code></pre>
 				</p>
 
 				<p class="fragment">
-				9 · Convert the result from a byte string into a base58 string using Base58Check encoding
+				9 · Convertimos el resultado anterior (byte string) a una wallet Bitcoin utilizando Base58 encoding.
 					<pre class="fragment"><h2><code>      16UwLL9Risc3QfPqBUvKofHmBQ7wMtjvM</code></h2></pre>
 				</p>
 
@@ -204,9 +204,9 @@
 
 
 			<section>
-				<h2>Bitcoin Wallet Generation</h2>
-				<h4>Now, all of this looks really hard</h4>
-				<h4 class="fragment">That's when NodeJS came to the rescue</h4>
+				<h2>Generando Bitcoin wallets</h2>
+				<h4>La secuencia anterior puede resultar bastante larga y compleja </h4>
+				<h4 class="fragment">Ahora es cuando NodeJS viene a rescatarnos</h4>
 				<br />
 				<img src="img/nodejs.png" style="border: 0px;" class="fragment">
 				<br/>
