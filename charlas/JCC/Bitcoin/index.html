@@ -48,36 +48,26 @@
 			<h2>A cryptographical journey</h2>
 			<h4>by Maximiliano Cañellas</h4>
 		</section>
-
-			<section>
-
-				<h2>Sobre Mí:</h2>
-				<h4>Entrepreneur · Bitcoin Enthusiast · Security Consultant</h4>
-				<br/>
-
-				<h4>Actualmente</h4>
-
-				<ul>
-					<li>Developer [at] <a href="http://bitcharts.io" target="_blank">bitcharts.io</a></li>
-					<li>Security Consultant [at] <a href="http://sinapticasecurity.com" target="_blank">sinapticasecurity.com</a></li>
-					<li><a href="http://www.fceia.unr.edu.ar/lcc/">Computer Science</a> student</li>
-				</ul>
-				<br />
-				<br />
-
-			</section>
-
 		<section>
 
 			<section>
 
-				<h2> Bitcoin: Una breve introducción.</h2>
-				<ul>
-					<li>Paper <a href="https://bitcoin.org/bitcoin.pdf">Original</a></li>
+				<h2>Una (muy) breve introducción.</h2>
+				<ul class="fragment">
+					<li>Paper <a href="https://bitcoin.org/bitcoin.pdf">Original</a> (2008)</li>
+               <li>El primer software aparece en el 2009</li>
 					<li>Totalmente descentralizado</li>
 					<li>Privado (pseudo-anónimo)</li>
 					<li>Dificultad Adaptable</li>
+               <li>Deflacionario por diseño</li>
 				</ul>
+            <br/>
+            <br/>
+
+            <h3 class="fragment">Mis contribuciones:</h3>
+            <ul>
+               <li class="fragment"><a href="http://bitcharts.io">bitcharts.io</a></li>
+            </ul>
 
 			</section>
 
@@ -100,16 +90,16 @@
          <h2>Componentes principales</h2>
          <br/>
          <ul>
-            <li><h3>Wallets (Billeteras)</h3></li>
-            <li><h3>Transacciones (TXs)</h3></li>
-            <li><h3>Cadena de bloques (blockchain)</h3></li>
+            <li><h3>Wallets {billeteras}</h3></li>
+            <li><h3>Transacciones {TXs}</h3></li>
+            <li><h3>Cadena de bloques {blockchain}</h3></li>
          </ul>
       </section>
 
 		<section>
 
 			<section>
-				<h2>Bitcoin Wallets (billeteras): ¿Cómo se construyen?</h2>
+				<h2>Bitcoin Wallets {billeteras}: ¿Cómo se construyen?</h2>
 				<br />
 
 				<!-- <img src="img/address.png" style="border: 0px;"> -->
@@ -120,8 +110,8 @@
 				<br/>
 				<h3 class="fragment">Generación de wallets: formula resumida</h3>
 				<br/>
-				<h4 class="fragment">chk<sup>3</sup>(dsha256<sup>2</sup>(IDNet<sup>1</sup> + ripemd160(sha256(pKey)))))<p></p></h4>
-				<h4 class="fragment">Base58Encode(chk + ripemd160(sha256(pKey)))</h4>
+				<h4 class="fragment">chk<sup>3</sup>(dsha256<sup>2</sup>(IDNet<sup>1</sup> + ripemd160(sha256(pKey)))))
+				Base58Encode(chk + ripemd160(sha256(pKey)))</h4>
 
 				<br/>
 				<p class="fragment">[1] IDNet = Network Byte 0x00 for Main Network</p>
@@ -196,7 +186,7 @@
 				</p>
 
 				<p class="fragment">
-				9 · Convertimos el resultado anterior (byte string) a una wallet Bitcoin utilizando Base58 encoding.
+				9 · Convertimos el resultado anterior (byte array) a una wallet Bitcoin utilizando Base58 encoding.
 					<pre class="fragment"><h2><code>      16UwLL9Risc3QfPqBUvKofHmBQ7wMtjvM</code></h2></pre>
 				</p>
 
@@ -206,7 +196,7 @@
 			<section>
 				<h2>Generando Bitcoin wallets</h2>
 				<h4>La secuencia anterior puede resultar bastante larga y compleja </h4>
-				<h4 class="fragment">Ahora es cuando NodeJS viene a rescatarnos</h4>
+				<h4 class="fragment">w00t? Pero, no todo está perdido ..</h4>
 				<br />
 				<img src="img/nodejs.png" style="border: 0px;" class="fragment">
 				<br/>
@@ -216,7 +206,50 @@
 
 		</section> <!-- Bitcoin wallets -->
 
-		<section>
+      <section> <!-- Empieza Tx -->
+         <section>
+            <h2>Bitcoin Transactions</h2>
+
+            <blockquote>
+               A transaction is a signed section of data that is broadcast to the network and collected into blocks. It typically references previous transaction(s) and dedicates a certain number of bitcoins from it to one or more new public key(s) (Bitcoin address). - Pasar Español
+            </blockquote>
+            <br />
+
+            <!-- <img src="img/transaction_visual.png"> -->
+         </section>
+         <section>
+         <h2>Tipos de Transacciones</h2>
+         <ul class="fragment">
+            <li class="fragment grow highlight-green">Pay-to-Public-Key-Hash {P2PKH}</li>
+            <li>Public-key</li>
+            <li>Multi-signature {15 keys}</li>
+            <li>Pay-to-Script-Hash {P2SH}</li>
+            <li>Data Output {OP_RETURN}</li>
+         </ul>
+         <br/>
+         <br/>
+         <h3 class="fragment">Estructura de las transacciones</h3>
+         <img src="img/tx_format.png" class="fragment">
+         </section>
+         <section>
+         <h2>Inputs y Outputs de Transacciones</h2>
+
+         </section> <!-- in and out txs -->
+         <section>
+            <h2>Propagación de Transacciones</h2>
+            <h4>Tx messages: validaciones de clientes</h4>
+            <h4>Pool sin confirmar</h4>
+         </section>
+         <section>
+            <h2>Así se ve una transacción real</h2>
+         </section>
+         <section> <!-- Mining -->
+         <h2>Mining: Un tipo especial de TX</h2>
+         </section> <!-- /mining -->
+      </section> <!-- Bitcoin transactions -->
+
+
+		<section> <!-- Empieza Blockchain -->
 
 			<section>
 				<h2>Bitcoin Blockchain</h2>
@@ -276,69 +309,13 @@ CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=
 			</section>
 		</section> <!-- Bitcoin Blockchain -->
 
-		<section>
-
-			<section>
-				<h2>Bitcoin Transactions</h2>
-
-				<blockquote>
-					A transaction is a signed section of data that is broadcast to the network and collected into blocks. It typically references previous transaction(s) and dedicates a certain number of bitcoins from it to one or more new public key(s) (Bitcoin address).
-				</blockquote>
-				<br />
-
-				<img src="img/transaction_visual.png">
-			</section>
-			<section>
-			<h2>General format of a Bitcoin transaction</h2>
-				<img src="img/transactions.png">
-				<h4>Example of a Bitcoin transaction with 1 input and 1 output only</h4>
-				<pre><code>
-					Input:
-					Previous tx: f5d8ee39a430901c91a5917b9f2dc19d6d1a0e9cea205b009ca73dd04470b9a6
-					Index: 0
-					scriptSig: 304502206e21798a42fae0e854281abd38bacd1aeed3ee3738d9e1446618c4571d10
-					90db022100e2ac980643b0b82c0e88ffdfec6b64e3e6ba35e7ba5fdd7d5d6cc8d25c6b241501
-
-					Output:
-					Value: 5000000000
-					scriptPubKey: OP_DUP OP_HASH160 404371705fa9bd789a2fcd52d2c580b65d35549d
-					OP_EQUALVERIFY OP_CHECKSIG
-				</code></pre>
-			</section>
-			<section>
-				<h2>Mining</h2>
-				<blockquote>
-					&ldquo; Mining is the process of adding transaction records to Bitcoin's public ledger of past transactions. This ledger of past transactions is called the block chain as it is a chain of blocks. The block chain serves to confirm transactions to the rest of the network as having taken place. Bitcoin nodes use the block chain to distinguish legitimate Bitcoin transactions from attempts to re-spend coins that have already been spent elsewhere.&rdquo;
-				</blockquote>
-				<br/>
-				<h4>A few keypoints</h4>
-				<ol>
-				<li class="fragment">The Computationally-Difficult Problem</li>
-				<li class="fragment">The Difficulty Metric</li>
-				<li class="fragment">Reward</li>
-
-				</ol>
-			</section> <!-- /mining -->
-			<section>
-				<h2>Difficulty</h2>
-				<ul>
-					<li class="fragment"><b>The Computationally-Difficult Problem</b>
-Mining a block is difficult because the SHA-256 hash of a block's header must be lower than or equal to the target in order for the block to be accepted by the network. This problem can be simplified for explanation purposes: The hash of a block must start with a certain number of zeros.</li>
-<br/>
-<li class="fragment"><b>The difficulty</b> is the measure of how difficult it is to find a new block compared to the easiest it can ever be. It is recalculated every 2016 blocks to a value such that the previous 2016 blocks would have been generated in exactly two weeks had everyone been mining at this difficulty. This will yield, on average, one block every ten minutes.</li>
-<br/>
-<li class="fragment"><b>Reward: </b>When a block is discovered, the discoverer may award themselves a certain number of bitcoins, which is agreed-upon by everyone in the network. Currently this bounty is 25 bitcoins; this value will halve every 210,000 blocks.
-Additionally, the miner is awarded the fees paid by users sending transactions.</li>
-				</ul>
-			</section>
-		</section> <!-- Bitcoin transactions -->
-		<section>
+		<section> <!-- empieza sources -->
 			<h2>Sources</h2>
 
 			<ul>
+      <li><a href="http://shop.oreilly.com/product/0636920032281.do">Mastering Bitcoin: Andreas M. Antonopoulos. </a></li>
 		<li><a href="http://en.wikipedia.org/wiki/Bitcoin">en.wiki/bitcoin</a></li>
 		<li><a href="http://bitcoin.org">bitcoin.org</a></li>
-		<li><a href="http://marketbusinessnews.com/bitcoin/3668">marletbusinessnews.com/bitcoin</a></li>
 		<li><a href="http://google.com">google.com</a></li>
 			</ul>
 		</section>
@@ -347,13 +324,15 @@ Additionally, the miner is awarded the fees paid by users sending transactions.<
 
 			<section>
 
-				<h2>The End ;)</h2>
-				<h2>Questions?</h2>
+				<h2>¿Preguntas?</h2>
 				<br />
+            <h3>^_^</h3>
+            <br />
 				<br />
-				<h2>Contact Me:</h2>
+				<h3>Mis datos de contacto:</h3>
 				<ul>
-					<li>Email: <a href="#">maxi.canellas@gmail.com</a></li>
+            <h4>Maximiliano Cañellas</h4>
+               <li>Bio: <a href="https://maxidev.github.io" target="_blank">maxidev.github.io</a></li>
 					<li>Twitter: <a href="https://twitter.com/maxidev_" target="_blank">twitter.com/maxidev_</a></li>
 
 				</ul>
