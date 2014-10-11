@@ -75,12 +75,14 @@
 
 		</section> <!-- Bitcoin Intro -->
       <section>
-         <h2>Componentes principales</h2>
+      <h2>¿Cómo funciona?</h2>
+      <br/>
+         <h3 class="fragment">Componentes principales</h3>
          <br/>
          <ul>
-            <li><h3>Wallets {billeteras}</h3></li>
-            <li><h3>Transacciones {TXs}</h3></li>
-            <li><h3>Cadena de bloques {blockchain}</h3></li>
+            <li class="fragment"><h3>Wallets {billeteras}</h3></li>
+            <li class="fragment"><h3>Transacciones {TXs}</h3></li>
+            <li class="fragment"><h3>Cadena de bloques {blockchain}</h3></li>
          </ul>
       </section>
 
@@ -201,7 +203,8 @@
             <h2>Bitcoin Transactions</h2>
 
             <blockquote>
-               A transaction is a signed section of data that is broadcast to the network and collected into blocks. It typically references previous transaction(s) and dedicates a certain number of bitcoins from it to one or more new public key(s) (Bitcoin address). - Pasar Español
+               <!-- A transaction is a signed section of data that is broadcast to the network and collected into blocks. It typically references previous transaction(s) and dedicates a certain number of bitcoins from it to one or more new public key(s) (Bitcoin address). - Pasar Español -->
+               Una transacción es el proceso mediante el cual, cantidades de Bitcoin o sus fracciones pasan de ser propiedad de una wallet (billetera) a otra, mediante una serie de procesos algorítmicos bla bla
             </blockquote>
             <br />
 
@@ -222,9 +225,20 @@
          <img src="img/tx_format.png" class="fragment">
          </section>
          <section>
-         <h2>Inputs y Outputs de Transacciones</h2>
-
+         <h2>Transacciones: Input & Outputs</h2>
+         <h4>En Bitcoin no existe un "balance de cuenta"</h4>
+         <blockquote>
+         Outputs: Toda transacción Bitcoin genera Outputs, practicamente todos estos crean fracciones transferibles de Bitcoin llamados UTXO (Unspent Transaction Output).
+         Enviarle Bitcoins a alguien es, básicamente, crear un UTXO asignado a su dirección (wallet)</blockquote>
+         <br/>
+         <blockquote>
+            Inputs: Son, básicamente, punteros a UTXOs
+         </blockquote>
          </section> <!-- in and out txs -->
+         <section>
+            <h2>UTXOs</h2>
+            <img src="img/utxo_structure.jpg">
+         </section>
          <section>
             <h2>Propagación de Transacciones</h2>
             <h4>Tx messages: validaciones de clientes</h4>
