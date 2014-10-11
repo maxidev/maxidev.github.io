@@ -201,14 +201,13 @@
       <section> <!-- Empieza Tx -->
          <section>
             <h2>Bitcoin Transactions</h2>
-
+            <br/>
             <blockquote>
                <!-- A transaction is a signed section of data that is broadcast to the network and collected into blocks. It typically references previous transaction(s) and dedicates a certain number of bitcoins from it to one or more new public key(s) (Bitcoin address). - Pasar Español -->
-               Una transacción es el proceso mediante el cual, cantidades de Bitcoin o sus fracciones pasan de ser propiedad de una wallet (billetera) a otra, mediante una serie de procesos algorítmicos bla bla
+               Una transacción es el proceso mediante el cual, cantidades de Bitcoin o sus fracciones pasan de ser propiedad de una wallet (billetera) a otra, mediante una serie de pasos definidos en el protcolo.
             </blockquote>
             <br />
 
-            <!-- <img src="img/transaction_visual.png"> -->
          </section>
          <section>
          <h2>Tipos de Transacciones</h2>
@@ -227,6 +226,7 @@
          <section>
          <h2>Transacciones: Input & Outputs</h2>
          <h4>En Bitcoin no existe un "balance de cuenta"</h4>
+         <br/>
          <blockquote>
          Outputs: Toda transacción Bitcoin genera Outputs, practicamente todos estos crean fracciones transferibles de Bitcoin llamados UTXO (Unspent Transaction Output).
          Enviarle Bitcoins a alguien es, básicamente, crear un UTXO asignado a su dirección (wallet)</blockquote>
@@ -238,6 +238,25 @@
          <section>
             <h2>UTXOs</h2>
             <img src="img/utxo_structure.jpg">
+            <br/>
+            <br/>
+            <h4>La estructura de los UTXOs tiene dos componentes fundamentales:</h4>
+            <br/>
+            <ul>
+               <li>La cantidad de Bitcoin(s) a "transferir"</li>
+               <li>El <i>lockingScript</i> a satisfacer para poder realizar .. </li>
+            </ul>
+         </section>
+         <section>
+            <h2>Ejemplo de lockingScript</h2>
+            <br/>
+            <p>Un lockingScript tiene el siguiente formato:</p>
+            <blockquote>OP_DUP OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote>
+            <p>Y el unlockingScript que lo satisface en este caso {P2PKH} sería:</p>
+            <blockquote> «Private Signature» «Public Key»</blockquote>
+            <p>La combinación de estos dos </p>
+            <blockquote>«Private Signature» «Public Key» OP_DUP OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote>
+            <p>Si la combinación de escript produce «True» como resultado, la transacción es validad, de lo contrarió arrojará «False» y está será inválida.</p>
          </section>
          <section>
             <h2>Propagación de Transacciones</h2>
@@ -247,9 +266,7 @@
          <section>
             <h2>Así se ve una transacción real</h2>
          </section>
-         <section> <!-- Mining -->
-         <h2>Mining: Una operación especial</h2>
-         </section> <!-- /mining -->
+
       </section> <!-- Bitcoin transactions -->
 
 
