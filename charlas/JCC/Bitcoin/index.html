@@ -93,9 +93,8 @@
 				<br />
 
 				<!-- <img src="img/address.png" style="border: 0px;"> -->
-				<h3 class="fragment grow"><a href="https://blockchain.info/address/1HLoD9E4SDFFPDiYfNYnkBLQ85Y51J3Zb1" target="_blank">1HLoD9E4SDFFPDiYfNYnkBLQ85Y51J3Zb1</a></h3>
+				<h3 class="fragment grow"><a href="https://blockchain.info/address/16UwLL9Risc3QfPqBUvKofHmBQ7wMtjvM" target="_blank">16UwLL9Risc3QfPqBUvKofHmBQ7wMtjvM</a></h3>
 
-				<p class="fragment">Esta dirección probablemente pertenece a Satohi Nakamoto</p>
 
 				<br/>
 				<h3 class="fragment">Generación de wallets: formula resumida</h3>
@@ -188,7 +187,7 @@
 			<section>
 				<h2>Generando Bitcoin wallets</h2>
 				<h4>La secuencia anterior puede resultar bastante larga y compleja </h4>
-				<h4 class="fragment">Pero, no todo está perdido ..</h4>
+				<h4 class="fragment">Pero, en la práctica, todo esto es mucho más sencillo</h4>
 				<br />
 				<img src="img/nodejs.png" style="border: 0px;" class="fragment">
 				<br/>
@@ -203,11 +202,19 @@
             <h2>Transacciones Bitcoin</h2>
             <br/>
             <blockquote>
-               <!-- A transaction is a signed section of data that is broadcast to the network and collected into blocks. It typically references previous transaction(s) and dedicates a certain number of bitcoins from it to one or more new public key(s) (Bitcoin address). - Pasar Español -->
                Una transacción es el proceso mediante el cual, cantidades de Bitcoin o sus fracciones pasan de ser propiedad de una wallet (billetera) a otra, mediante una serie de reglas definidas en el protocolo.
             </blockquote>
             <br />
-
+            <h4>Estas reglas son controladas por un lenguaje de Script exclusivo de Bitcoin</h4>
+            <h4>Algunos de los operadores importantes de este lenguaje:</h4>
+            <ul>
+               <li>OP_HASH160</li>
+               <li>OP_EQUAL</li>
+               <li>OP_CHECKSIG</li>
+            </ul>
+            <br/>
+            <br/>
+            <a href="https://en.bitcoin.it/wiki/Script">Lenguaje Completo</a>
          </section>
          <section>
          <h2>Tipos de Transacciones</h2>
@@ -251,12 +258,11 @@
             <h2>Ejemplo de lockingScript</h2>
             <br/>
             <p>Un lockingScript tiene el siguiente formato:</p>
-            <blockquote>OP_DUP OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote>
+            <blockquote>OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote>
             <p>Y el unlockingScript que lo satisface en este caso {P2PKH} sería:</p>
             <blockquote> «Private Signature» «Public Key»</blockquote>
-            <p>La combinación de estos dos </p>
-            <blockquote>«Private Signature» «Public Key» OP_DUP OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote>
-            <p>Si la combinación de escript produce «True» como resultado, la transacción es validad, de lo contrarió arrojará «False» y está será inválida.</p>
+           <!--  <blockquote>«Private Signature» «Public Key» OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote> -->
+            <p>Si la combinación de escript produce «True» como resultado, la transacción es valida, de lo contrarió arrojará «False» y esta será inválida.</p>
          </section>
          <section>
             <h2>Así se ve una transacción real:</h2>
@@ -283,20 +289,20 @@
 
 			<section>
 				<h2>Bitcoin Blockchain</h2>
-				<blockquote>&ldquo;A block chain is a transaction database shared by all nodes participating in a system based on the Bitcoin protocol. A full copy of a currency's block chain contains every transaction ever executed in the currency. With this information, one can find out how much value belonged to each address at any point in history.&rdquo;</blockquote>
+				<blockquote>"La cadena de bloques {blockchain} es una base de datos que contiene todas las transacciones realizadas hasta la actualizad, la cual es compartida por todos los nodos que participan en la red del protocolo Bitcoin. Una copia completa de la cadena de bloques contiene toda transacción realizada desde su creación."</blockquote>
 				<br/>
-				<h3 class="fragment">Great, but how does it work?</h3>
+				<h3 class="fragment">Pero .. ¿cómo funciona?</h3>
 			</section>
 
 			<section>
-				<h2>Blocks</h2>
+				<h2>Bloques</h2>
 
 				<blockquote>
-					&ldquo;Data is permanently recorded in the Bitcoin network through files called blocks. A block is a record of some or all of the most recent Bitcoin transactions that have not yet been recorded in any prior blocks.&rdquo;
+					 Los datos de las transacciones son guardados a través de archivos llamados "bloques". Un bloque es un registro de todas las transacciones Bitcon recientes que no han sido registradas en ningún bloque previo.
 				</blockquote>
 				<br/>
-				<h2>Structure</h2>
-				<img src="img/btc_blocks.png" height="164" width="688">
+				<h2>Estructura</h2>
+				<img src="img/block_structure.jpg" height="164" width="688">
 				<br />
 				<br />
 				<h4>Let's take a closer look to a Blockheader field</h4>
