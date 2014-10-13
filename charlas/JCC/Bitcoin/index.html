@@ -177,7 +177,6 @@
 
 				<p class="fragment">
 				9 · Convertimos el resultado anterior (byte array) a una wallet Bitcoin utilizando Base58 encoding.
-					<!-- <pre class="fragment"><h2><code>      16UwLL9Risc3QfPqBUvKofHmBQ7wMtjvM</code></h2></pre> -->
                <h3 class="fragment"><p class="fragment grow">16UwLL9Risc3QfPqBUvKofHmBQ7wMtjvM</p></h3>
 				</p>
 
@@ -187,7 +186,7 @@
 			<section>
 				<h2>Generando Bitcoin wallets</h2>
 				<h4>La secuencia anterior puede resultar bastante larga y compleja </h4>
-				<h4 class="fragment">Pero, en la práctica, todo esto es mucho más sencillo</h4>
+				<h4 class="fragment">Pero, en la práctica, resulta mucho más sencillo</h4>
 				<br />
 				<img src="img/nodejs.png" style="border: 0px;" class="fragment">
 				<br/>
@@ -202,10 +201,10 @@
             <h2>Transacciones Bitcoin</h2>
             <br/>
             <blockquote>
-               Una transacción es el proceso mediante el cual, cantidades de Bitcoin o sus fracciones pasan de ser propiedad de una wallet (billetera) a otra, mediante una serie de reglas definidas en el protocolo.
+               Una transacción es el proceso mediante el cual, cantidades de Bitcoin o sus fracciones pasan de ser propiedad de una wallet {persona} a otra, mediante una serie de reglas definidas en el protocolo.
             </blockquote>
             <br />
-            <h4>Estas reglas son controladas por un lenguaje de Script exclusivo de Bitcoin</h4>
+            <h4>Algunas de estas reglas son controladas por un lenguaje de Script exclusivo de Bitcoin</h4>
             <h4>Algunos de los operadores importantes de este lenguaje:</h4>
             <ul>
                <li>OP_HASH160</li>
@@ -235,15 +234,15 @@
          <h4>En Bitcoin no existe un "balance de cuenta"</h4>
          <br/>
          <blockquote>
-         Outputs: Toda transacción Bitcoin genera Outputs, practicamente todos estos crean fracciones transferibles de Bitcoin llamados UTXO (Unspent Transaction Output).
-         Enviarle Bitcoins a alguien es, básicamente, crear un UTXO asignado a su dirección (wallet)</blockquote>
+         Outputs: Practicamente todas las transacciones crean fracciones transferibles de Bitcoin también llamados UTXOs (Unspent Transaction Output).
+         Enviar Bitcoins a alguien es, esencialmente, crear un UTXO asignado a su dirección {wallet}</blockquote>
          <br/>
          <blockquote>
             Inputs: Son, básicamente, punteros a UTXOs
          </blockquote>
          </section> <!-- in and out txs -->
          <section>
-            <h2>UTXOs</h2>
+            <h2>Unspent Transaction Outoputs {UTXOs}</h2>
             <img src="img/utxo_structure.jpg">
             <br/>
             <br/>
@@ -251,7 +250,7 @@
             <br/>
             <ul>
                <li>La cantidad de Bitcoin(s) a "transferir"</li>
-               <li>El <i>lockingScript</i> a que especifica las condiciones necesarias para poder "desbloquear" el monto asignado (REVISAR ESTO)</li>
+               <li>El <i>lockingScript</i> a que especifica las condiciones a satisfacer para poder volver a hacer uso del monto transferido previamente.</li>
             </ul>
          </section>
          <section>
@@ -289,7 +288,7 @@
 
 			<section>
 				<h2>Bitcoin Blockchain</h2>
-				<blockquote>"La cadena de bloques {blockchain} es una base de datos que contiene todas las transacciones realizadas hasta la actualizad, la cual es compartida por todos los nodos que participan en la red del protocolo Bitcoin. Una copia completa de la cadena de bloques contiene toda transacción realizada desde su creación."</blockquote>
+				<blockquote>"La cadena de bloques {blockchain} es una base de datos que contiene todas las transacciones realizadas hasta la actualidad, la cual es compartida por todos los nodos que participan en la red del protocolo Bitcoin. Una copia completa de la cadena de bloques contiene toda transacción realizada desde su creación."</blockquote>
 				<br/>
 				<h3 class="fragment">Pero .. ¿cómo funciona?</h3>
 			</section>
@@ -312,15 +311,21 @@
 			<section>
 				<h2>Estructura del blockheader</h2>
 				<img src="img/blockheader_structure.jpg" class="fragment">
-				<h4 class="fragment">Nonce</h4>
-				<blockquote class="fragment">
+            <h4 class="fragment">Campos de especial importancia:</h4>
+            <ul class="fragment">
+               <li>Difficulty Target</li>
+               <li>Nonce</li>
+            </ul>
+            <br/>
+            <br/>
+            <h3 class="fragment">¿Cómo se construye un bloque?</h3>
+            <h4 class="fragment">Mediante un proceso conocido como "Bitcoin Mining"</h4>
+
+			<!-- 	<h4 class="fragment">Nonce</h4>
+            <blockquote class="fragment">
 					The "nonce" in a bitcoin block is a 32-bit (4-byte) field whose value is set so that the hash of the block will contain a run of zeros.
-				</blockquote>
+				</blockquote> -->
 				<br/>
-				<h4 class="fragment">Merkle Trees</h4>
-				<blockquote class="fragment">
-					Merkle trees are binary trees of hashes. Merkle trees in bitcoin use a double SHA-256, the SHA-256 hash of the SHA-256 hash of something.
-				</blockquote>
 			</section>
 
          <section>
@@ -352,13 +357,15 @@ CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=
 
       <section>
          <h2>Datos Interesantes:</h2>
+         <br/>
          <ul>
-            <li>El reward de los miners por encontrar un bloque asldasd</li>
-            <li>La emisión de Bitcoins se acaba en el año 2140</li>
+
+            <li>La emisión de Bitcoins se termina en el año 2140</li>
             <li>Un bloque se genera aproximadamente cada 10 minutos</li>
-            <li>Dentro de esos bloques se incluyen al-rededor 500 transacciones</li>
-            <li>reward 25 ahora y baja bla bla</li>
-            <li>El protocolo ajusta la dificultad para entcontrar los bloques en función del podér de hashing del hardware </li>
+            <li>Recibir "una confirmación" en una transacción es que el sistema descubra y apile un nuevo bloque sobre el cual está incluída dicha transacción</li>
+            <li>Dentro de los bloques se incluyen al rededor 500 transacciones</li>
+            <li>Actualmente el proceso de mining premia al miner con 25 BTC</li>
+
          </ul>
       </section>
       <section>
@@ -367,9 +374,9 @@ CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=
          <ul>
       <li><a href="http://shop.oreilly.com/product/0636920032281.do">Mastering Bitcoin</a></li>
       <li><a href="http://en.wikipedia.org/wiki/Bitcoin">en.wiki/bitcoin</a></li>
+      <li><a href="http://bitcoinjs.org/">BitcoinJS</a></li>
       <li><a href="http://bitcoin.org">bitcoin.org</a></li>
       <li><a href="http://google.com">google.com</a></li>
-      <li><a href="http://bitcoinjs.org/">BitcoinJS</a></li>
          </ul>
       </section>
 
