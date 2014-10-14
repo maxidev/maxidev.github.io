@@ -57,9 +57,9 @@
             <br/>
 				<ul class="fragment">
               <li>Moneda «digital»</li>
-              <li>Creada por Satoshi Nakamoto {<a href="https://bitcoin.org/bitcoin.pdf">Paper</a>}</li>
+              <li>Creada por Satoshi Nakamoto en 2008 {<a href="https://bitcoin.org/bitcoin.pdf">Paper</a>}</li>
 					<li>Totalmente descentralizado {red P2P}</li>
-					<li>Privado</li>
+					<li>Anónimo</li>
                <li>Deflacionario por diseño</li>
 				</ul>
             <br/>
@@ -91,7 +91,6 @@
 				<h2>Bitcoin Wallets {billeteras}: ¿Cómo se construyen?</h2>
 				<br />
 
-				<!-- <img src="img/address.png" style="border: 0px;"> -->
 				<h3 class="fragment grow"><a href="https://blockchain.info/address/16UwLL9Risc3QfPqBUvKofHmBQ7wMtjvM" target="_blank">16UwLL9Risc3QfPqBUvKofHmBQ7wMtjvM</a></h3>
 
 
@@ -100,22 +99,17 @@
 				<br/>
 				<h4 class="fragment">chk<sup>3</sup>(dsha256<sup>2</sup>(IDNet<sup>1</sup> + ripemd160(sha256(pKey)))))
 				Base58Encode(chk + ripemd160(sha256(pKey)))</h4>
-
-				<!-- <br/>
-				<p class="fragment">[1] IDNet = Network Byte 0x00 for Main Network</p>
-				<p class="fragment">[2] dsha256 = sha256(sha256(p))</p>
-				<p class="fragment">[3] chk = checksum (first 4 bytes of dsha256)</p> -->
             <br/>
-            <h1 class="fragment">w00t?</h1>
+            <h1 class="fragment">wtf?</h1>
 			</section>
 			<section>
 
 				<h2>Algoritmos y funciones de hashing involucradas</h2>
 				<br/>
 				<ul>
-					<li class="fragment"><a href="https://en.bitcoin.it/wiki/ECDSA">Elliptic Curve DSA (ECDSA)</a></li>
-					<li class="fragment"><a href="http://en.wikipedia.org/wiki/SHA-2">SHA-256</a></li>
-					<li class="fragment"><a href="http://en.wikipedia.org/wiki/RIPEMD">RIPEMD-160</a></li>
+					<li class="fragment">Cripto asimétrica <a href="https://en.bitcoin.it/wiki/ECDSA">Elliptic Curve DSA (ECDSA)</a></li>
+					<li class="fragment">Función de hashing <a href="http://en.wikipedia.org/wiki/SHA-2">SHA-256</a></li>
+					<li class="fragment">Función de hashing <a href="http://en.wikipedia.org/wiki/RIPEMD">RIPEMD-160</a></li>
 					<li class="fragment"><a href="https://en.bitcoin.it/wiki/Base58Check_encoding">Base58 Encoding</a></li>
 
 				</ul>
@@ -241,7 +235,7 @@
          </blockquote>
          </section> <!-- in and out txs -->
          <section>
-            <h2>Unspent Transaction Outoputs {UTXOs}</h2>
+            <h2>Unspent Transaction Outputs {UTXOs}</h2>
             <img src="img/utxo_structure.jpg">
             <br/>
             <br/>
