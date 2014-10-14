@@ -59,8 +59,7 @@
               <li>Moneda «digital»</li>
               <li>Creada por Satoshi Nakamoto {<a href="https://bitcoin.org/bitcoin.pdf">Paper</a>}</li>
 					<li>Totalmente descentralizado {red P2P}</li>
-					<li>Privado {pseudo-anónimo}</li>
-					<li>Dificultad Adaptable</li>
+					<li>Privado</li>
                <li>Deflacionario por diseño</li>
 				</ul>
             <br/>
@@ -258,10 +257,17 @@
             <br/>
             <p>Un lockingScript tiene el siguiente formato:</p>
             <blockquote>OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote>
+            <br/>
             <p>Y el unlockingScript que lo satisface en este caso {P2PKH} sería:</p>
             <blockquote> «Private Signature» «Public Key»</blockquote>
-           <!--  <blockquote>«Private Signature» «Public Key» OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote> -->
-            <p>Si la combinación de escript produce «True» como resultado, la transacción es valida, de lo contrarió arrojará «False» y esta será inválida.</p>
+            <br/>
+            <p>El Script de locking/unlocking completo:</p>
+            <blockquote>«Private Signature» «Public Key» OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote>
+            <br/>
+            <p>
+               True => TX válida <br/>
+               False => TX inválida
+            </p>
          </section>
          <section>
             <h2>Así se ve una transacción real:</h2>
@@ -313,8 +319,8 @@
 				<img src="img/blockheader_structure.jpg" class="fragment">
             <h4 class="fragment">Campos de especial importancia:</h4>
             <ul class="fragment">
-               <li>Difficulty Target</li>
-               <li>Nonce</li>
+               <li>Difficulty Target: </li>
+               <li>Nonce: {Number used Once}</li>
             </ul>
             <br/>
             <br/>
