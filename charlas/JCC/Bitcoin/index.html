@@ -320,34 +320,15 @@
          <section>
             <h2> El proceso de Mining</h2>
             <a href="https://lh5.googleusercontent.com/-ZlySzt0yUA4/Uwgj0uEaIxI/AAAAAAAAWkM/xDazaTmKQgA/s2048/block-diagram-ghash.png" class="fragment"><img src="img/btc_mining.png"></a>
-            <ul>
+            <ul class="fragment">
                <li>Bits: Dificultad </li>
                <li>Nonce: Number used Once</li>
             </ul>
             <h4 class="fragment">SHA256(blockheader(nonce)) <= dificultad (Bits) = válido</h3>
-            <p>¿Qué gana el miner aportando todo este podér de cómputo?</p>
-            <h4>Bitcoins {coinbase transaction}</h4>
+            <p class="fragment">¿Qué gana el miner aportando todo este podér de cómputo?</p>
+            <h4 class="fragment">Bitcoins {coinbase transaction}</h4>
          </section>
-			<section>
-			<h2>Un ejemplo: El bloque génesis</h2>
-			<br />
-			<pre><code>GetHash()      = 0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f
-hashMerkleRoot = 0x4a5e1e4baab89f3a32518a88c31bc87f618f76673e2cc77ab2127b7afdeda33b
-txNew.vin[0].scriptSig     = 486604799 4 0x736B6E616220726F662074756F6C69616220646E6F63657320666F206B6E697262206E6F20726F6C6C65636E61684320393030322F6E614A2F33302073656D695420656854
-txNew.vout[0].nValue       = 5000000000
-txNew.vout[0].scriptPubKey = 0x5F1DF16B2B704C8A578D0BBAF74D385CDE12C11EE50455F3C438EF4C3FBCF649B6DE611FEAE06279A60939E028A8D65C10B73071A6F16719274855FEB0FD8A6704 OP_CHECKSIG
-block.nVersion = 1
-block.nTime    = 1231006505
-block.nBits    = 0x1d00ffff
-block.nNonce   = 2083236893
 
-CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=4a5e1e, nTime=1231006505, nBits=1d00ffff, nNonce=2083236893, vtx=1)
-  CTransaction(hash=4a5e1e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-    CTxIn(COutPoint(000000, -1), coinbase 04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73)
-    CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
-  vMerkleTree: 4a5e1e</code></pre>
-
-			</section>
 		</section> <!-- Bitcoin Blockchain -->
 
 		<section> <!-- empieza sources -->
@@ -358,10 +339,10 @@ CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=
          <ul>
 
             <li>Un bloque se genera aproximadamente cada 10 minutos</li>
+            <li>Dentro de los bloques se incluyen al rededor 500 transacciones</li>
             <li>La dificultad de mining se reajusta cada 2016 bloques (2 semanas aprox.)</li>
             <li>La emisión de Bitcoins se termina en el año 2140</li>
             <li>Recibir "una confirmación" en una transacción es que el sistema descubra y apile un nuevo bloque sobre el cual está incluída dicha transacción</li>
-            <li>Dentro de los bloques se incluyen al rededor 500 transacciones</li>
 
          </ul>
       </section>
