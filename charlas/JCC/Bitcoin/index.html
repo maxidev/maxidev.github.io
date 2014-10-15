@@ -260,7 +260,7 @@
             <p class="fragment">El Script de locking/unlocking completo:</p>
             <blockquote class="fragment">«Private Signature» «Public Key» OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote>
             <br/>
-            <p>
+            <p class="fragment">
                True => TX válida <br/>
                False => TX inválida
             </p>
@@ -320,8 +320,12 @@
          <section>
             <h2> El proceso de Mining</h2>
             <a href="https://lh5.googleusercontent.com/-ZlySzt0yUA4/Uwgj0uEaIxI/AAAAAAAAWkM/xDazaTmKQgA/s2048/block-diagram-ghash.png" class="fragment"><img src="img/btc_mining.png"></a>
-            <h3 class="fragment">Cálculo de mining:</h3>
-            <h3 class="fragment">SHA256(blockheader(nonce)) <= dificultad (Bits) = válido</h3>
+            <ul>
+               <li>Bits: Dificultad </li>
+               <li>Nonce: Number used Once</li>
+            </ul>
+            <p class="fragment">Cálculo de mining:</p>
+            <h4 class="fragment">SHA256(blockheader(n4nce)) <= dificultad (Bits) = válido</h3>
          </section>
 			<section>
 			<h2>Un ejemplo: El bloque génesis</h2>
@@ -353,10 +357,10 @@ CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=
          <ul>
 
             <li>Un bloque se genera aproximadamente cada 10 minutos</li>
+            <li>La dificultad de mining se reajusta cada 2016 bloques (2 semanas aprox.)</li>
             <li>La emisión de Bitcoins se termina en el año 2140</li>
             <li>Recibir "una confirmación" en una transacción es que el sistema descubra y apile un nuevo bloque sobre el cual está incluída dicha transacción</li>
             <li>Dentro de los bloques se incluyen al rededor 500 transacciones</li>
-            <li>La dificultad de mining se reajusta cada 2016 bloques (2 semanas aprox.)</li>
 
          </ul>
       </section>
