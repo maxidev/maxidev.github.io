@@ -203,6 +203,7 @@
             <ul class="fragment">
                <li>OP_EQUAL</li>
                <li>OP_CHECKSIG</li>
+               <li>OP_HASH160</li>
             </ul>
             <br/>
             <br/>
@@ -250,14 +251,14 @@
          <section>
             <h2>Ejemplo de lockingScript</h2>
             <br/>
-            <p>Un lockingScript tiene el siguiente formato:</p>
-            <blockquote>OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote>
+            <p class="fragment">Un lockingScript tiene el siguiente formato:</p>
+            <blockquote class="fragment">OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote>
             <br/>
-            <p>Y el unlockingScript que lo satisface en este caso {P2PKH} sería:</p>
-            <blockquote> «Private Signature» «Public Key»</blockquote>
+            <p class="fragment">Y el unlockingScript que lo satisface en este caso {P2PKH} sería:</p>
+            <blockquote class="fragment"> «Private Signature» «Public Key»</blockquote>
             <br/>
-            <p>El Script de locking/unlocking completo:</p>
-            <blockquote>«Private Signature» «Public Key» OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote>
+            <p class="fragment">El Script de locking/unlocking completo:</p>
+            <blockquote class="fragment">«Private Signature» «Public Key» OP_HASH160 «Public Key Hash» OP_EQUAL OP_CHECKSIG</blockquote>
             <br/>
             <p>
                True => TX válida <br/>
