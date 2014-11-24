@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Seguridad Web</title>
+
+		<meta name="author" content="Maximiliano Cañellas">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+<div class="reveal">
+
+	<div class="slides">
+		<section>
+			<h2>Seguridad Web</h2>
+			<h2>Clase: 1</h2>
+			<h3>Instituto Educación IT</h3>
+			<h3>Autor: Maximiliano Cañellas</h3>
+		</section>
+
+
+			<section>
+				<h2>About Me</h2>
+				<p>
+				Consultor en seguridad informática · developer · entrepreneur
+				</p>
+				<br />
+				<h3>Actualmente</h3>
+				<ul>
+				<li>Security Consultant [at] <a href="http://sinapticasecurity.com" target="_blank">sinapticasecurity.com</a> </li>
+				</ul>
+				<li>Developer [at] <a href="http://bitcharts.io" target="_blank">bitcharts.io</a>
+				</li>
+					<br />
+				<h4>Contactame:</h4>
+				<ul>
+					<li>Email: <a href="http://gmail.com" target="_blank">maxi.canellas@gmail.com</a></li>
+					<li>Twitter: <a href="http://twitter.com/maxidev_" target="_blank">@maxidev_</a></li>
+
+				</ul>
+			</section>
+
+
+
+
+		<section>
+
+		<section>
+			<h2> Sobre el curso</h2>
+			<h3 class="fragment">Módulo 1/4: Introducción a tecnologías Web </h3>
+			<h3 class="fragment">Temas:</h3>
+				<h4 class="fragment">
+            · Intro a software web
+            · Peticiones y respuestas HTTP
+            · Detección de teconologías usadas
+            · Aprendiendo a usar un Proxy local
+            · Owasp Top 10
+				</h4>
+		</section>
+
+		</section> <!-- sobre el curso -->
+
+      <section>
+               <section>
+               <h2>Entendiendo el stack</h2>
+               <img src="img/stack.png" style="border: 0px;" class="fragment">
+               <p class="fragment">Es importante diferenciar client side de server side</p>
+               <br/>
+               <h4 class="fragment">Nos tomamos un momento para entender estos conceptos </h4>
+               </section> <!-- software web -->
+
+               <section>
+                  <h2>Protocolo HTTP:<br/>un esquema simple</h2>
+                  <img src="img/HTTP_request.png" class="fragment">
+                  <br/>
+                  <p class="fragment">Veamos esto en tiempo real: http://ip/ </p>
+                  <br/>
+                  <p class="fragment">Software recomendado: <a href="https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm">POSTman</a></p>
+               </section>
+
+               <section>
+                  <h2>Protocolo HTTP: <br/> un esquema simple</h2>
+                  <p class="fragment">Lista de cabeceras HTTP: <a href="http://www.tutorialspoint.com/http/http_header_fields.htm">enlace</a></p>
+                  <br/>
+                  <p class="fragment">Es de especial importancia el header: host</p>
+               </section>
+      </section>
+
+      <section>
+         <h2>Detectando tecnologías web</h2>
+
+         <h4>Herramientas: </h4>
+         <ul>
+            <li>POSTman (otra vez)</li>
+            <li><a href="https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg?hl=es">Wappalyzer</a></li>
+            <li>WebProxy (ZAP/Burp)</li>
+         </ul>
+
+      </section>
+
+
+		<section>
+			<section id="fragments">
+			<h2>¿Qué es la criptografía?</h2>
+				<blockquote class="fragment">
+				La criptografía es la rama de la ciencia de la computación que se encarga de crear y generar las técnicas y algoritmos que utilizamos hoy en día para proteger nuestros datos, sistemas  y comunicaciones.
+				</blockquote>
+			<br />
+			<h3 class="fragment">Nos desviamos un instante<br/>
+			¿qué es un algoritmo?</h3>
+
+				<blockquote cite="http://es.wikipedia.org/wiki/Algoritmo" class="fragment">
+						&ldquo;Es un conjunto prescrito de instrucciones o reglas bien definidas, ordenadas y finitas que permite realizar una actividad mediante pasos sucesivos. Dados un estado inicial y una entrada, siguiendo los pasos sucesivos se llega a un estado final y se obtiene una solución.&rdquo;
+				</blockquote>
+
+			<h3 class="fragment">Ahora sí, veamos un poco de historia ..</h3>
+			</section>
+			<section>
+
+				<h2>Criptografía en la vida real</h2>
+				<h3 class="fragment">¿ejemplos? (sin importar el tipo)</h3>
+				<ol>
+					<li class="fragment">Cifrado/descifrado ZIP/RAR</li>
+					<li class="fragment">Login de usuarios</li>
+					<li class="fragment">Tráfico HTTPS/SSL / App Home Banking</li>
+					<li class="fragment">Redes Wireless WEP/WPA/WPA2</li>
+					<li class="fragment">¡BITCOIN!</li>
+					<li class="fragment">Y muchos más ..</li>
+				</ol>
+
+			</section>
+
+			<section>
+				<h2>Criptografía Simétrica</h2>
+				<h4 class="fragment">¿Qué es?</h4>
+				<blockquote cite="https://es.wikipedia.org/wiki/Criptograf%C3%ADa_sim%C3%A9trica" class="fragment">
+						&ldquo;La criptografía simétrica (en inglés symmetric key cryptography) o criptografía de una clave (en inglés single-key cryptography), es un método criptográfico en el cual se usa una misma clave para cifrar y descifrar mensajes. Las dos partes que se comunican han de ponerse de acuerdo de antemano sobre la clave a usar. Una vez que ambas partes tienen acceso a esta clave, el remitente cifra un mensaje usando la clave, lo envía al destinatario, y éste lo descifra con la misma clave.&rdquo;
+				</blockquote>
+
+				<br />
+				<h4 class="fragment">¿Cual es el componente principal de la criptografía simétrica?</h4>
+				<h4 class="fragment">Ventajas de la criptografía simétrica</h4>
+				<h4 class="fragment">¿Y desventas?</h4>
+			</section>
+			<section>
+				<h2>Algoritmos de criptografía simétrica</h2>
+				<h4 class="fragment">Algunos de los algoritmos más populares son:</h4>
+				<ol>
+				<li class="fragment">DES (Data Encryption Standard)</li>
+				<li class="fragment">3DES (Triple­DES)</li>
+				<li class="fragment">Blowfish</li>
+				<li class="fragment">IDEA (International Data Encryption Algorithm)</li>
+				<li class="fragment">RC4, RC5, y RC6</li>
+				<li class="fragment">AES (Advanced Encryption Standard)</li>
+				</ol>
+			</section>
+
+			<section>
+				<h2>¿Qué aspecto tiene un algoritmo simétrico?</h2>
+					<pre class="fragment"><code data-trim contentnoeditable>
+// Algoritmo AES en lenguaje C
+static void AESEncryptWithExpandedKey(Byte *Ciphertext, const Byte *Plaintext,
+	const AESData *ExpandedKey, long Nr)
+{
+	AESData State;
+
+	XorBlock(&State, (const AESData *) Plaintext, &ExpandedKey[0]);
+
+	{
+		const Word (*T)[256] = AESEncryptTable;
+
+		for (int round = 1; round < Nr; ++round)
+		{
+			const AESData *Key = &ExpandedKey[round];
+
+			const union { Word w; Byte b[4]; }
+				w0 = { State.w[0] },
+				w1 = { State.w[1] },
+				w2 = { State.w[2] },
+				w3 = { State.w[3] };
+
+			State.w[0] = Key->w[0]
+				^ T[0][w0.b[0]] ^ T[1][w1.b[1]] ^ T[2][w2.b[2]] ^ T[3][w3.b[3]];
+			State.w[1] = Key->w[1]
+				^ T[0][w1.b[0]] ^ T[1][w2.b[1]] ^ T[2][w3.b[2]] ^ T[3][w0.b[3]];
+			State.w[2] = Key->w[2]
+				^ T[0][w2.b[0]] ^ T[1][w3.b[1]] ^ T[2][w0.b[2]] ^ T[3][w1.b[3]];
+			State.w[3] = Key->w[3]
+				^ T[0][w3.b[0]] ^ T[1][w0.b[1]] ^ T[2][w1.b[2]] ^ T[3][w2.b[3]];
+		}
+	}
+
+	{
+		const Word (*T)[256] = AESSubBytesWordTable;
+
+		const AESData *Key = &ExpandedKey[Nr];
+
+		const union { Word w; Byte b[4]; }
+			w0 = { State.w[0] },
+			w1 = { State.w[1] },
+			w2 = { State.w[2] },
+			w3 = { State.w[3] };
+
+		State.w[0] = Key->w[0]
+			^ T[0][w0.b[0]] ^ T[1][w1.b[1]] ^ T[2][w2.b[2]] ^ T[3][w3.b[3]];
+		State.w[1] = Key->w[1]
+			^ T[0][w1.b[0]] ^ T[1][w2.b[1]] ^ T[2][w3.b[2]] ^ T[3][w0.b[3]];
+		State.w[2] = Key->w[2]
+			^ T[0][w2.b[0]] ^ T[1][w3.b[1]] ^ T[2][w0.b[2]] ^ T[3][w1.b[3]];
+		State.w[3] = Key->w[3]
+			^ T[0][w3.b[0]] ^ T[1][w0.b[1]] ^ T[2][w1.b[2]] ^ T[3][w2.b[3]];
+	}
+
+	* (AESData *) Ciphertext = State;
+}
+					</code></pre>
+			<h2 class="fragment">¡Y es solo la función que cifra! Complicado ¿no? </h2>
+			</section>
+
+			<section>
+			<h2>¿Y si intentamos hacer un algoritmo nosotros?</h2>
+			<h3 class="fragment">Un ejemplo de cifrado simple </h3>
+			<pre class="fragment"><code data-trim contentnoeditable>
+#Algoritmo de cifrado simple usando pseudo-Python
+def cifrar(clave, mensaje):
+	k = clave
+	mensaje = "HACKERS"
+	mensaje_cifrado = ("H"+k)+("A"+k)+("C"+k)+("K"+k)+("E"+k)+("R"+k)+("S"+k)
+	#Ahora mensaje_cifrado = "JCEMGTU"
+	return mensaje_cifrado
+
+def descifrar(clave, mensaje_cifrado):
+	k = clave
+	mensaje_cifrado = "JCEMGTU"
+	mensaje_descifrado = ("J"-k)+("C"-k)+("E"-k)+("M"-k)+("G"-k)+("T"-k)+("U"-k)
+	#Ahora mensaje_descifrado = "HACKERS"
+	return mensaje_descifrado
+
+> print cifrar(2, "HACKERS")
+> "JCEMGTU"
+> print descifrar(2, "JCEMGTU")
+> "HACKERS"
+			</code></pre>
+
+			<h2 class="fragment">¿Y si intentan los suyos?</h2>
+
+			</section>
+
+			<section>
+			<h1>¡NUNCA USEN ALGORITMOS PROPIOS EN PRODUCCIÓN!</h1>
+			<h3 class="fragment">¿Cómo se prueba la fortaleza de un algoritmo de cifrado simétrico?</h3>
+			<ol>
+				<li class="fragment">Atacando el algoritmo</li>
+				<li class="fragment">Haciendo fuerza bruta sobre la clave</li>
+			</ol>
+			</section>
+			<section>
+			<h2>La importancia de las claves: Una explicación aritmética · 1/4</h2>
+			<h3 class="fragment">¿Qué es un bit?</h3>
+			<blockquote class="fragment">Un bit es un dígito del sistema de numeración binario. Las unidades de almacenamiento tienen por símbolo bit. Mientras que en el sistema de numeración decimal se usan diez dígitos, en el binario se usan solo dos dígitos, el 0 y el 1. Un bit o dígito binario puede representar uno de esos dos valores: 0 o 1. Ocho bits equivalen a un byte.</blockquote>
+			<blockquote class="fragment">
+				En criptografía, una clave se compone de una larga secuencia de bits utilizado un algoritmo para cifrar o descifrar. Por ejemplo esto podría ser una clave hipotética de 40 bits (una secuencia de 40 dígitos de 0 y 1): 00001010 01101001 10011110 00011100 01010101
+			</blockquote>
+
+			</section>
+			<section>
+
+			<h2>La importancia de las claves: Una explicación aritmética · 2/4</h2>
+			<blockquote class="fragment">
+				En criptografía solo es posible romper un algoritmo criptográfico de dos formas. Una es atacando el algoritmo y la otra es probando con un ataque de fuerza bruta, utilizando una computadora, para probar todas las claves posibles.
+			</blockquote>
+			<blockquote class="fragment">
+				El cifrado con 2 bits tiene cuatro posibles resultados: 00, 01, 10 y 11. 3 bits tienen 8 posibles combinaciones, 4 bits tienen 16 posibles combinaciones, 5 bits tienen 32 posibles combinaciones y así sucesivamente ..
+			</blockquote>
+			<blockquote class="fragment">
+				Por lo tanto el crecimiento por cada bit que se añade a una clave es exponencial. Matemáticamente existen 2^n posibles valores para una clave de n bits. Cada vez que añadimos un bit se dobla el número de posibles claves.
+			</blockquote>
+			</section>
+			<section>
+			<h2>La importancia de las claves: Una explicación aritmética · 3/4</h2>
+			<blockquote class="fragment">
+				Una clave de 128 bits tiene: 340.282.366.920.938.463.463.374.607.431.768.211.456 posibles combinaciones. Son más de 340 millones de mil millones de mil millones de mil millones de combinaciones.
+			</blockquote>
+
+			<blockquote class="fragment">
+			Una clave de 128 bits equivale a 16 bytes. 16 bytes pueden representar 16 caracteres de nuestro abecedario u otros símbolos según la codificación (UTF, Base64, etc) que se use.
+			</blockquote>
+			</section>
+			<section>
+			<h2>La importancia de las claves: Una explicación aritmética · 4/4</h2>
+			<h4 class="fragment">¿Por qué se utilizan claves con más bits?</h4>
+			<blockquote class="fragment">
+				Si una clave tiene 128 bits existen 2^128 diferentes claves posibles. En promedio se deberán probar la mitad de las claves posibles (2^64) antes de que se encuentre la clave correcta.
+			</blockquote>
+
+			<blockquote class="fragment">
+			Una posible pregunta sería: ¿por qué no utilizar siempre claves de 256, 350 o 1024 bits? La respuesta es que tanto por razones de velocidad porque cuanto más larga sea la clave más se tarda en decodificar y sobre todo porque el objetivo de la criptografía es proteger información con claves lo más sencillas posibles, pero que sigan siendo seguras.
+			</blockquote>
+			<h4 class="fragment">¡Probemos la seguridad de nuestros passwords!</h4>
+			<a href="https://howsecureismypassword.net/" class="fragment" target="_blank">https://howsecureismypassword.net/</a>
+			</section>
+
+
+
+			</section>
+
+			</section>
+
+		</section> <!-- cierra criptografía -->
+		<section>
+		<h2>Herramientas que usamos en Seguridad Informática</h2>
+		<h3 class="fragment">Hoy vamos a aprender a usar: </h3>
+		<ul class="fragment">
+
+			<li><a href="https://howsecureismypassword.net/" target="_blank">howsecureismypassword.net</a></li>
+			<li><a href="https://www.passpack.com/online/" target="_blank">passpack.com/online</a></li>
+			<li>KeePassX</li>
+			<li>AxCrypt</li>
+			<li>TrueCrypt (Cifrado al vuelo)</li>
+		</ul>
+		</section>
+		<section>
+			<h2>¡Fin de la clase! :)</h2>
+			<h2>¿Dudas? ¿Preguntas?</h2>
+		</section>
+
+
+	</div> <!-- slides -->
+
+</div> <!-- reveal -->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
