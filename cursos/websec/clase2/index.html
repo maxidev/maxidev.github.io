@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Seguridad Web</title>
+
+		<meta name="author" content="Maximiliano Cañellas">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+<div class="reveal">
+
+	<div class="slides">
+		<section>
+			<h2>Seguridad Web</h2>
+			<h2>Clase: 2</h2>
+			<h3>Instituto Educación IT</h3>
+			<h3>Autor: Maximiliano Cañellas</h3>
+		</section>
+
+		<section>
+
+		<section>
+			<h2> Sobre el curso</h2>
+			<h3 class="fragment">Módulo 2/4: Cross Site Scripting </h3>
+			<h3 class="fragment">Temas:</h3>
+				<h4 class="fragment">
+            · Ataques XSS
+            · XSS reflejado y XSS persistente
+            · XSS DoS
+            · Contramedidas
+            · Algunas herramientas: BeEF, Nessus.
+				</h4>
+		</section>
+
+		</section> <!-- sobre el curso -->
+
+      <section>
+               <section>
+
+
+               <h2>Cross Siste Scripting (XSS)</h2>
+               <br/>
+               <blockquote class="fragment">XSS, del inglés Cross-site scripting es un tipo de ataque típico de las aplicaciones Web, que permite a una tercera parte inyectar en páginas  JavaScript</blockquote>
+               <br/>
+               <blockquote class="fragment">El Cross Site Scripting (XSS) es una de las vulnerabilidades más explotadas según OWASP (Open Web Application Security Project)</blockquote>
+               <br/>
+               <h4 class="fragment"><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">OWASP: XSS</a></h4>
+               </section> <!-- software web -->
+
+               <section>
+                  <h2>Tipos de XSS: reflejado</h2>
+                  <br/>
+
+                  <blockquote class="fragment">Los ataques de tipo XSS reflejado son también conocidos como de tipo 1 o no persistentes, y son los ataques más frecuentes de XSS en la actualidad.</blockquote>
+
+                  <br/>
+                  <blockquote class="fragment">Cuando una aplicación web es vulnerable a este tipo de ataque, la misma pasará datos de entrada no validados al
+                  cliente. El modo más común de operación de este ataque incluye un paso de diseño, en el cual el atacante crea y comprueba la URI vulnerable, un paso de ingenieria social, en el cual convence a sus víctimas de cargar esta URI en sus navegadores, y la eventual ejecución del código malicioso utilizando las credenciales de la víctima.
+                  </blockquote>
+
+
+               </section>
+
+               <section>
+                  <h2>XSS: un escenario clásico</h2>
+                  <br/>
+                  <h4 class="fragment">El escenario práctico es el siguiente:</h4>
+                  <br/>
+                  <ol>
+                     <li class="fragment">El atacante crea una URL con el código malicioso inyectado y la camufla</li>
+                     <li class="fragment">El atacante envía el enlace a la víctima</li>
+                     <li class="fragment">La víctima visita en enlace a la web vulnerable</li>
+                     <li class="fragment">El código malicioso es ejecutado por el navegador del usuario</li>
+                  </ol>
+               </section>
+
+
+               <section>
+                  <h2>XSS</h2>
+
+                  https://www.youtube.com/watch?v=B75FgRT2npc
+               </section>
+      </section>
+
+      <section>
+         <h2>Detectando tecnologías web</h2>
+
+         <h4>Herramientas: </h4>
+         <ul>
+            <li>POSTman (otra vez)</li>
+            <li><a href="https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg?hl=es">Wappalyzer</a></li>
+            <li>WebProxy (ZAP/Burp)</li>
+         </ul>
+
+      </section>
+
+      <section>
+         <h2>Usando un proxy local</h2>
+         <ul>
+            <li><a href="http://portswigger.net/burp/download.html">Burp Suite</a></li>
+            <li><a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">Zap Proxy</a></li>
+         </ul>
+      </section>
+
+      <section>
+         <h2>OWASP Top 10 </h2>
+         <br/>
+         <ol>
+            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A1-Injection">Injection</a></li>
+            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A2-Broken_Authentication_and_Session_Management">Broken Authentication and Session Management</a></li>
+            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A3-Cross-Site_Scripting_(XSS)">XSS</a></li>
+            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References">Insecure Direct Object References</a></li>
+            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A5-Security_Misconfiguration">Security misconfiguration</a></li>
+            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure">Sensitive data exposure</a></li>
+            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A7-Missing_Function_Level_Access_Control">Missing Function Level Access Control</a></li>
+            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)">CSRF</a></li>
+            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A9-Using_Components_with_Known_Vulnerabilities">Using Components with Known Vulnerabilities</a></li>
+            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A10-Unvalidated_Redirects_and_Forwards">Unvalidated Redirects and Forwards</a></li>
+         </ol>
+      </section>
+      <section>
+         <h2>¡Fin de la clase! :)</h2>
+         <h2>¿Dudas? ¿Preguntas?</h2>
+      </section>
+	</div> <!-- slides -->
+
+</div> <!-- reveal -->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
