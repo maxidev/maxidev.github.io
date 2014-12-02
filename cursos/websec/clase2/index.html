@@ -76,34 +76,34 @@
                <h4 class="fragment"><a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">OWASP: XSS</a></h4>
                </section> <!-- software web -->
 
-               <section>
-                  <h2>Tipos de XSS: reflejado</h2>
-                  <br/>
-
-                  <blockquote class="fragment">Los ataques de tipo XSS reflejado son también conocidos como de tipo 1 o no persistentes, y son los ataques más frecuentes de XSS en la actualidad.</blockquote>
-
-                  <br/>
-                  <blockquote class="fragment">Cuando una aplicación web es vulnerable a este tipo de ataque, la misma pasará datos de entrada no validados al
-                  cliente. El modo más común de operación de este ataque incluye un paso de diseño, en el cual el atacante crea y comprueba la URI vulnerable, un paso de ingenieria social, en el cual convence a sus víctimas de cargar esta URI en sus navegadores, y la eventual ejecución del código malicioso utilizando las credenciales de la víctima.
-                  </blockquote>
-
-
-               </section>
-
-               <section>
-                  <h2>XSS: un escenario clásico</h2>
-                  <br/>
-                  <h4 class="fragment">El escenario práctico es el siguiente:</h4>
-                  <br/>
-                  <ol>
-                     <li class="fragment">El atacante crea una URL con el código malicioso inyectado y la camufla</li>
-                     <li class="fragment">El atacante envía el enlace a la víctima</li>
-                     <li class="fragment">La víctima visita en enlace a la web vulnerable</li>
-                     <li class="fragment">El código malicioso es ejecutado por el navegador del usuario</li>
-                  </ol>
-               </section>
       </section>
       <section>
+            <section>
+               <h2>Tipos de XSS: reflejado</h2>
+               <br/>
+
+               <blockquote class="fragment">Los ataques de tipo XSS reflejado son también conocidos como de tipo 1 o no persistentes, y son los ataques más frecuentes de XSS en la actualidad.</blockquote>
+
+               <br/>
+               <blockquote class="fragment">Cuando una aplicación web es vulnerable a este tipo de ataque, la misma pasará datos de entrada no validados al
+               cliente. El modo más común de operación de este ataque incluye un paso de diseño, en el cual el atacante crea y comprueba la URI vulnerable, un paso de ingenieria social, en el cual convence a sus víctimas de cargar esta URI en sus navegadores, y la eventual ejecución del código malicioso utilizando las credenciales de la víctima.
+               </blockquote>
+
+
+            </section>
+
+            <section>
+               <h2>XSS: un escenario clásico</h2>
+               <br/>
+               <h4 class="fragment">El escenario práctico es el siguiente:</h4>
+               <br/>
+               <ol>
+                  <li class="fragment">El atacante crea una URL con el código malicioso inyectado y la camufla</li>
+                  <li class="fragment">El atacante envía el enlace a la víctima</li>
+                  <li class="fragment">La víctima visita en enlace a la web vulnerable</li>
+                  <li class="fragment">El código malicioso es ejecutado por el navegador del usuario</li>
+               </ol>
+            </section>
 
             <section>
                <h2>Tipos de XSS: persistente</h2>
@@ -117,54 +117,89 @@
             <section>
                <h2>XSS persistente: escenario clásico</h2>
                <br/>
-               <h4>Las fases típicas para un escenario de ataque XSS almacenado son:</h4>
+               <h4 class="fragment">Las fases típicas para un escenario de ataque XSS almacenado son:</h4>
                <br/>
                <ol>
-                  <li>El atacante almacena código malicioso en la página vulnerable</li>
-                  <li>El usuario se autentica en la aplicación</li>
-                  <li>El usuario visita la página vulnerable</li>
-                  <li>El código malicioso se ejecuta en el navegador del usuario</li>
+                  <li class="fragment">El atacante almacena código malicioso en la página vulnerable</li>
+                  <li class="fragment">El usuario se autentica en la aplicación</li>
+                  <li class="fragment">El usuario visita la página vulnerable</li>
+                  <li class="fragment">El código malicioso se ejecuta en el navegador del usuario</li>
                </ol>
+            </section>
+            <section>
+               <h2>XSS persistente</h2>
+               <br/>
+               <blockquote class="fragment">El XSS almacenado es particularmente peligroso en las zonas de la aplicación a las que tienen acceso los usuarios con altos privilegios. Cuando el administrador visita la página vulnerable, el ataque se ejecuta automáticamente en su navegador.</blockquote>
+               <br/>
+               <blockquote class="fragment">Esto podría exponer información sensible como por ejemplo tokens de autorización de sesión.</blockquote>
             </section>
 
       </section>
 
       <section>
-         <h2>Detectando tecnologías web</h2>
+            <section>
+               <h2>DoS mediante XSS</h2>
+               <br/>
+               <h4 class="fragment">Es posible realizar denegaciones de servicio en el cliente/navegador de la víctima inyectando el siguiente código malicioso a través de un vector XSS:</h4>
+               <br/>
+               <pre class="fragment"><code>for (;;) alert("bucle");</code></pre>
+               <br/>
+               <p class="fragment">El navegador entrará en un -loop- infinito de apertura de Alerts() obligando a la víctima a cerrarlo, denegando el servicio de la aplicación por falta recursos o por “obligación” del usuario.</p>
+            </section>
+            <section>
+                <h2>DoS mediante XSS</h2>
+                  <p class="fragment">También es posible realizar denegaciones de servicio tanto al cliente como al servidor de una web inyectando código malicioso a través de un vector XSS, que “obligue” a las víctimas a conectarse repetidamente:</p>
+                  <br/>
+                  <pre class="fragment"><code> <meta%20http-equiv="refresh"%20content="0;"></code></pre>
+                  <br/>
+                  <p class="fragment">El código anterior ejecutará un refresco infinito del navegador de la víctima contra el servidor</p>
+                  <br/>
+                  <p class="fragment">Puede provocar que la base de datos de la aplicación web se inunde de determinadas peticiones y la web deje de funcionar, si se realiza de forma masiva.</p>
 
-         <h4>Herramientas: </h4>
-         <ul>
-            <li>POSTman (otra vez)</li>
-            <li><a href="https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg?hl=es">Wappalyzer</a></li>
-            <li>WebProxy (ZAP/Burp)</li>
-         </ul>
+            </section>
 
       </section>
-
       <section>
-         <h2>Usando un proxy local</h2>
-         <ul>
-            <li><a href="http://portswigger.net/burp/download.html">Burp Suite</a></li>
-            <li><a href="https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project">Zap Proxy</a></li>
-         </ul>
-      </section>
-
-      <section>
-         <h2>OWASP Top 10 </h2>
+         <h2>Cross Agent Scripting (XAS)</h2>
          <br/>
-         <ol>
-            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A1-Injection">Injection</a></li>
-            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A2-Broken_Authentication_and_Session_Management">Broken Authentication and Session Management</a></li>
-            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A3-Cross-Site_Scripting_(XSS)">XSS</a></li>
-            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A4-Insecure_Direct_Object_References">Insecure Direct Object References</a></li>
-            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A5-Security_Misconfiguration">Security misconfiguration</a></li>
-            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A6-Sensitive_Data_Exposure">Sensitive data exposure</a></li>
-            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A7-Missing_Function_Level_Access_Control">Missing Function Level Access Control</a></li>
-            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A8-Cross-Site_Request_Forgery_(CSRF)">CSRF</a></li>
-            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A9-Using_Components_with_Known_Vulnerabilities">Using Components with Known Vulnerabilities</a></li>
-            <li><a href="https://www.owasp.org/index.php/Top_10_2013-A10-Unvalidated_Redirects_and_Forwards">Unvalidated Redirects and Forwards</a></li>
-         </ol>
+         <h4 class="fragment">En determinadas aplicaciones es posible inyectar código a través de la modificación de las cabeceras HTTP.</h4>
+         <br/>
+         <p class="fragment">Un ejemplo donde probar un “XSS” es el string del parámetro “User-Agent”.</p>
+         <br/>
+         <p class="fragment">Un atacante puede modificar el “User-Agent” de su navegador para realizar una inyección de código. Por ejemplo para mostrar su propia cookie:</p>
+         <br/>
+         <pre class="fragment"><code>alert(document.cookie);</code></pre>
+
       </section>
+
+      <section>
+            <section>
+               <h2>Cross-Site Request Forgery (CSRF)</h2>
+               <br/>
+               <blockquote class="fragment">CSRF trata de forzar a un usuario final a ejecutar acciones no deseadas en una aplicación web en la cual él ya está autenticado. Con un poco de ayuda de ingeniería social (por ejemplo enviando un enlace vía email/chat), un atacante puede forzar a los usuarios de una aplicación web a ejecutar acciones a su disposición.</blockquote>
+               <br/>
+               <blockquote class="fragment">Un exploit CSRF que tenga éxito puede comprometer los datos de un usuario final y sus operaciones en el caso de un usuario normal. Si el usuario objetivo del ataque es la cuenta de administrador, se puede comprometer la aplicación web por completo.</blockquote>
+            </section>
+            <section>
+            <h2>Cross-Site Request Forgery (CSRF)</h2>
+            <br/>
+            <h4>La forma en que se lleva a cabo un CSRF depende de los siguientes factores:</h4>
+            <ol>
+               <li>El comportamiento del navegador web en el manejo de la información relacionada con la sesión como las cookies y la información de autenticación http.</li>
+               <li>Conocimiento de URLs válidas de la aplicación web por parte del atacante.</li>
+               <li>Gestión de la sesión de la aplicación confiando sólo en información conocida por el navegador.</li>
+            </ol>
+            </section>
+
+      </section>
+
+      <section>
+         <h2>XSS locators</h2>
+         <br/>
+         <h4><a href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet">OWASP filter evasion cheat sheet</a></h4>
+         <br/>
+      </section>
+
       <section>
          <h2>¡Fin de la clase! :)</h2>
          <h2>¿Dudas? ¿Preguntas?</h2>
