@@ -58,7 +58,7 @@
             · XSS reflejado y XSS persistente
             · XSS DoS
             · Contramedidas
-            · Algunas herramientas: BeEF, Nessus.
+            · Algunas herramientas: Xenotix, BeEF, Nessus.
 				</h4>
 		</section>
 
@@ -67,10 +67,9 @@
       <section>
                <section>
 
-
                <h2>Cross Siste Scripting (XSS)</h2>
                <br/>
-               <blockquote class="fragment">XSS, del inglés Cross-site scripting es un tipo de ataque típico de las aplicaciones Web, que permite a una tercera parte inyectar en páginas  JavaScript</blockquote>
+               <blockquote class="fragment">XSS, del inglés Cross-site scripting es un tipo de ataque típico de las aplicaciones Web, que permite a una tercera parte inyectar en páginas código JavaScript</blockquote>
                <br/>
                <blockquote class="fragment">El Cross Site Scripting (XSS) es una de las vulnerabilidades más explotadas según OWASP (Open Web Application Security Project)</blockquote>
                <br/>
@@ -103,13 +102,31 @@
                      <li class="fragment">El código malicioso es ejecutado por el navegador del usuario</li>
                   </ol>
                </section>
+      </section>
+      <section>
 
+            <section>
+               <h2>Tipos de XSS: persistente</h2>
+               <br/>
+               <blockquote class="fragment">
+                  El ataque Cross-site Scripting (XSS) persistente; es un ataque más peligroso que el anterior ya que ejecuta el código inyectado por el atacante en los navegadores de todos los usuarios que visitan la aplicación web.
+                  Generalmente se produce en aquellas aplicaciones que permiten a los usuarios guardar algún tipo de dato.
+               </blockquote>
+            </section>
 
-               <section>
-                  <h2>XSS</h2>
+            <section>
+               <h2>XSS persistente: escenario clásico</h2>
+               <br/>
+               <h4>Las fases típicas para un escenario de ataque XSS almacenado son:</h4>
+               <br/>
+               <ol>
+                  <li>El atacante almacena código malicioso en la página vulnerable</li>
+                  <li>El usuario se autentica en la aplicación</li>
+                  <li>El usuario visita la página vulnerable</li>
+                  <li>El código malicioso se ejecuta en el navegador del usuario</li>
+               </ol>
+            </section>
 
-                  https://www.youtube.com/watch?v=B75FgRT2npc
-               </section>
       </section>
 
       <section>
