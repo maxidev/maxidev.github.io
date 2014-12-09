@@ -222,19 +222,23 @@ SELECT * FROM datos WHERE nombre LIKE '%';</code></pre>
 
 
             </section>
+
             <section>
-               <h2>Un ejemplo de consulta anidada</h2>
+               <h2>Consultas anidadas</h2>
                <p class="fragment">En el caso de tener la siguiente consulta: </p>
                <pre class="fragment"><code>SELECT Name, Phone, Address FROM Users WHERE Id=$id</code></pre>
                <p class="fragment">Usariamos el parámetro id para inyectar el operador union de la siguiente forma: </p>
                <pre class="fragment"><code>$id=1 UNION ALL SELECT creditCardNumber,1,1 FROM CreditCardTable</code></pre>
                <p class="fragment">La query final tendria el siguiente aspecto: </p>
                <pre class="fragment"><code>SELECT Name, Phone, Address FROM Users WHERE Id=1 UNION ALL SELECT creditCardNumber,1,1 FROM CreditCardTable</code></pre>
-               <p>Lo que uniría la consulta original del ID con la información de los campos de las tarjetas de crédito de toda la tabla.</p>
+               <p class="fragment">Lo que uniría la consulta original del ID con la información de los campos de las tarjetas de crédito de toda la tabla.</p>
             </section>
+
       </section>
       <section>
          <h2>Veamos en Mutillidae estos ejemplos de forma práctica</h2>
+         <br/>
+         <h3><a href="http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet">SQLi cheat sheet</a></h3>
       </section>
 
       <section>
