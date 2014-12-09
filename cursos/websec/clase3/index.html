@@ -210,21 +210,22 @@ SELECT * FROM datos WHERE nombre LIKE '%';</code></pre>
                <p class="fragment">Quedando la consulta: </p>
                <pre class="fragment"><code>SELECT * FROM accounts WHERE username='Maxi' AND password='x' OR '1'='1'</code></pre>
             </section>
+
+
+      </section>
+      <section>
             <section>
                <h2>Consultas anidadas</h2>
                <br/>
                <blockquote>El operador union es usado en las inyecciones SQL para unir una consulta, lógicamente creada por el auditor, a la consulta original. El resultado deseado es construir una query que ejecute la consulta válida pero además la inyección necesaria.</blockquote>
                <br/>
 
-               <br/>
-
-
-
+               <h2>COMPLETAR ESTO</h2>
 
             </section>
 
             <section>
-               <h2>Consultas anidadas</h2>
+               <h2>Ejemplo de consultas anidadas</h2>
                <p class="fragment">En el caso de tener la siguiente consulta: </p>
                <pre class="fragment"><code>SELECT Name, Phone, Address FROM Users WHERE Id=$id</code></pre>
                <p class="fragment">Usariamos el parámetro id para inyectar el operador union de la siguiente forma: </p>
@@ -233,7 +234,6 @@ SELECT * FROM datos WHERE nombre LIKE '%';</code></pre>
                <pre class="fragment"><code>SELECT Name, Phone, Address FROM Users WHERE Id=1 UNION ALL SELECT creditCardNumber,1,1 FROM CreditCardTable</code></pre>
                <p class="fragment">Lo que uniría la consulta original del ID con la información de los campos de las tarjetas de crédito de toda la tabla.</p>
             </section>
-
       </section>
       <section>
          <h2>Veamos en Mutillidae estos ejemplos de forma práctica</h2>
