@@ -77,15 +77,21 @@
                <section>
                   <h2>Algunos ejemplos de este lenguaje (consultas)</h2>
                   <br/>
-                  <p class="fragment">Crear una tabla</p>
-                  <pre><code>CREATE TABLE 'CUSTOMERS';</code></pre>
+                  <p class="fragment">Agregar una columna a la tabla</p>
+                  <pre class="fragment"><code>ALTER TABLE 'ALUMNOS' ADD EDAD INT UNSIGNED;</code></pre>
                   <br/>
-                  <p>Agregar una columna a la tabla</p>
-                  <pre><code>ALTER TABLE 'ALUMNOS' ADD EDAD INT UNSIGNED;</code></pre>
+                  <p class="fragment">Cláusula select</p>
+                  <pre class="fragment"><code>SELECT matricula, marca FROM Coches  ORDER BY marca,modelo;</code></pre>
                   <br/>
-                  <p>Seleccionar</p>
-                  <img src="/img/selectSQL.jpg">
+                  <p class="fragment">Cláusula where</p>
+                  <pre class="fragment"><code>SELECT matricula, marca FROM Coches WHERE matricula = MF-234-ZD';</code></pre>
+
+
+
                </section>
+
+
+
                <section>
 
                <h2>Inyecciones SQL</h2>
