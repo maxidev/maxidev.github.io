@@ -148,7 +148,8 @@ SELECT * FROM datos WHERE nombre LIKE '%';</code></pre>
                <h2>Tipos de SQLi: blind injection</h2>
                <br/>
                <blockquote class="fragment">
-                  Un ataque blind SQL injection, es caso particular de inyección SQL. Se evidencia cuando en una página web, no se muestran mensajes de error al no producirse resultados correctos ante una consulta a la base de datos, mostrándose siempre el mismo contenido.
+                  Un ataque blind SQL injection es un caso particular de inyección SQL.
+                  Se evidencia cuando un sitio web no muestran mensajes de error pese a la exitosa inyección de código SQL malicioso.
                </blockquote>
                <br/>
                <h4 class="fragment"><a href="https://www.owasp.org/index.php/Blind_SQL_Injection">Owasp Blind SQLi reference</a></h4>
@@ -193,6 +194,22 @@ SELECT * FROM datos WHERE nombre LIKE '%';</code></pre>
 
             </section>
 
+      </section>
+
+      <section>
+            <section>
+               <h2>Authentication Bypass</h2>
+               <br/>
+               <blockquote class="fragment">Authentication ByPass es el nombre de un caso particular de inyección SQL.
+               Esta se da casi exclusivamente en formularios de acceso los cuales, por lo general, chequean las credenciales de acceso contra una base de datos.</blockquote>
+               <br/>
+               <p class="fragment">Un ejemplo de este caso sería la siguiente consulta:</p>
+               <pre class="fragment"><code>SELECT * FROM accounts WHERE username='Maxi' AND password='asd123'</code></pre>
+               <p class="fragment">La cual podemos atacar mediante el comando: </p>
+               <pre class="fragment"><code>x' OR '1'='1</code></pre>
+               <p class="fragment">Quedando la consulta: </p>
+               <pre class="fragment"><code>SELECT * FROM accounts WHERE username='Maxi' AND password='x' OR '1'='1'</code></pre>
+            </section>
       </section>
 
       <section>
