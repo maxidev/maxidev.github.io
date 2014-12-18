@@ -54,17 +54,14 @@
 			<h3 class="fragment">Temas:</h3>
 				<h4 class="fragment">
 
-				· Infraestructuras de Clave Pública
-				· Ventajas/Desventajas
-				· Posibles Debilidades
+				· Conceptos adicionales de seguridad informática
 				</h4>
-				<p class="fragment">Entre otros ..</p>
 			</section> <!--  -->
 		</section> <!-- sobre el curso -->
 
 		<section>
 
-				<h2>Criptografía: un resumen</h2>
+				<h2>Un resumen</h2>
 				<h3>Hasta ahora estudiamos:</h3>
 				<ul>
 					<li class="fragment">Conceptos generales de Seguridad Informática</li>
@@ -75,276 +72,22 @@
 					<li class="fragment">Criptografía asimétrica</li>
 					<li class="fragment">Criptografía híbrida</li>
 					<li class="fragment">Esteganografía</li>
-					<li class="fragment">One Time Pad</li>
 					<li class="fragment">Algoritmos de Hashing</li>
 				</ul>
 
-		</section>  <!-- Cripto resumen y asimétrica -->
-
-		<section>
-			<section>
-				<h2>Infraestructuras de Clave Pública (PKI)</h2>
-
-				<blockquote class="fragment">
-					En criptografía, una infraestructura de clave pública (o, en inglés, PKI, Public Key Infrastructure) es una combinación de hardware y software, políticas y procedimientos de seguridad que
-					permiten la ejecución con garantías de operaciones criptográficas como el cifrado, la firma digital o el no repudio de transacciones electrónicas.
-				</blockquote>
-				<br />
-
-				<h3 class="fragment"> Un breve resumen </h3>
-
-			</section>
-			<section>
-				<h2>PKI: <br />
-				Propósito y funcionalidad 1/2</h2>
-				<blockquote class="fragment">La tecnología PKI permite a los usuarios autenticarse frente a otros usuarios y usar la información de los certificados de identidad (por ejemplo, las claves públicas de otros usuarios) para cifrar y descifrar mensajes, firmar digitalmente información, garantizar el no repudio de un envío, y otros usos.
-				</blockquote>
-				<br />
-				<p class="fragment">En una operación criptográfica que use PKI, intervienen conceptualmente como mínimo las siguientes partes:</p>
-				<ul>
-					<li class="fragment">Un usuario iniciador de la operación.</li>
-					<li class="fragment">Servidores que dan fe de la ocurrencia de la operación y garantizan la validez de los certificados implicados (autoridad de  certificación, Autoridad de registro y sistema de Sellado de tiempo).</li>
-					<li class="fragment">Un destinatario de los datos cifrados/firmados/enviados garantizados por parte del usuario iniciador de la operación (puede ser él mismo). </li>
-				</ul>
-
-
-			</section>
-			<section>
-				<h2>PKI: <br />
-				Propósito y funcionalidad 2/2</h2>
-				<blockquote class="fragment">Las operaciones criptográficas de clave pública, son procesos en los que se utilizan unos algoritmos de cifrado que son conocidos y están accesibles para todos. Por este motivo la
-				seguridad que puede aportar la tecnología PKI, está fuertemente ligada a la privacidad de la llamada clave privada y los procedimientos operacionales o Políticas de seguridad aplicados.
-				</blockquote>
-				<blockquote class="fragment">Es de destacar la importancia de las políticas de seguridad en esta tecnología, puesto que ni los
-				dispositivos más seguros ni los algoritmos de cifrado más fuerte sirven de nada si por ejemplo una copia de la clave privada es comprometida.
-				</blockquote>
-			</section>
-
-			<section>
-				<h2>Usos de la tecnología PKI </h2>
-				<ul>
-					<li class="fragment">Autenticación de usuarios y sistemas (login)</li>
-					<li class="fragment">Identificación del interlocutor</li>
-					<li class="fragment">Cifrado de datos digitales</li>
-					<li class="fragment">Firmado digital de datos (documentos, software, etc.)</li>
-					<li class="fragment">Asegurar las comunicaciones</li>
-					<li class="fragment">Garantía de no repudio (negar que cierta transacción tuvo lugar)</li>
-				</ul>
-
-			</section>
-
-		</section> <!-- PKI main -->
-
-
-		<section>
-		<section>
-			<h2>Tipos de certificados 1/2</h2>
-
-			<blockquote>
-				Existen diferentes tipos de certificado digital, en función de la información que contiene cada uno y a nombre de quién se emite el certificado:
-			</blockquote>
-			<ul>
-			<li class="fragment">Certificado personal, que acredita la identidad del titular.</li>
-			<li class="fragment">Certificado de pertenencia a empresa, que además de la identidad del titular acredita su vinculación con la entidad para la que trabaja.</li>
-			<li class="fragment">Certificado de representante, que además de la pertenencia a empresa acredita también los poderes de representación que el titular tiene sobre la misma.</li>
-			<li class="fragment">Certificado de persona jurídica, que identifica una empresa o sociedad como tal a la hora de realizar trámites ante las administraciones o instituciones.</li>
-			<li class="fragment">Certificado de atributo, el cual permite identificar una cualidad, estado o situación. Este tipo de certificado va asociado al certificado personal. (p.ej. Médico, Director, Casado, etc).</li>
-			</ul>
-
-
-		</section>
-		<section>
-		<h2>Tipos de certificados 2/2</h2>
-		<br />
-
-			<h4>Además, existen otros tipos de certificado digital utilizados en entornos más técnicos:</h4>
-			<ul>
-			<li class="fragment">Certificado de servidor seguro, utilizado en los servidores web que quieren proteger ante terceros el intercambio de información con los usuarios.</li>
-			<li class="fragment">Certificado de firma de código, para garantizar la autoría y la no modificación del código de aplicaciones informáticas.</li>
-			</ul>
-
 		</section>
 
-		<section>
-			<h4>Los componentes más habituales de una infraestructura de clave pública son:</h4>
-			<blockquote class="fragment">La autoridad de certificación (o, en inglés, CA, Certificate Authority): es la encargada de emitir y revocar certificados. Es la entidad de confianza que da legitimidad a la relación de
-			una clave pública con la identidad de un usuario o servicio.
-			</blockquote>
-			<blockquote class="fragment">La autoridad de registro (o, en inglés, RA, Registration Authority): es la responsable de verificar el enlace entre los certificados (concretamente, entre la clave pública del
-			certificado) y la identidad de sus titulares.
-			</blockquote>
-			<blockquote class="fragment">Los repositorios: son las estructuras encargadas de almacenar la información relativa a la PKI. Los dos repositorios más importantes son el repositorio de certificados y el
-			repositorio de listas de revocación de certificados. En una lista de revocación de certificados se incluyen todos aquellos certificados que  han dejado de ser válidos antes de la fecha establecida dentro del mismo certificado.</blockquote>
-			<blockquote class="fragment"></blockquote>
-		</section>
-		<section>
-			<h4>Más componentes:</h4>
-			<blockquote class="fragment">La autoridad de validación (o, en inglés, VA, Validation Authority): es la encargada de comprobar la validez de los certificados digitales.
-			</blockquote>
-			<blockquote class="fragment">La autoridad de sellado de tiempo (o, en inglés, TSA, TimeStamp Authority): es la encargada de firmar documentos con la finalidad de probar que existían antes de un determinado instante de tiempo.
-			</blockquote>
-			<blockquote class="fragment">
-			Los usuarios y entidades finales son aquellos que poseen un par de claves (pública y privada) y un certificado asociado a su clave pública. Utilizan un conjunto de aplicaciones que hacen uso de la tecnología PKI (para validar firmas digitales, cifrar documentos para otros usuarios, etc.)
-			</blockquote>
-		</section>
+      <section>
+
+         <section>
+
+            <h2>Conceptos adicionales: Triada CID</h2>
 
 
-		</section> <!-- Componentes -->
+         </section>
 
-		<section>
-			<section>
-				<h2>Consideraciones sobre PKI 1/2</h2>
-				<blockquote class="fragment">Todo certificado válido, ha de ser emitido por una Autoridad de certificación reconocida, que garantiza la validez de la asociación entre el tenedor del certificado y el certificado en sí.
-				El poseedor de un certificado es responsable de la conservación y custodia de la clave privada asociada al certificado para evitar el conocimiento de la misma por terceros.</blockquote>
-				<br />
-				<blockquote class="fragment">Las entidades de registro se encargan de la verificación de la validez y veracidad de los datos del que pide un certificado, y gestionan el ciclo de vida de las peticiones hacia las AC's.</blockquote>
+      </section>
 
-			</section>
-
-			<section>
-			<h2>Consideraciones sobre PKI 2/2</h2>
-				<blockquote class="fragment">El poseedor de un certificado válido puede usar dicho certificado para los usos para los que ha sido creado según las políticas de seguridad.</blockquote>
-
-				<blockquote class="fragment">Toda operación que realice el poseedor de un certificado ha de realizarse de forma presencial por parte del poseedor del certificado y dentro del hardware de cliente (ya sea la tarjeta criptográfica o PKCS#11 u otro dispositivo seguro, como el fichero seguro o PKCS#12, etc).</blockquote>
-				<blockquote class="fragment">Las comunicaciones con seguridad PKI no requieren del intercambio de ningún tipo de clave secreta para su establecimiento, por lo que se consideran muy seguras si se siguen las políticas de seguridad pertinentes.</blockquote>
-
-			</section>
-
-
-		</section> <!-- consideranciones -->
-		<section>
-			<section>
-			<h2>PKI: Ejemplos de Uso</h2>
-			<h4 class="fragment">Los sistemas de PKI, de distintos tipos y proveedores, tienen muchos usos, incluyendo la asociación de una llave pública con una identidad para:</h4>
-			<ul>
-				<li class="fragment">Cifrado y/o autenticación de mensajes de correo electrónico (ej., utilizando OpenPGP o S/MIME).</li>
-				<li class="fragment">Cifrado y/o autenticación de documentos (ej., la firma XML * o Cifrado XML * si los documentos son codificados como XML).</li>
-				<li class="fragment">Autenticación de usuarios o aplicaciones (ej., logon por tarjeta inteligente, autenticación de cliente por SSL)</li>
-				<li class="fragment">Bootstrapping de protocolos seguros de comunicación, como Internet key exchange (IKE) y SSL.</li>
-			</ul>
-			</section>
-			<section>
-			<h2>HTTPS: Un esquema gráfico</h2>
-			<h4 class="fragment">Nos tomamos un momento para entender el esquema</h4>
-			<img src="../../img/https.gif" class="fragment">
-
-		</section>
-
-		</section>
-
-		<section>
-			<h2>Seguridad de los certificados </h2>
-			<blockquote class="fragment">
-			La seguridad en la infraestructura PKI depende en parte de cómo se guarden las claves privadas. Existen dispositivos especiales denominados tokens de seguridad para facilitar la seguridad de la clave privada, así como evitar que ésta pueda ser exportada.
-			</blockquote>
-			<br />
-			<blockquote class="fragment">
-			Estos dispositivos pueden incorporar medidas biométricas, como la verificación de huella dactilar, que permiten aumentar la confiabilidad, dentro de las limitaciones tecnológicas, en que sólo la persona dueña
-			del certificado pueda utilizarlo.
-
-			</blockquote>
-
-		</section>
-		<section>
-		<section>
-			<h2>PKI: Riesgos y Desventajas</h2>
-			<blockquote class="fragment">
-			Bruce Schneier y Carl Ellison publican un ensayo de ocho páginas sobre los 10 riesgos de la "Infraestructura de Clave Pública", tal y como se define en la actualidad. El documento fue publicado originalmente en el primer número del año 2.000 de la revista "Computer Security Journal".
-			</blockquote>
-			<blockquote class="fragment">
-				El documento analiza en profundidad diez riesgos de las estructuras PKI actuales. Las PKI constituyen, entre otras cosas, las bases actuales de las entidades de certificación, por ejemplo.
-			</blockquote>
-			<br />
-			<h4 class="fragment"> Veamos estos 10 problemas..</h4>
-			</section>
-			<section>
-			<h2>10 Problemas de las PKI 1/4</h2>
-			<ul>
-				<li class="fragment"><strong>1 ¿En quien debo confiar?</strong> <br />
-				Hoy en día existen multitud de entidades de certificación pero, ¿quien te garantiza que los datos que certifican son correctos (por ejemplo, un email o un nombre?. ¿Quien las ha situado en el contexto comercial en el que se encuentran?</li>
-				<br />
-				<li class="fragment">
-					<strong>2 ¿Quien tiene acceso a mi clave?</strong>
-					<br />
-					La criptografía de clave pública o asimétrica supone la existencia de dos claves: una pública y disponible de forma universal, y otra privada y bajo el control exclusivo del usuario.
-				</li>
-				<br />
-				<li class="fragment">
-					<strong>3 ¿Cómo de seguro es el ordenador verificador?</strong><br />
-					Como ocurre con el caso anterior, el ordenador que realiza la verificación del certificado puede haber sido manipulado. Puede, por ejemplo, haberse instalado una entidad de certificación espúrea en el navegador, algo absolutamente trivial.
-				</li>
-
-
-			</ul>
-			</section>
-			<section>
-				<h2>10 Problemas de las PKI 2/3</h2>
-				<br />
-			<ul>
-				<li class="fragment"><strong>4 ¿Qué "Juan Perez" es el correcto?</strong> <br />
-				Habitualmente los certificados se expiden a un nombre determinado, sin tener en cuenta que pueden existir diferentes personas con dicho nombre. En caso de disponer de información adicional, como su dirección de correo electrónico, tenemos que saber también si ésta es correcta o no, amén de vincular al usuario con datos que pueden quedar anticuados en un plazo breve.</li>
-				<br />
-				<li class="fragment">
-					<strong>5 ¿La entidad de certificación es realmente una autoridad?</strong>
-					<br />
-					Una entidad de certificación tradicional emite un certificado cubriendo datos sobre los que no tiene control. Por ejemplo, un certificado fusionando el nombre y la dirección de correo electrónico de un usuario no tiene en cuenta si el usuario se llama legalmente así.
-				</li>
-
-			</ul>
-			</section>
-
-			<section>
-				<h2>10 Problemas de las PKI 3/4</h2>
-				<ul>
-				<li class="fragment">
-					<strong>6 ¿El diseño de seguridad considera al usuario?</strong>
-					<br />
-					Son muy pocos los usuarios, por ejemplo, que verifican los certificados del servidor remoto cuando establecen una conexión SSL con su navegador.
-				</li>
-				<br />
-				<li class="fragment">
-					<strong>7 ¿Cómo identifica la autoridad de certificación al usuario?</strong>
-					<br />
-					Antes de emitir un certificado, la autoridad de certificación debe tener la certeza de que los datos que certifica son correctos.
-				</li>
-				<br />
-				<li class="fragment">
-					<strong>8 ¿Los certificados son seguros?</strong>
-					<br />
-					El uso de certificados no garantiza la seguridad. Una cadena es tan fuerte como su eslabón más débil.
-				</li>
-
-				</ul>
-			</section>
-			<section>
-				<h2>10 Problemas de las PKI 4/4</h2>
-				<ul>
-				<li class="fragment">
-					<strong>9 ¿Por qué existen entidades de certificación?</strong>
-				</li>
-				<br />
-				<li class="fragment">
-					<strong>10 ¿Autoridades de certificación o autoridades de certificación con autoridades de registro?</strong>
-				</li>
-				</ul>
-				<br />
-				<br />
-				<h4 class="fragment">Conclusión</h4>
-
-				<blockquote class="fragment">
-					La conclusión más clara que se puede extraer de la lectura de este ensayo, elaborado por dos expertos de gran prestigio, es doble: los certificados deben ser expedidos por organismos oficiales con control sobre la información que están certificando (por ejemplo,
-					el ministerio de hacienda y el Número de Identificación Fiscal) y, por otra parte, es necesario almacenar los certificados personales en medios seguros.
-				</blockquote>
-			</section>
-		</section>
-
-
-		<section>
-			<h2>PKI: Herramientas</h2>
-			<ul>
-				<li>XCA: <a href="http://sourceforge.net/projects/xca/">sourceforge.net/projects/xca/</a></li>
-			</ul>
-		</section>
 
 
 
