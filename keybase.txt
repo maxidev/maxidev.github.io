@@ -1,0 +1,67 @@
+==================================================================
+https://keybase.io/maxidev
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://maxidev.github.io
+  * I am maxidev (https://keybase.io/maxidev) on keybase.
+  * I have a public key with fingerprint 2A35 5B4B 58E4 3223 C611  2F20 0DFF EC9C E4D9 92DB
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "2a355b4b58e43223c6112f200dffec9ce4d992db",
+            "host": "keybase.io",
+            "key_id": "0dffec9ce4d992db",
+            "kid": "01015a385d3efb62e2a91853ef25397bebcf33a4f0d2b2eea9271e8f08e7efdb4bd20a",
+            "uid": "186b9f0f0d16e4edfb72e52b2e80c519",
+            "username": "maxidev"
+        },
+        "service": {
+            "hostname": "maxidev.github.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1429063411,
+    "expire_in": 157680000,
+    "prev": "d62a5936afd5c3ff7c265a0326a34a3cd742b4ec7228c506ca549880dade2d95",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.8
+Comment: https://keybase.io/crypto
+
+yMIYAnicbZJdSBRRFMfX1GyXjECCiIrtvmRhMnPnY2dWKJDEBwnNyPyIljtz76yj
+ObPup2JKflsZSJiWkGRCGmaWPUa5phlRIkGKBQU9lJJImEUfkHVH6yHovlzOOb//
+/55zOeOJsTZHzJvO9+0r15SpmKejGSHb0X0Ty1VAMXElcFeBUrJ6abrhJX6fXzeC
+wA0g4gRB4RVBIjwHIaeKLAs1yDBY04gqq4THsgyxAlJAsRmwFNRGQQGSqps0RwOP
+jmn2P3zpWoFlWAFxkoA5oikiJBDJrCTQAAqc7FKIomoch3iNwVCBhCAZulgiaYxE
+XETDtDUMGUTtQqt2rCQqssZQmhUJT7CmuCARLKXEqAIrW2CA+A1URihdhip0TMKg
+OgXQZFhXifUD1iD/AqlePVgcUtZm8vnNoKmaJ2m5OBj0BdyWPFjps/gIUTx/nDyK
+bmD6l1QRJv6AbhrAzVJSDeqWNctDmRE5nmVTAKnw6X7i0S1CcIkSQ4/1Du3MDbAI
+kSBzItKwoHKa5lKhKCCGgyLieMSp2MVDhSeqC0JJFRhRRQIvSxKDESYQywKwZis3
+TODmaJvISy0DutdAwZCfgOqH0eNxthiHbX38OmsbbA775r874mjbYOus+fk6+ax2
+ofnAo5zzh/KfFxodOKH65a4m+5VnLdEHl8eav9vvTq4Mj+95VZVrb9mxkuh54jg4
+fRuGK/JAe29H78JAXckUKsyTfe82we6WRrXkZlnPRKltKBT/uM7zsdVc36aOZmdt
+7ymxeU+Xty7NORPcLwbTCgZyF0HRCH8qOlN80TnU4ljM6ikYXr5Vk76xtr+pA3R9
+QoVXA5/nyfBM0ujWyqKl6x92zweMsQYpomVvS02P9FU1nEn6NXOnb6Q+/8uxc7Vv
+o103Iiul9dLXvbH7Dw/2p81Op3sundAnQwvOnPvfMua2yGam3rPzh3v2XndmnLO+
+MXnqSLT8N6UuMhw=
+=rTR7
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/maxidev
+
+==================================================================
