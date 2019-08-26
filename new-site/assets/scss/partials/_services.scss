@@ -1,0 +1,87 @@
+/**
+ * Home services
+ */
+.home-services {
+  background-color: #F3F5F7;
+  position: relative;
+
+  aside {
+    color: #004794;
+  }
+}
+
+.page-services {
+  h3 {
+    color: #0059A3;
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+
+  p.subtitle {
+    font-size: 16px;
+    color: #8C99AD;
+    margin-top: 10px;
+    margin-bottom: 50px;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+
+  .card {
+    transition: all 0.25s;
+    text-align: center;
+    margin-bottom: 30px;
+
+    .card-title {
+      color: #0059A3;
+      font-size: 16px;
+
+      @media (max-width: 768px) {
+        font-size: 12px;
+      }
+    }
+
+    .card-text {
+      font-size: 12px;
+      color: #8C99AD;
+      max-height: 0px;
+      // transition: all 0.4s;
+      overflow: hidden;
+    }
+
+    img {
+      padding: 30px;
+      transition: all 0.25s;
+
+      @media (max-width: 768px) {
+        padding: 10px;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 10px 20px 4px rgba(0,0,0,0.35);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      .card-title {
+        margin-bottom: 0;
+      }
+
+      .card-text {
+        max-height: 250px;
+      }
+
+      img {
+        max-width: 40%;
+        padding: 10px;
+        margin-top: 20px;
+      }
+    }
+  }
+}

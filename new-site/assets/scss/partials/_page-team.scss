@@ -1,0 +1,45 @@
+.page-team {
+  .card {
+    .card-body {
+      padding: 35px;
+
+      img.avatar {
+        padding: 10px;
+      }
+    }
+
+    .card-title {
+      font-size: 20px;
+      height: auto;
+      margin-bottom: 0;
+      margin-top: 30px;
+    }
+
+    .card-text {
+      font-size: 16px;
+      color: #0059A3;
+      font-weight: 300;
+    }
+
+    .card-more {
+      font-size: 9px;
+      font-weight: 300;
+      color: #8C99AD;
+      letter-spacing: 2px;
+    }
+  }
+
+  .hiring {
+    margin: 60px auto 20px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 24px;
+    color: #272B31;
+
+    h5 {
+      font-size: 24px;
+      color: #004794;
+      font-weight: 600;
+    }
+  }
+}

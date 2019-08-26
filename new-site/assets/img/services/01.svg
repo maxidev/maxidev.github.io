@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="103.261" height="103.261" viewBox="0 0 103.261 103.261">
+  <g id="Grupo_500" data-name="Grupo 500" transform="translate(-909 -488)">
+    <g id="Elipse_1" data-name="Elipse 1" transform="translate(911 490)" fill="#fff" stroke="#0059a3" stroke-linecap="round" stroke-width="2">
+      <circle cx="49.63" cy="49.63" r="49.63" stroke="none"/>
+      <circle cx="49.63" cy="49.63" r="50.63" fill="none"/>
+    </g>
+    <g id="Grupo_1" data-name="Grupo 1" transform="translate(699.144 -3377.379)">
+      <g id="Grupo_499" data-name="Grupo 499" transform="translate(249.654 3896.913)">
+        <rect id="Rectángulo_318" data-name="Rectángulo 318" width="17.578" height="2.94" transform="translate(0 17.707)" fill="#8c99ad"/>
+        <rect id="Rectángulo_327" data-name="Rectángulo 327" width="20.107" height="2.94" transform="translate(0 0)" fill="#8c99ad"/>
+        <rect id="Rectángulo_319" data-name="Rectángulo 319" width="15.048" height="2.94" transform="translate(0 26.139)" fill="#8c99ad"/>
+        <rect id="Rectángulo_326" data-name="Rectángulo 326" width="20.107" height="2.94" transform="translate(0 9.275)" fill="#8c99ad"/>
+        <rect id="Rectángulo_320" data-name="Rectángulo 320" width="17.261" height="2.94" transform="translate(0 34.571)" fill="#8c99ad"/>
+      </g>
+      <g id="Grupo_498" data-name="Grupo 498" transform="translate(255.29 3910.696) rotate(-30)">
+        <g id="Grupo_497" data-name="Grupo 497" transform="translate(0 0)">
+          <path id="Trazado_423" data-name="Trazado 423" d="M20.444.684l0,.032L0,21.163,4.988,26.14,19.954,11.174l1.257-1.257h0L26.128,5l-5-5ZM21.785,6,19.954,7.852l-.493.493L17.606,10.2,4.965,22.841,3.3,21.186,17.606,6.878l.587-.587L18.487,6l1.467-1.467,1.174-1.2L22.783,5Z" transform="translate(2.371)" fill="#0059a3"/>
+          <path id="Trazado_424" data-name="Trazado 424" d="M0,6.8,6.808,4.977,1.831,0Z" transform="translate(0 21.715)" fill="#0059a3"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

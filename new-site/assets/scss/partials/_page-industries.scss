@@ -1,0 +1,64 @@
+  .card {
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    transition: all 0.3s;
+    margin-bottom: 30px;
+
+    header {
+      height: 135px;
+      display: flex;
+      justify-content: center;
+
+      img {
+        margin: 15px 0;
+      }
+    }
+
+    .card-title {
+      display: flex;
+      justify-content: center;
+      color: #0059A3;
+      font-size: 24px;
+      font-weight: 500;
+      height: 55px;
+      align-items: center;
+    }
+
+    .card-text {
+      ul {
+        li {
+          border: 1px dashed #8C99AD;
+          text-align: left;
+          font-size: 16px;
+          font-weight: 400;
+          color: #8C99AD;
+          background: url(../img/services/tilde.svg) no-repeat 16px center;
+          padding-left: 45px;
+          margin: 3px 10px 10px;
+          line-height: 1.1;
+        }
+      }
+    }
+
+    &:hover {
+      transform: scale(1.025);
+      box-shadow: 0 10px 20px 4px rgba(0,0,0,0.35);
+
+      .card-text ul li {
+        background-image: url(../img/services/tilde-active.svg);
+        background-color: rgba(0, 229, 255, 0.2);
+        color: #0059A3;
+      }
+    }
+
+    &.card-empty {
+      font-size: 24px;
+      font-weight: 500;
+      color: #272B31;
+      height: 450px;
+      justify-content: center;
+      border: dashed 1px #707070;
+      border-image: url("../img/common/dash.png") 1 round;
+    }
+  }

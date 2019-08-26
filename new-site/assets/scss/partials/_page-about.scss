@@ -1,0 +1,37 @@
+.about-item {
+  font-size: 20px;
+  font-weight: 300;
+  color: #272B31;
+  align-items: center;
+  padding: 40px 70px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    padding: 40px 30px;
+    text-align: center;
+  }
+
+  b {
+    font-weight: 700;
+    color: #0059A3;
+  }
+
+  .cube {
+    position: relative;
+    padding-bottom: 30px;
+    background: url(../img/about/cube-shadow.png) no-repeat left 140px;
+    z-index: 5;
+
+    @media (max-width: 768px) {
+      background: url(../img/about/cube-shadow.png) no-repeat center 130px;
+      background-size: 55%;
+      padding-bottom: 50px;
+    }
+
+    img {
+      @media (max-width: 768px) {
+        max-width: 45vw;
+      }
+    }
+  }
+}

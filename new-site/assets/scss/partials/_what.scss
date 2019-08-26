@@ -1,0 +1,121 @@
+/**
+ * Home header
+ */
+.home-what {
+  background-color: #0059A3;
+  position: relative;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  @media (max-width: 768px) {
+    padding-bottom: 40px;
+  }
+
+  section {
+    transform: translateY(-50px);
+    position: relative;
+    z-index: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @media (max-width: 768px) {
+      transform: none;
+    }
+
+    h3 {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 45px;
+
+      @media (max-width: 768px) {
+        position: relative;
+        bottom: 40px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  h3 {
+    color: #fff;
+
+    b {
+      color: #00E5FF;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 0.01;
+      transform: scale(0.7);
+    }
+    40% {
+      opacity: 0.99;
+      transform: scale(1);
+    }
+    // 75% {
+    //   opacity: 0.05;
+    //   transform: scale(1.7);
+    // }
+    100% {
+      opacity: 0.01;
+      transform: scale(0.9);
+    }
+  }
+
+  @keyframes orbit {
+    0% {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+    25% {
+      transform: rotate3d(0, 0, 1, 90deg);
+    }
+    50% {
+      transform: rotate3d(0, 0, 1, 180deg);
+    }
+    100% {
+      transform: rotate3d(0, 0, 1, 360deg);
+    }
+  }
+
+  @keyframes orbit2 {
+    0% {
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+    100% {
+      transform: rotate3d(0, 0, 1, -360deg);
+    }
+  }
+
+  .anim-obj {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .elipse {
+    background: url(../img/home/elipse.png) no-repeat center center;
+    animation-iteration-count: infinite;
+    animation-name: pulse;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+  }
+
+  .orbit-1 {
+    background: url(../img/home/orbit-1.png) no-repeat center center;
+    animation-iteration-count: infinite;
+    animation-name: orbit;
+    animation-duration: 30s;
+    animation-timing-function: ease-in-out;
+  }
+
+  .orbit-2 {
+    background: url(../img/home/orbit-2.png) no-repeat center center;
+    animation-iteration-count: infinite;
+    animation-name: orbit2;
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+  }
+}

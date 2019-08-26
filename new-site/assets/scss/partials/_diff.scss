@@ -1,0 +1,72 @@
+/**
+ * Home diff
+ */
+.home-diff {
+  background-color: #0059A3;
+  position: relative;
+
+  &:after {
+    content: "";
+    display: block;
+    background: #F3F5F7;
+    height: 380px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 40px;
+  }
+
+  p.subtitle {
+    font-size: 16px;
+    color: #f3f5f7;
+  }
+
+  .code-bg {
+    background: url(../img/home/home-diff.png) no-repeat center right;
+    padding-top: 130px;
+    padding-bottom: 70px;
+    z-index: 1;
+    position: relative;
+
+    @media (max-width: 768px) {
+      margin: 0 -15px;
+      padding: 15px;
+      background-position: 100px top;
+      padding-top: 117px;
+      background-size: 130% auto;
+    }
+  }
+
+  .we-develop {
+    background: #fff;
+    width: 520px;
+    height: 520px;
+    padding: 110px;
+    box-shadow: 0 20px 35px 10px rgba(0,0,0,.3);
+
+    @media (max-width: 768px) {
+      width: initial;
+      height: initial;
+      padding: 60px;
+      text-align: center;
+    }
+
+    h4 {
+      color: #0059A3; font-size: 21px; margin-top: 50px; margin-bottom: 20px;
+    }
+
+    p {
+      color: #8C99AD; font-size: 12px;
+    }
+
+    a.read-more {
+      color: #0059A3;
+    }
+  }
+}

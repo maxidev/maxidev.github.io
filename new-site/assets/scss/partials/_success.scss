@@ -1,0 +1,189 @@
+/**
+ * Home success
+ */
+.home-success {
+  background-color: #F3F5F7;
+  position: relative;
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    background: #0059A3;
+    height: 380px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 25vw;
+    z-index: 0;
+
+    @media (max-width: 768px) {
+      top: 160px;
+      right: 0;
+      left: 0;
+    }
+  }
+
+  h3 {
+    text-align: center;
+    color: #0059A3;
+    font-size: 40px;
+  }
+
+  p {
+    text-align: center;
+    color: #8C99AD;
+    font-size: 16px;
+  }
+
+  .carousel {
+    margin-top: 50px;
+  }
+
+  .carousel-controls {
+    display: block;
+    height: 75px;
+    position: absolute;
+    bottom: 0;
+    right: 25vw;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+      top: 160px;
+      right: 20px;
+    }
+
+    > a {
+      display: inline-block;
+      width: 75px;
+      height: 75px;
+      background-color: #074d9a;
+      background-repeat: no-repeat;
+      background-position: center center;
+      float: left;
+
+      &:hover {
+        background-color: #0059A3;
+      }
+
+      &.carousel-left {
+        background-image: url(../img/common/arrow-left.svg);
+      }
+
+      &.carousel-right {
+        background-image: url(../img/common/arrow-right.svg);
+      }
+    }
+  }
+
+  .owl-carousel {
+    @media (min-width: 1200px) {
+      margin-left: 200px;
+      width: calc(100vw - 200px);
+    }
+
+    .owl-stage-outer {
+      padding-top: 50px;
+    }
+
+    // .card {
+    //   width: 23vw;
+    //   height: 21vw;
+    // }
+  }
+
+  .card {
+    @media (max-width: 768px) {
+      margin: 50px 30px 30px;
+    }
+
+    &:hover {
+      transform: translate3d(0, -10px, 0);
+
+      .card-text a {
+        color: #0059A3;
+      }
+    }
+
+    .card-image {
+      height: 100px;
+      padding: 110px 0;
+
+      img {
+        display: initial;
+        width: initial;
+      }
+    }
+
+    .card-text {
+      font-size: 12px;
+      font-weight: 300;
+      color: #8C99AD;
+      padding: 20px 50px 40px;
+      text-align: left;
+
+      a {
+        margin-top: 10px;
+        display: block;
+        font-weight: 500;
+        color: #8C99AD;
+      }
+    }
+
+  }
+}
+
+/**
+ * Home technologies
+ */
+.home-technologies {
+  background-color: #F3F5F7;
+
+  h3 {
+    text-align: center;
+    color: #0059A3;
+    font-size: 40px;
+    line-height: 0.9;
+
+    @media (max-width: 768px) {
+      margin-bottom: 30px;
+    }
+
+    b {
+      font-weight: 700;
+    }
+  }
+
+  img.tiles-logos {
+    @media (max-width: 768px) {
+      padding: 30px;
+    }
+  }
+
+  .square-box {
+    text-align: center;
+    padding: 110px;
+    background-color: #fff;
+    margin: 30px;
+
+    @media (max-width: 768px) {
+      margin: 0;
+      padding: 45px;
+    }
+
+    h6 {
+      color: #0059A3;
+      margin-bottom: 30px;
+      font-weight: 100;
+      font-size: 17px;
+
+      b {
+        font-weight: 600;
+      }
+    }
+  }
+}

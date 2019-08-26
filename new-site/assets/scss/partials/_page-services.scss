@@ -1,0 +1,307 @@
+.page-services {
+  .page-content {
+    padding-bottom: 0;
+
+    h5 {
+      color: #0059A3;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .blue-area {
+      background-color: #0059A3;
+      color: #fff;
+      text-align: center;
+      font-weight: 300;
+      font-size: 32px;
+      padding: 110px 0 360px;
+      line-height: 1.3;
+
+      @media (max-width: 768px) {
+        font-size: 18px;
+        margin-right: 50px;
+        padding: 60px 50px 360px 60px;
+        text-align: left;
+      }
+
+      b {
+        font-weight: 500;
+      }
+    }
+
+    .white-area {
+      background-color: #fff;
+      padding: 90px;
+
+      @media (max-width: 768px) {
+        padding: 60px 20px 60px;
+        text-align: center;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      &.white-area-carousel {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        @media (max-width: 768px) {
+          padding: 0;
+          text-align: left;
+        }
+      }
+    }
+
+    .columns {
+      columns: 2;
+      font-size: 14px;
+      font-weight: 300;
+      color: #272B31;
+
+      @media (max-width: 768px) {
+        columns: 1;
+        font-size: 12px;
+      }
+    }
+
+    .our-services-row {
+      display: flex;
+
+      &.2nd {
+        @media (min-width: 767px) {
+          margin: 0 50px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+    }
+
+    .our-services-item {
+      background: #F3F5F7;
+      font-size: 14px;
+      color: #0059A3;
+      display: inline-block;
+      /* margin: 5px; */
+      /* width: 195px; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 30px;
+      margin: 10px;
+      line-height: 1.2;
+    }
+
+    .pull-up {
+      transform: translateY(-250px);
+      margin-bottom: -150px;
+
+      @media (max-width: 768px) {
+        transform: translateY(-300px);
+      }
+    }
+
+    .stages {
+      padding-top: 30px;
+
+      .stage-item {
+        position: relative;
+        z-index: 1;
+
+        @media (max-width: 768px) {
+          background: url(../img/services/dotted.svg) no-repeat center bottom;
+          padding-bottom: 15px;
+          margin-bottom: 10px;
+        }
+
+        @media (min-width: 767px) {
+          &:hover {
+            &:after {
+              content: "";
+              background: url(../img/services/stage-bg.svg) no-repeat center center;
+              position: absolute;
+              top: -30px;
+              left: -70px;
+              right: -30px;
+              bottom: -30px;
+              z-index: -1;
+              background-size: cover;
+            }
+          }
+        }
+
+        h4 {
+          color: #0059A3;
+          font-size: 16px;
+          font-weight: 700;
+          clear: both;
+          margin-bottom: 15px;
+        }
+
+        h6 {
+          font-size: 14px;
+          color: #272B31;
+          font-weight: 700;
+        }
+
+        .number-item {
+          background-color: #0059A3;
+          border-radius: 100px;
+          color: #fff;
+          line-height: 1;
+          display: block;
+          padding: 10px;
+          float: left;
+          width: 30px;
+          text-align: center;
+          height: 30px;
+          font-size: 10px;
+          margin-bottom: 10px;
+          clear: both;
+
+          @media (max-width: 768px) {
+            float: none;
+            margin: 0 auto 10px;
+          }
+        }
+      }
+    }
+
+    .our-services-icons {
+      margin-top: 50px;
+
+      p {
+        font-size: 12px;
+        font-weight: 400;
+        color: #0059A3;
+        margin-top: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+    }
+
+    .nav {
+      .nav-link {
+        font-size: 14px;
+        font-weight: 300;
+        color: #8C99AD;
+        border-left: 1px solid #8C99AD;
+        line-height: 1.3;
+        padding: .85rem 1.25rem;
+
+        &.active {
+          color: #0059A3;
+          font-size: 16px;
+          font-weight: 500;
+          border-left: 3px solid #0059A3;
+        }
+      }
+    }
+
+    .number {
+      color: rgba(140, 153, 173, 0.5);
+      font-size: 50px;
+      font-weight: 600;
+      letter-spacing: -2px;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #0059A3;
+      margin-bottom: 40px;
+    }
+
+    h6 {
+      font-size: 14px;
+      color: #0059A3;
+      margin-top: 30px;
+    }
+
+    ul {
+      font-size: 12px;
+      color: #272B31;
+      list-style-type: none;
+      padding-left: 10px;
+
+      li:before {
+        content: '-';
+        position: absolute;
+        margin-left: -8px;
+      }
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      z-index: 1;
+
+      &:before {
+        content: "";
+        display: block;
+        background-color: #0059A3;
+        color: #fff;
+        text-align: center;
+        font-weight: 300;
+        font-size: 32px;
+        padding: 110px 0 360px;
+        line-height: 1.3;
+        position: absolute;
+        top: 20px;
+        right: -500px;
+        left: -10px;
+        z-index: -1;
+        bottom: 20px;
+      }
+
+      .carousel-inner {
+        padding: 50px;
+        box-shadow: 0 10px 20px 4px rgba(0,0,0,0.35);
+        background: #fff;
+        overflow: initial;
+
+        @media (max-width: 768px) {
+          padding: 40px;
+
+          h2 {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .carousel-controls {
+      display: block;
+      height: 75px;
+      position: absolute;
+      top: 20px;
+      right: -75px;
+      z-index: 1;
+
+      @media (max-width: 768px) {
+        right: 0;
+      }
+
+      > a {
+        display: inline-block;
+        width: 75px;
+        height: 75px;
+        background-color: #0059A3;
+        background-repeat: no-repeat;
+        background-position: center center;
+        float: left;
+
+        &:hover {
+          background-color: #0059A3;
+        }
+
+        &.carousel-left {
+          background-image: url(../img/common/arrow-left.svg);
+        }
+
+        &.carousel-right {
+          background-image: url(../img/common/arrow-right.svg);
+          background-color: #074d9a;
+        }
+      }
+    }
+  }
+}

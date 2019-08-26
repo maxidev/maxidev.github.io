@@ -1,0 +1,141 @@
+.page-contact {
+  .page-content {
+    padding: 0;
+
+    .left-column {
+      background-color: rgba(139, 152, 172, 0.1);
+
+      .get-in-touch {
+        padding: 90px;
+
+        @media (max-width: 768px) {
+          text-align: center;
+          padding: 60px 30px;
+        }
+      }
+    }
+
+    .contact-form-wrapper {
+      padding: 90px 90px 150px 90px;
+
+      @media (max-width: 768px) {
+        padding: 60px 15px;
+      }
+    }
+
+    h1 {
+      color: #0075BE;
+      font-size: 32px;
+    }
+
+    address {
+      font-weight: 300;
+      font-size: 16px;
+      color: #333333;
+      margin: 10px 0;
+    }
+
+    .hiring {
+      margin-top: 70px;
+
+      h5 {
+        color: #004794;
+        font-size: 16px;
+      }
+
+      p {
+        color: #707070;
+      }
+    }
+  }
+
+  .form-control {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    box-shadow: none;
+    border-bottom: 1px solid #8C99AD;
+  }
+
+  .form-label-group {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+
+  .form-label-group > input,
+  .form-label-group > label {
+    padding: var(--input-padding-y) var(--input-padding-x);
+  }
+
+  .form-label-group > label {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0; /* Override default `<label>` margin */
+    line-height: 1.5;
+    color: rgba(140, 153, 173, 0.5);
+    border: 1px solid transparent;
+    transition: all .1s ease-in-out;
+    cursor: text;
+  }
+
+  .form-label-group textarea {
+    padding: 0;
+  }
+
+  .form-label-group textarea::-webkit-input-placeholder,
+  .form-label-group input::-webkit-input-placeholder {
+    color: transparent;
+  }
+
+  .form-label-group textarea:-ms-input-placeholder,
+  .form-label-group input:-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .form-label-group textarea::-ms-input-placeholder,
+  .form-label-group input::-ms-input-placeholder {
+    color: transparent;
+  }
+
+  .form-label-group textarea::-moz-placeholder,
+  .form-label-group input::-moz-placeholder {
+    color: transparent;
+  }
+
+  .form-label-group textarea::placeholder,
+  .form-label-group input::placeholder {
+    color: transparent;
+  }
+
+  .form-label-group textarea:not(:placeholder-shown),
+  .form-label-group input:not(:placeholder-shown) {
+    padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+    padding-bottom: calc(var(--input-padding-y) / 3);
+  }
+
+  .form-label-group textarea:not(:placeholder-shown) ~ label,
+  .form-label-group input:not(:placeholder-shown) ~ label {
+    padding-top: calc(var(--input-padding-y) / 3);
+    padding-bottom: calc(var(--input-padding-y) / 3);
+    font-size: 9px;
+    color: #8C99AD;
+  }
+
+  .map {
+    @media (max-width: 768px) {
+      width: 100vw;
+      height: 100vw;
+      background: url(../img/contact/map.png) no-repeat center center;
+      background-size: cover;
+    }
+
+    img {
+      width: 100%;
+    }
+
+  }
+}

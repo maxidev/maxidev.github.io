@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="103.261" height="103.261" viewBox="0 0 103.261 103.261">
+  <g id="Grupo_520" data-name="Grupo 520" transform="translate(-961 -3869)">
+    <g id="Elipse_101" data-name="Elipse 101" transform="translate(963 3871)" fill="#fff" stroke="#0059a3" stroke-linecap="round" stroke-width="2">
+      <circle cx="49.63" cy="49.63" r="49.63" stroke="none"/>
+      <circle cx="49.63" cy="49.63" r="50.63" fill="none"/>
+    </g>
+    <g id="Grupo_507" data-name="Grupo 507" transform="translate(1142 4088.488) rotate(180)">
+      <path id="Trazado_438" data-name="Trazado 438" d="M190.875,180.793H177.5a16.252,16.252,0,0,0-2.971-8.053l-2.422,1.738a13.372,13.372,0,0,1,.134,15.229l2.451,1.664a16.194,16.194,0,0,0,2.808-7.607h13.372" transform="translate(-34.875 -17.273)" fill="#8c99ad"/>
+      <path id="Trazado_439" data-name="Trazado 439" d="M139.4,171a10.4,10.4,0,1,0,10.4,10.4A10.4,10.4,0,0,0,139.4,171Zm0,17.829a7.429,7.429,0,1,1,7.429-7.429A7.429,7.429,0,0,1,139.4,188.829Z" transform="translate(-13.115 -16.394)" fill="#0059a3"/>
+      <path id="Trazado_440" data-name="Trazado 440" d="M141.291,232.831h2.971V220.7a15.868,15.868,0,0,0,4.873-1.218l-1.159-2.734a13.447,13.447,0,0,1-10.995-.267l-1.293,2.689a16.02,16.02,0,0,0,5.6,1.486v12.176Z" transform="translate(-16.492 -39.35)" fill="#8c99ad"/>
+      <path id="Trazado_441" data-name="Trazado 441" d="M124.8,138.52v10.143a16.343,16.343,0,0,0-14.857,14.857h-6.926v2.971h6.926a16.342,16.342,0,0,0,3.729,8.914l2.288-1.9a13.373,13.373,0,0,1,2.377-19.253,13.749,13.749,0,0,1,8.2-2.617h1.235V138.52Z" fill="#8c99ad"/>
+    </g>
+  </g>
+</svg>
